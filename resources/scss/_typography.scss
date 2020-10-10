@@ -1,0 +1,11 @@
+@import "fonts";
+
+* {
+  font-family: "Cera Pro";
+}
+
+a{
+    &:hover {
+        text-decoration-color: inherit;
+    }
+}

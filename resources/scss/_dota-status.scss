@@ -1,0 +1,11 @@
+.dota-status {
+    @extend .font-weight-bold, .text-danger;
+    padding-left: 32px;
+    background: url(/images/dota_status.png) no-repeat left;
+    &.good {
+        @extend .text-success;
+    }
+    &.major {
+        @extend .text-warning;
+    }
+}

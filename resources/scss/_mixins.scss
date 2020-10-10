@@ -1,0 +1,8 @@
+@mixin font-face($name, $path, $weight: null, $style: null) {
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $path/$name-;
+  }
+}

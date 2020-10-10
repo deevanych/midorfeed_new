@@ -1,0 +1,11 @@
+.home--section {
+    @extend .mt-5;
+
+    .section--title {
+        @extend .d-flex, .flex-row, .align-items-center, .mb-4;
+
+        .more-link {
+            @extend .ml-5;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+//custom
+@import "typography";
+@import "vars";
+@import "common";
+@import "header";
+@import "sections";
+@import "streams";
+@import "shadows";
+@import "buttons";
+@import "colors";
+
+//pages
+@import "pages/main";
+
+//news
+@import "news/main";
+
+//vendors
+@import "vendors/main";
+@import "~bootstrap/scss/bootstrap";
+@import "~slick-carousel/slick/slick";

@@ -1,0 +1,27 @@
+.news-show__item {
+    > * {
+        @extend .mb-5;
+    }
+    .news-image {
+        @extend .w-100, .rounded, .shadow, .overflow-hidden;
+    }
+    .news-text {
+        img {
+            @extend .mw-100, .m-0;
+        }
+        > p {
+            @extend .mb-5;
+        }
+    }
+    .news-author {
+        @extend .d-flex, .align-items-center;
+
+        &:before {
+            content: '';
+            width: 1rem;
+            height: 1rem;
+            @extend .mr-2, .d-inline-block, .background-center;
+        }
+    }
+}
+

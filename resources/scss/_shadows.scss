@@ -1,0 +1,6 @@
+.shadow {
+    @extend .shadow;
+    &:hover {
+        @extend .shadow-lg;
+    }
+}

@@ -1,0 +1,28 @@
+.stream__item {
+    @extend .px-2, .position-relative;
+    > * {
+        @extend .mb-2;
+    }
+    .stream__image {
+        @extend .background-center, .rounded, .d-block, .overflow-hidden, .mb-3;
+        height: 160px;
+    }
+    .stream--name {
+        @extend .d-flex, .align-items-center, .small, .font-weight-bold;
+        &:before {
+            @extend .d-inline-block, .mr-2;
+            width: 16px;
+            height: 16px;
+            content: '';
+            background-image: url("https://midorfeed.ru/storage/sites/twitch.ico");
+        }
+    }
+    .stream--title {
+        @extend .small;
+    }
+    .stream--viewers {
+        @extend .position-absolute, .small, .text-white;
+        top: 8px;
+        right: 20px;
+    }
+}

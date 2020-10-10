@@ -1,0 +1,13 @@
+* {
+    transition: .3s;
+    outline: none !important;
+    &:before, &:after {
+        transition: .3s;
+    }
+}
+
+.background-center {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

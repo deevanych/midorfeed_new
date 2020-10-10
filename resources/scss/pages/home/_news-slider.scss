@@ -1,0 +1,84 @@
+.main-news {
+    height: 500px;
+    background-image: url("https://midorfeed.ru/storage/news/dote-vse-vozrasty-pokorny-skolko-let-igrokam-v-dota-2.jpg");
+    @extend .rounded, .overflow-hidden, .shadow, .background-center;
+
+    a {
+        @extend .text-white;
+
+        &:hover {
+            text-decoration: none;
+
+            .news-title {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .row {
+        background: rgba(#000000, .4);
+
+        .news-content {
+            @extend .h-100, .d-flex, .flex-column, .justify-content-end, .p-5;
+
+            .news-title {
+                @extend .h1;
+            }
+
+            .news-description {
+                @extend .small;
+            }
+
+            .news-info {
+                @extend .d-flex, .align-items-center, .mt-1, .mb-3;
+
+                > * {
+                    @extend .mr-4;
+                    > i {
+                        @extend .mr-1;
+                    }
+                }
+
+                .news-author {
+                    @extend .d-flex, .align-items-center;
+
+                    &:before {
+                        content: '';
+                        width: 1rem;
+                        height: 1rem;
+                        @extend .mr-2, .d-inline-block, .background-center;
+                    }
+                }
+            }
+        }
+    }
+
+    .additional-news {
+        border-left: 2px solid #fff;
+        @extend .h-100, .px-4;
+
+        .news-title {
+            @extend .mt-2;
+        }
+
+        &__item {
+            @extend .d-flex, .flex-column;
+            .news-author {
+                @extend .d-flex, .align-items-center, .mt-3, .small;
+
+                &:before {
+                    content: '';
+                    width: 1rem;
+                    height: 1rem;
+                    @extend .mr-2, .d-inline-block, .background-center;
+                }
+            }
+
+            .image {
+                height: 205px;
+                background-image: url("https://midorfeed.ru/storage/news/noxville-kuchu-kontenta-mozhno-dobavlyat-ezhegodno-i-ne-otbirat-ego.jpg");
+                @extend .background-center, .d-flex, .w-100, .rounded;
+            }
+        }
+    }
+}
