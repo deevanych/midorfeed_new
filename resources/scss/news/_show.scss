@@ -8,6 +8,13 @@
     .news-text {
         img {
             @extend .mw-100, .m-0;
+            height: initial;
+            &.img-s-hero {
+                max-width: 53px !important;
+            }
+        }
+        .inserted-link__icon {
+            height: 16px;
         }
         > p {
             @extend .mb-5;

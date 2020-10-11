@@ -8,6 +8,10 @@
 @import "shadows";
 @import "buttons";
 @import "colors";
+@import "@ui/main";
+
+//components
+@import "components/main";
 
 //pages
 @import "pages/main";

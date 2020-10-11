@@ -12,7 +12,10 @@
                         {{ \Carbon\Carbon::parse($news->created_at)->diffForHumans() }}
                     </span>
                 </span>
-
+                <div class="divider"></div>
+                <x-share-block title="{{ $news->title }}"/>
+                <div class="divider"></div>
+                <x-tags :tags="$news->tags"/>
             </div>
             <div class="col">
                 <section class="news-text" itemprop="articleBody">
@@ -24,4 +27,10 @@
             </div>
         </div>
     </article>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <style>
+        twitterwidget.twitter-tweet {
+            margin: auto;
+        }
+    </style>
 @endsection

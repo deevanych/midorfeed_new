@@ -22,11 +22,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9209fe93-280c-45e8-844e-668bd3855bfe" name="Default Changelist" comment="init">
-      <change afterPath="$PROJECT_DIR$/php.lnk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="9209fe93-280c-45e8-844e-668bd3855bfe" name="Default Changelist" comment="фикс парсинга новостей">
+      <change afterPath="$PROJECT_DIR$/app/View/Components/ShareBlock.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/View/Components/Tags.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/scss/@ui/_divider.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/scss/@ui/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/scss/components/_share-block.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/scss/components/_tags.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/scss/components/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/scss/vendors/_twitter.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/share-block.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/tags.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/midorfeed.ru.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/midorfeed.ru.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GetDotaStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GetDotaStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/dota_status.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/dota_status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/_dota-status.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/components/_dota-status.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/news/_show.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/news/_show.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/vendors/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/vendors/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/news/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +194,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/scss/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -185,23 +203,23 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\scss\components" />
+      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\scss\@ui" />
+      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\database\migrations" />
+      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\storage\app\public\news" />
+      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\scss" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\scss\components" />
       <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\lang\en" />
       <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\lang\ru" />
       <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\images" />
       <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\storage\app\public\news" />
-      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\storage" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\database\migrations" />
-      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\storage\app\public\news" />
-      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\scss" />
-      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\views\components" />
-      <recent name="C:\Users\casha\PhpstormProjects\midorfeed.ru\resources\views\components\@ui" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -266,7 +284,7 @@
       <updated>1602268844079</updated>
       <workItem from="1602268845294" duration="8331000" />
       <workItem from="1602325840992" duration="42762000" />
-      <workItem from="1602407507456" duration="632000" />
+      <workItem from="1602407507456" duration="12896000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1602374089397</created>
@@ -352,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602380153668</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="фикс парсинга новостей">
+      <created>1602408237526</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602408237526</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +397,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="фикс парсинга новостей" />
+    <option name="LAST_COMMIT_MESSAGE" value="фикс парсинга новостей" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="175" key="#CLI_Interpreters" timestamp="1602339261121">
@@ -387,10 +413,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="725" y="106" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602345448972" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602380021426">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602408950929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602380021426" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602408950929" />
     <state x="736" y="432" width="447" height="330" key="ComposerInitDialogKey" timestamp="1602326133369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -407,34 +433,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="938" y="484" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602373946042" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1602380441285">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1602427544431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602380441285" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1602380441285">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602427544431" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1602427544431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602380441285" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1602380441285">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602427544431" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1602427544431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602380441285" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1602380441285">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602427544431" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1602427544431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602380441285" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602427544431" />
     <state width="241" height="457" key="HiddenNamespacesPopup" timestamp="1602341651146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="241" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1602341651146" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1602339358672">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1602427739185">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602339358672" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602380158256">
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602427739185" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602408252802">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602380158256" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602408252802" />
     <state x="782" y="407" width="356" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602341842977">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -459,9 +485,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602339496563" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602379075087">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602416223010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602379075087" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602416223010" />
   </component>
 </project>

@@ -1,0 +1,4 @@
+.divider {
+    @extend .my-4, .w-100;
+    border-bottom: 1px solid #eee;
+}

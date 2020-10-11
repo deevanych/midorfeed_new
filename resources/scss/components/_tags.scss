@@ -1,0 +1,26 @@
+@import "../colors";
+$tag-colors: (
+    $blue,
+    $indigo,
+    $purple,
+    $pink,
+    $red,
+    $orange,
+    $yellow,
+    $green,
+    $teal,
+    $cyan,
+);
+.tags {
+    @extend .d-flex, .flex-wrap;
+    &__item {
+        @extend .p-2;
+        @each $color in $tag-colors {
+            $i: index($tag-colors, $color);
+            &:nth-of-type(10n + #{$i}) {
+                color: $color !important;
+                background-color: rgba($color, .1);
+            }
+        }
+    }
+}

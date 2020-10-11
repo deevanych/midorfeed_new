@@ -127,11 +127,6 @@ a:hover {
   background-position: center;
 }
 
-.dota-status {
-  padding-left: 32px;
-  background: url(/images/dota_status.png) no-repeat left;
-}
-
 header .logo {
   display: flex;
   flex-direction: row;
@@ -161,6 +156,65 @@ header .logo {
 
 button {
   outline: none;
+}
+
+.divider {
+  border-bottom: 1px solid #eee;
+}
+
+.dota-status {
+  padding-left: 32px;
+  background: url(/images/dota_status.png) no-repeat left;
+}
+
+.tags__item:nth-of-type(10n + 1) {
+  color: #007bff !important;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 2) {
+  color: #6610f2 !important;
+  background-color: rgba(102, 16, 242, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 3) {
+  color: #6f42c1 !important;
+  background-color: rgba(111, 66, 193, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 4) {
+  color: #e83e8c !important;
+  background-color: rgba(232, 62, 140, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 5) {
+  color: #dc3545 !important;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 6) {
+  color: #fd7e14 !important;
+  background-color: rgba(253, 126, 20, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 7) {
+  color: #ffc107 !important;
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 8) {
+  color: #28a745 !important;
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 9) {
+  color: #20c997 !important;
+  background-color: rgba(32, 201, 151, 0.1);
+}
+
+.tags__item:nth-of-type(10n + 10) {
+  color: #17a2b8 !important;
+  background-color: rgba(23, 162, 184, 0.1);
 }
 
 .main-news {
@@ -199,6 +253,18 @@ button {
 .main-news .additional-news__item .image {
   height: 205px;
   background-image: url("https://midorfeed.ru/storage/news/noxville-kuchu-kontenta-mozhno-dobavlyat-ezhegodno-i-ne-otbirat-ego.jpg");
+}
+
+.news-show__item .news-text img {
+  height: initial;
+}
+
+.news-show__item .news-text img.img-s-hero {
+  max-width: 53px !important;
+}
+
+.news-show__item .news-text .inserted-link__icon {
+  height: 16px;
 }
 
 .news-show__item .news-author:before {
@@ -6085,6 +6151,16 @@ button {
   background-color: #FFFFFF;
 }
 
+.news-tweet,
+.person-quote {
+  background: rgba(0, 123, 255, 0.1);
+}
+
+.person-quote__avatar {
+  width: 48px;
+  height: 48px;
+}
+
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -6467,6 +6543,7 @@ h6,
 header .logo,
 .h3,
 .h4,
+.person-quote__name,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
@@ -6492,7 +6569,8 @@ h3,
 }
 
 h4,
-.h4 {
+.h4,
+.person-quote__name {
   font-size: 1.5rem;
 }
 
@@ -13224,7 +13302,10 @@ button.bg-dark:focus {
 .stream__item .stream__image,
 .main-news,
 .main-news .additional-news__item .image,
-.news-show__item .news-image {
+.news-show__item .news-image,
+.news-tweet,
+.person-quote,
+.tweet-media-wrap {
   border-radius: 10px !important;
 }
 
@@ -13254,7 +13335,9 @@ button.bg-dark:focus {
 
 .rounded-circle,
 .slick-dots li:before,
-.slick-arrow {
+.slick-arrow,
+.news-tweet__avatar,
+.person-quote__avatar {
   border-radius: 50% !important;
 }
 
@@ -13312,6 +13395,7 @@ header nav,
 header .info-block,
 .home--section .section--title,
 .stream__item .stream--name,
+.tags,
 .main-news .row .news-content,
 .main-news .row .news-content .news-info,
 .main-news .row .news-content .news-info .news-author,
@@ -13320,7 +13404,9 @@ header .info-block,
 .main-news .additional-news__item .image,
 .news-show__item .news-author,
 .slick-dots,
-.slick-dots li {
+.slick-dots li,
+.news-tweet__header,
+.news-tweet__info .author {
   display: flex !important;
 }
 
@@ -13565,13 +13651,15 @@ header .info-block,
 header nav,
 header .info-block,
 .home--section .section--title,
-.slick-dots {
+.slick-dots,
+.news-tweet__header {
   flex-direction: row !important;
 }
 
 .flex-column,
 .main-news .row .news-content,
-.main-news .additional-news__item {
+.main-news .additional-news__item,
+.news-tweet__info .author {
   flex-direction: column !important;
 }
 
@@ -13583,7 +13671,8 @@ header .info-block,
   flex-direction: column-reverse !important;
 }
 
-.flex-wrap {
+.flex-wrap,
+.tags {
   flex-wrap: wrap !important;
 }
 
@@ -14363,7 +14452,8 @@ header nav,
 .stream__item .stream__image,
 .main-news,
 .news-show__item .news-image,
-.slick-arrow.slick-next {
+.slick-arrow.slick-next,
+.tweet-media-wrap {
   overflow: hidden !important;
 }
 
@@ -14446,7 +14536,9 @@ header nav,
 .shadow,
 .main-news,
 .news-show__item .news-image,
-.slick-arrow {
+.slick-arrow,
+.news-tweet__avatar,
+.person-quote__avatar {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
@@ -14454,7 +14546,9 @@ header nav,
 .shadow:hover,
 .main-news:hover,
 .news-show__item .news-image:hover,
-.slick-arrow:hover {
+.slick-arrow:hover,
+.news-tweet__avatar:hover,
+.person-quote__avatar:hover {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
 
@@ -14475,6 +14569,7 @@ header nav,
 }
 
 .w-100,
+.divider,
 .main-news .additional-news__item .image,
 .news-show__item .news-image,
 .slick-dots {
@@ -14591,6 +14686,7 @@ header .logo,
 
 .mt-2,
 .main-news .additional-news .news-title,
+.person-quote__name,
 .my-2 {
   margin-top: 0.5rem !important;
 }
@@ -14623,11 +14719,13 @@ header nav a {
 
 .mt-3,
 .main-news .additional-news__item .news-author,
+.tweet-media-wrap,
 .my-3 {
   margin-top: 1rem !important;
 }
 
 .mr-3,
+.news-tweet__avatar-link,
 .mx-3 {
   margin-right: 1rem !important;
 }
@@ -14635,6 +14733,7 @@ header nav a {
 .mb-3,
 .stream__item .stream__image,
 .main-news .row .news-content .news-info,
+.news-tweet__header,
 .my-3 {
   margin-bottom: 1rem !important;
 }
@@ -14649,11 +14748,13 @@ header nav a {
 }
 
 .mt-4,
-.my-4 {
+.my-4,
+.divider {
   margin-top: 1.5rem !important;
 }
 
 .mr-4,
+.social-sharing > a,
 .main-news .row .news-content .news-info > *,
 .mx-4 {
   margin-right: 1.5rem !important;
@@ -14661,7 +14762,9 @@ header nav a {
 
 .mb-4,
 .home--section .section--title,
-.my-4 {
+.person-quote__name,
+.my-4,
+.divider {
   margin-bottom: 1.5rem !important;
 }
 
@@ -14747,7 +14850,8 @@ header .info-block > *,
   padding-left: 0.25rem !important;
 }
 
-.p-2 {
+.p-2,
+.tags__item {
   padding: 0.5rem !important;
 }
 
@@ -14801,7 +14905,9 @@ header nav a {
   padding-left: 1rem !important;
 }
 
-.p-4 {
+.p-4,
+.news-tweet,
+.person-quote {
   padding: 1.5rem !important;
 }
 
@@ -16864,10 +16970,10 @@ header {
 }
 
 .font-weight-bold,
-.dota-status,
 header .logo,
 header .info-block .game-version,
-.stream__item .stream--name {
+.stream__item .stream--name,
+.dota-status {
   font-weight: 700 !important;
 }
 
@@ -16904,14 +17010,14 @@ a.text-secondary:focus {
 }
 
 .text-success,
-.dota-status.good {
+.dota-status.Normal {
   color: #28a745 !important;
 }
 
 a.text-success:hover,
-a.dota-status.good:hover,
+a.dota-status.Normal:hover,
 a.text-success:focus,
-a.dota-status.good:focus {
+a.dota-status.Normal:focus {
   color: #19692c !important;
 }
 

@@ -1,0 +1,34 @@
+@import "../colors";
+.news-tweet, .person-quote {
+    @extend .p-4, .rounded;
+    background: rgba($primary, .1);
+}
+.news-tweet {
+    &__header {
+        @extend .d-flex, .flex-row, .mb-3;
+    }
+    &__avatar-link {
+        @extend .mr-3;
+    }
+    &__avatar {
+        @extend .rounded-circle, .shadow;
+    }
+    &__info {
+        .author {
+            @extend .d-flex, .flex-column;
+        }
+    }
+}
+.tweet-media-wrap {
+    @extend .mt-3, .rounded, .overflow-hidden;
+}
+.person-quote {
+    &__avatar {
+        @extend .rounded-circle, .shadow;
+        width: 48px;
+        height: 48px;
+    }
+    &__name {
+        @extend .h4, .mb-4, .mt-2;
+    }
+}

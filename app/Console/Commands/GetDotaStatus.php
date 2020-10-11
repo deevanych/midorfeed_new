@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\SiteSettings;
+use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 
 class GetDotaStatus extends Command
@@ -39,10 +40,19 @@ class GetDotaStatus extends Command
     public function handle()
     {
         //
-        $html = json_decode(file_get_contents("https://crowbar.steamstat.us/Barney"));
-        $status = $html->services->dota2->status;
-        $options = SiteSettings::where('key', 'dota_status')->first();
-        $options->value = $status;
-        $options->save();
+        $client = new Client([
+            'base_uri' => 'https://crowbar.steamstat.us/gravity.json',
+        ]);
+        $result = json_decode($client->request('GET')->getBody()->getContents());
+//        $html = json_decode(file_get_contents("https://crowbar.steamstat.us/gravity.json"));
+        $services = $result->services;
+        foreach ($services as $service) {
+            if ($service[0] === 'dota2') {
+                $options = SiteSettings::where('key', 'dota_status')->first();
+                $options->value = $service[2];
+                $options->save();
+            }
+            continue;
+        }
     }
 }

@@ -2,7 +2,7 @@
     @extend .font-weight-bold, .text-danger;
     padding-left: 32px;
     background: url(/images/dota_status.png) no-repeat left;
-    &.good {
+    &.Normal {
         @extend .text-success;
     }
     &.major {
