@@ -25,6 +25,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('game:version')->hourly();
+        $schedule->command('news:parse')->everyTenMinutes();
+        $schedule->command('dota:status')->everyMinute();
+        $schedule->command('streams:get')->everyFiveMinutes();
+        $schedule->command('spam:vk')->cron('0 */5 * * *'); // every 5 hours
     }
 
     /**

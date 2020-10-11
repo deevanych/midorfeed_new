@@ -229,4 +229,5 @@ return [
 
     ],
 
+    'vk_token' => env('VK_TOKEN', ''),
 ];

@@ -13,6 +13,8 @@ class Stream extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function getLink() {
         return route('stream.show', $this->name);
     }

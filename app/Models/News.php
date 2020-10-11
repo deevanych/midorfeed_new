@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -12,10 +13,20 @@ use Illuminate\Support\Facades\Storage;
  * @property string slug
  * @property int id
  * @property mixed tags
+ * @property string source_link
+ * @property string title
  */
 class News extends Model
 {
     use HasFactory;
+
+    public function tags() {
+        return $this->belongsToMany('App\Models\Tags');
+    }
+
+    public function site() {
+        return $this->belongsTo('App\Models\NewsSite');
+    }
 
     public function getLink()
     {
@@ -64,5 +75,35 @@ class News extends Model
     public function getPrevNews()
     {
         return News::where('id', '>', $this->id)->where('published', 1)->first();
+    }
+
+    public function sendToSocialNetworks() {
+        $tags = $this->tags()->pluck('title');
+        $tags_out = '';
+        foreach ($tags as $tag) {
+            $tags_out .= '#'.str_replace(' ', '', $tag).' ';
+        }
+        $token = \config('app.vk_token');
+        $app_id = '182344905';
+        $url = "https://api.vk.com/method/";
+        $client = new Client(['base_uri' => $url]);
+
+        $request = $client->request('GET', 'wall.post',  [
+            'query' => [
+                'access_token' => $token,
+                'v' => '5.70',
+                'owner_id' => "-$app_id",
+                'from_group' => 1,
+                'message' => '📣📣📣 '.$this->title.'
+
+                '.$this->getDescription().'
+
+                #midorfeed #мидорфид #dota2 #дота2 '.$tags_out,
+                'attachments' => 'https://midorfeed.ru/news/'.$this->slug,
+                'services' => 'twitter, facebook'
+            ]
+        ]);
+
+        echo $request->getBody()->getContents();
     }
 }
