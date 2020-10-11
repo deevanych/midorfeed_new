@@ -29,6 +29,6 @@ class Section extends Component
      */
     public function render()
     {
-        return view('components.Section');
+        return view('components.section');
     }
 }
