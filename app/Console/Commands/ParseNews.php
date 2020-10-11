@@ -52,7 +52,7 @@ class ParseNews extends Command
                 foreach ($rss->channel->item as $article) {
                     $slug = str_slug($article->title);
                     $news = News::where('title', $article->title)->first();
-                    if (!empty($news)) {
+                    if (empty($news)) {
                         $html = file_get_contents($article->link);
                         $crawler = new Crawler($html);
                         $news = new News;

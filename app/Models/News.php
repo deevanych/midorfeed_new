@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Storage;
  * @property mixed tags
  * @property string source_link
  * @property string title
+ * @property int site_id
+ * @property string created_at
  */
 class News extends Model
 {
