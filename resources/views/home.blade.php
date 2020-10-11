@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-    @include('home/NewsSlider')
+    @include('home/newsSlider')
     <x-section title="Стримы" moreLink="{{ route('streams.index') }}">
-        @include('home/StreamsSlider')
+        @include('home/streamsSlider')
     </x-section>
 @endsection

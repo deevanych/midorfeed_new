@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9209fe93-280c-45e8-844e-668bd3855bfe" name="Default Changelist" comment="init">
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-    </list>
+    <list default="true" id="9209fe93-280c-45e8-844e-668bd3855bfe" name="Default Changelist" comment="init" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -239,7 +237,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602268844079</updated>
       <workItem from="1602268845294" duration="8331000" />
-      <workItem from="1602325840992" duration="37308000" />
+      <workItem from="1602325840992" duration="37656000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1602374089397</created>
@@ -255,7 +253,35 @@
       <option name="project" value="LOCAL" />
       <updated>1602374309609</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="init">
+      <created>1602374943252</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602374943252</updated>
+    </task>
+    <task id="LOCAL-00004" summary="init">
+      <created>1602375109457</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375109457</updated>
+    </task>
+    <task id="LOCAL-00005" summary="init">
+      <created>1602375226199</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375226199</updated>
+    </task>
+    <task id="LOCAL-00006" summary="init">
+      <created>1602375280121</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375280121</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,10 +348,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602339358672" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602374939790">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602375283656">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602374939790" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602375283656" />
     <state x="782" y="407" width="356" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602341842977">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -338,10 +364,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602374190031" />
-    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1602345435396">
+    <state x="666" y="253" width="585" height="534" key="find.popup" timestamp="1602375267363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602345435396" />
+    <state x="666" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602375267363" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1602339496563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
