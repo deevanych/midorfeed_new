@@ -1,7 +1,6 @@
 {
     "private": true,
     "scripts": {
-        "serve": "C:\\OpenServer\\modules\\php\\PHP_7.4\\php.exe artisan serve",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -25,6 +24,9 @@
     "dependencies": {
         "bootstrap": "^4.5.2",
         "jquery": "^3.5.1",
-        "slick-carousel": "^1.8.1"
+        "moment": "^2.29.1",
+        "slick-carousel": "^1.8.1",
+        "vue": "^2.6.12",
+        "vuesax": "^4.0.1-alpha.25"
     }
 }

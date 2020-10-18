@@ -48,6 +48,15 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'prod' => [
+            'driver' => 'ftp',
+            'host' => 'cashalot.beget.tech',
+            'username' => 'cashalot_midorfeed',
+            'password' => '&dc9roVl',
+            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('app'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

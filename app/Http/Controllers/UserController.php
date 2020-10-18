@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
-        return 23;
+
     }
 
     /**
@@ -43,28 +41,23 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Request $request
-     * @param \App\Models\News $news
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show(Request $request, User $user)
     {
-        //
-        $news->increment('views');
-//        $comment = new Comment(['user_id' => 1, 'text' => 'A new comment.']);
-//        $news->comments()->save($comment);
-        $prevNews = $news->getPrevNews();
-        $nextNews = $news->getNextNews();
-        return view('news.show', compact('news', 'prevNews', 'nextNews'));
+        $user = User::findOrFail($request['id']);
+        $status = $user->getLastStatus();
+        return view('user', compact('user', 'status'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(User $user)
     {
         //
     }
@@ -73,10 +66,10 @@ class NewsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\News  $news
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -84,10 +77,10 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(User $user)
     {
         //
     }

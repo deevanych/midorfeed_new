@@ -1,11 +1,15 @@
 @import "fonts";
 
 * {
-  font-family: "Cera Pro";
+    font-family: "Cera Pro";
 }
 
-a{
+a {
     &:hover {
         text-decoration-color: inherit;
+    }
+
+    &[href='#'] {
+        text-decoration-style: dashed !important;
     }
 }

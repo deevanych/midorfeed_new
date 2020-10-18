@@ -1,0 +1,27 @@
+.comment__text-input {
+    @extend .rounded, .w-100, .p-3, .mt-3, .mb-2;
+    border-color: #eee;
+    min-height: 100px;
+    resize: none;
+}
+
+.comments__item {
+    @extend .d-flex, .mb-4;
+    &-author-avatar {
+        @extend .mr-3;
+        img {
+            @extend .rounded, .shadow;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    &-action {
+        @extend .small, .mt-1, .d-flex;
+    }
+    &-create_time {
+        @extend .text-secondary;
+    }
+    &-reply {
+        @extend .ml-3;
+    }
+}

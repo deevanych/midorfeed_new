@@ -20,4 +20,5 @@ Route::get('/', [Controller::class, 'index']);
 Route::resource('news', NewsController::class)->scoped([
     'news' => 'slug',
 ]);;
+Route::resource('users', UserController::class);
 Route::resource('streams', StreamController::class);

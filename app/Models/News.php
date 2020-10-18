@@ -26,6 +26,10 @@ class News extends Model
         return $this->belongsToMany('App\Models\Tags');
     }
 
+    public function comments() {
+        return $this->morphMany('App\Models\Comment', 'model');
+    }
+
     public function site() {
         return $this->belongsTo('App\Models\NewsSite');
     }

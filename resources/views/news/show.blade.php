@@ -21,6 +21,8 @@
                 <section class="news-text" itemprop="articleBody">
                     {!! $news->text !!}
                 </section>
+                <div class="divider"></div>
+                <x-comments :comments="$news->comments"/>
             </div>
             <div class="col-3">
 

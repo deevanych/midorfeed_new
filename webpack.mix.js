@@ -15,4 +15,4 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/scss/main.scss', 'public/css')
     .copy('resources/images', 'public/images')
     .copy('resources/fonts', 'public/fonts')
-    .browserSync('http://localhost:8000/');
+    // .browserSync('http://localhost:8000/');
