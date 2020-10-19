@@ -5,6 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property String model_type
+ * @property String model_id
+ * @property Integer user_id
+ * @property String text
+ */
 class Comment extends Model
 {
     use HasFactory;

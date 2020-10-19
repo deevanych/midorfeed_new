@@ -31,15 +31,27 @@ export default {
             required: true,
         }
     },
+    data: function() {
+        return {
+            now: moment(),
+        }
+    },
+    beforeMount() {
+        moment.locale('ru');
+    },
+    mounted() {
+        let self = this;
+        setInterval(function(){
+            self.now = moment();
+        }, 1000);
+    },
     computed: {
         created_at() {
-            moment.locale('ru');
             let self = this,
-                created_at = moment(self.comment.created_at),
-                now = moment();
-            return moment.duration(created_at.diff(now)).humanize(true);
+                created_at = moment(self.comment.created_at);
+            return moment.duration(created_at.diff(self.now)).humanize(true);
         }
-    }
+    },
 
 }
 </script>

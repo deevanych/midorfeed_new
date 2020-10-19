@@ -12,10 +12,15 @@ class Comments extends Component
      * @return void
      */
     public $comments;
-    public function __construct($comments)
+    public $type;
+    public $id;
+
+    public function __construct($comments, $type, $id)
     {
         //
         $this->comments = $comments;
+        $this->type = $type;
+        $this->id = $id;
     }
 
     /**

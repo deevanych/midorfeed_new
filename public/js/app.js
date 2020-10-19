@@ -1941,13 +1941,25 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     }
   },
+  data: function data() {
+    return {
+      now: moment__WEBPACK_IMPORTED_MODULE_0___default()()
+    };
+  },
+  beforeMount: function beforeMount() {
+    moment__WEBPACK_IMPORTED_MODULE_0___default.a.locale('ru');
+  },
+  mounted: function mounted() {
+    var self = this;
+    setInterval(function () {
+      self.now = moment__WEBPACK_IMPORTED_MODULE_0___default()();
+    }, 1000);
+  },
   computed: {
     created_at: function created_at() {
-      moment__WEBPACK_IMPORTED_MODULE_0___default.a.locale('ru');
       var self = this,
-          created_at = moment__WEBPACK_IMPORTED_MODULE_0___default()(self.comment.created_at),
-          now = moment__WEBPACK_IMPORTED_MODULE_0___default()();
-      return moment__WEBPACK_IMPORTED_MODULE_0___default.a.duration(created_at.diff(now)).humanize(true);
+          created_at = moment__WEBPACK_IMPORTED_MODULE_0___default()(self.comment.created_at);
+      return moment__WEBPACK_IMPORTED_MODULE_0___default.a.duration(created_at.diff(self.now)).humanize(true);
     }
   }
 });
@@ -1964,7 +1976,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Comment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Comment */ "./resources/js/components/comments/Comment.vue");
-//
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -1982,11 +1995,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Comments',
   data: function data() {
     return {
-      text: ''
+      text: '',
+      selfComments: Array
     };
   },
   components: {
@@ -1995,14 +2010,30 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     comments: {
       type: Array
+    },
+    modelType: {
+      type: String
+    },
+    modelId: {
+      type: String
     }
+  },
+  mounted: function mounted() {
+    this.selfComments = this.comments;
   },
   methods: {
     sendComment: function sendComment() {
-      this.comments.push({
-        text: this.text
+      var _this = this;
+
+      var self = this;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/comments', {
+        modelType: self.modelType,
+        modelId: self.modelId,
+        text: self.text
+      }).then(function (response) {
+        self.selfComments.push(response.data);
+        _this.text = '';
       });
-      this.text = '';
     }
   }
 });
@@ -55200,9 +55231,27 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h5", [_vm._v("Комментарии (" + _vm._s(_vm.comments.length) + ")")]),
+    _c("h5", { staticClass: "mb-4" }, [
+      _vm._v("Комментарии (" + _vm._s(_vm.selfComments.length) + ")")
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "comments" }, [
+      _c(
+        "div",
+        { staticClass: "comments__list" },
+        [
+          _vm.selfComments.length === 0
+            ? _c("span", [_vm._v("Комментариев нет. Будь первым.")])
+            : _vm._l(_vm.selfComments, function(comment) {
+                return _c("comment", {
+                  key: comment.id,
+                  attrs: { comment: comment }
+                })
+              })
+        ],
+        2
+      ),
+      _vm._v(" "),
       _c(
         "form",
         {
@@ -55239,24 +55288,6 @@ var render = function() {
           _c("vs-button", { attrs: { circle: "" } }, [_vm._v("Отправить")])
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "divider" }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "comments__list" },
-        [
-          _vm.comments.length === 0
-            ? _c("span", [_vm._v("Комментариев нет. Будь первым.")])
-            : _vm._l(_vm.comments, function(comment) {
-                return _c("comment", {
-                  key: comment.id,
-                  attrs: { comment: comment }
-                })
-              })
-        ],
-        2
       )
     ])
   ])
@@ -94139,16 +94170,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_2___default.a);
-var comments = '';
+var comments = Array,
+    modelType = String,
+    modelId = String;
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#comments',
   beforeMount: function beforeMount() {
     comments = JSON.parse(this.$el.attributes['data-comments'].value);
+    modelType = this.$el.attributes['data-type'].value;
+    modelId = this.$el.attributes['data-id'].value;
   },
   render: function render(h) {
     return h(_Comments_vue__WEBPACK_IMPORTED_MODULE_1__["default"], {
       props: {
-        comments: comments
+        comments: comments,
+        modelType: modelType,
+        modelId: modelId
       }
     });
   }
@@ -94222,8 +94259,8 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\casha\PhpstormProjects\midorfeed_new\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\casha\PhpstormProjects\midorfeed_new\resources\scss\main.scss */"./resources/scss/main.scss");
+__webpack_require__(/*! D:\OSPanel\domains\midorfeed_new\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\midorfeed_new\resources\scss\main.scss */"./resources/scss/main.scss");
 
 
 /***/ })

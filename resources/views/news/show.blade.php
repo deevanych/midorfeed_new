@@ -22,7 +22,7 @@
                     {!! $news->text !!}
                 </section>
                 <div class="divider"></div>
-                <x-comments :comments="$news->comments"/>
+                <x-comments :comments="$news->comments" type="News" id="{{ $news->id }}"/>
             </div>
             <div class="col-3">
 
