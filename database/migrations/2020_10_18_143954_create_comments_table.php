@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration
             $table->foreign('parent_id')->references('id')->on('comments');
             $table->string('model_type');
             $table->bigInteger('model_id');
+            $table->integer('nesting_level')->default(0);
             $table->timestamps();
         });
     }

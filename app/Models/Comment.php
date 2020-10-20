@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property String model_id
  * @property Integer user_id
  * @property String text
+ * @property Integer parent_id
+ * @property Integer nesting_level
  */
 class Comment extends Model
 {
@@ -19,6 +21,7 @@ class Comment extends Model
 
     protected $with = [
         'author',
+        'comments'
     ];
 
     protected $hidden = [
@@ -29,5 +32,13 @@ class Comment extends Model
 
     public function author() {
         return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
+    public function comments() {
+        return $this->hasMany('App\Models\Comment', 'parent_id');
+    }
+
+    public function parentComment() {
+        return $this->belongsTo('App\Models\Comment', 'parent_id');
     }
 }

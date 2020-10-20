@@ -4,9 +4,15 @@
     min-height: 100px;
     resize: none;
 }
+.comment__add-form--error {
+    @extend .small, .text-danger, .mb-3, .d-block;
+}
 
 .comments__item {
-    @extend .d-flex, .mb-4;
+    @extend .d-flex, .mb-4, .w-100, .align-items-start;
+    &:last-child {
+        @extend .mb-0;
+    }
     &-author-avatar {
         @extend .mr-3;
         img {
@@ -14,6 +20,10 @@
             width: 50px;
             height: 50px;
         }
+    }
+    &-body {
+        @extend .w-100;
+        cursor: pointer;
     }
     &-action {
         @extend .small, .mt-1, .d-flex;
@@ -23,5 +33,9 @@
     }
     &-reply {
         @extend .ml-3;
+    }
+    &-children--comments {
+        @extend .pl-3, .mt-4;
+        border-left: 1px solid #eee;
     }
 }

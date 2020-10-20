@@ -8068,6 +8068,14 @@ button {
   height: 50px;
 }
 
+.comments__item-body {
+  cursor: pointer;
+}
+
+.comments__item-children--comments {
+  border-left: 1px solid #eee;
+}
+
 .main-news {
   height: 500px;
   background-image: url("https://midorfeed.ru/storage/news/dote-vse-vozrasty-pokorny-skolko-let-igrokam-v-dota-2.jpg");
@@ -14476,6 +14484,7 @@ small,
 .stream__item .stream--name,
 .stream__item .stream--title,
 .stream__item .stream--viewers,
+.comment__add-form--error,
 .comments__item-action,
 .main-news .row .news-content .news-description,
 .main-news .additional-news__item .news-author {
@@ -21228,7 +21237,8 @@ button.bg-dark:focus {
 }
 
 .d-block,
-.stream__item .stream__image {
+.stream__item .stream__image,
+.comment__add-form--error {
   display: block !important;
 }
 
@@ -21582,7 +21592,8 @@ header .info-block,
   justify-content: space-around !important;
 }
 
-.align-items-start {
+.align-items-start,
+.comments__item {
   align-items: flex-start !important;
 }
 
@@ -22429,6 +22440,8 @@ header nav,
 .w-100,
 .divider,
 .comment__text-input,
+.comments__item,
+.comments__item-body,
 .main-news .additional-news__item .image,
 .news-show__item .news-image,
 .slick-dots {
@@ -22504,6 +22517,7 @@ header nav,
 
 .mb-0,
 header .logo,
+.comments__item:last-child,
 .my-0 {
   margin-bottom: 0 !important;
 }
@@ -22595,6 +22609,7 @@ header nav a {
 
 .mb-3,
 .stream__item .stream__image,
+.comment__add-form--error,
 .main-news .row .news-content .news-info,
 .news-tweet__header,
 .my-3 {
@@ -22612,6 +22627,7 @@ header nav a {
 }
 
 .mt-4,
+.comments__item-children--comments,
 .my-4,
 .divider {
   margin-top: 1.5rem !important;
@@ -22766,6 +22782,7 @@ header nav a {
 }
 
 .pl-3,
+.comments__item-children--comments,
 .px-3,
 header nav a {
   padding-left: 1rem !important;
@@ -24912,14 +24929,17 @@ a.dota-status.major:focus {
 }
 
 .text-danger,
-.dota-status {
+.dota-status,
+.comment__add-form--error {
   color: #dc3545 !important;
 }
 
 a.text-danger:hover,
 a.dota-status:hover,
+a.comment__add-form--error:hover,
 a.text-danger:focus,
-a.dota-status:focus {
+a.dota-status:focus,
+a.comment__add-form--error:focus {
   color: #a71d2a !important;
 }
 

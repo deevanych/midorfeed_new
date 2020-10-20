@@ -27,7 +27,7 @@ class News extends Model
     }
 
     public function comments() {
-        return $this->morphMany('App\Models\Comment', 'model');
+        return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
     }
 
     public function site() {
