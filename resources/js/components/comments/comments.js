@@ -1,8 +1,10 @@
 import Vue from 'vue';
+import Vuelidate from 'vuelidate'
 import Comments from './Comments.vue';
 import Vuesax from 'vuesax';
 
 Vue.use(Vuesax);
+Vue.use(Vuelidate);
 
 let comments = Array,
     modelType = String,

@@ -17,7 +17,7 @@
                 <div class="divider"></div>
                 <x-tags :tags="$news->tags"/>
             </div>
-            <div class="col">
+            <div class="col-6">
                 <section class="news-text" itemprop="articleBody">
                     {!! $news->text !!}
                 </section>

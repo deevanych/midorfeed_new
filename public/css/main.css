@@ -7967,7 +7967,7 @@ a[href="#"] {
   background-position: center;
 }
 
-header .logo {
+header.row .logo {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -8070,6 +8070,10 @@ button {
 
 .comments__item-body {
   cursor: pointer;
+}
+
+.comments__item-text {
+  overflow-wrap: anywhere;
 }
 
 .comments__item-children--comments {
@@ -14399,7 +14403,7 @@ h6,
 .h1,
 .main-news .row .news-content .news-title,
 .h2,
-header .logo,
+header.row .logo,
 .h3,
 .h4,
 .person-quote__name,
@@ -14418,7 +14422,7 @@ h1,
 
 h2,
 .h2,
-header .logo {
+header.row .logo {
   font-size: 2rem;
 }
 
@@ -21255,8 +21259,8 @@ button.bg-dark:focus {
 }
 
 .d-flex,
-header nav,
-header .info-block,
+header.row nav,
+header.row .info-block,
 .home--section .section--title,
 .stream__item .stream--name,
 .tags,
@@ -21514,8 +21518,8 @@ header .info-block,
 }
 
 .flex-row,
-header nav,
-header .info-block,
+header.row nav,
+header.row .info-block,
 .home--section .section--title,
 .slick-dots,
 .news-tweet__header {
@@ -21602,8 +21606,8 @@ header .info-block,
 }
 
 .align-items-center,
-header,
-header nav,
+header.row,
+header.row nav,
 .home--section .section--title,
 .stream__item .stream--name,
 .main-news .row .news-content .news-info,
@@ -22516,7 +22520,7 @@ header nav,
 }
 
 .mb-0,
-header .logo,
+header.row .logo,
 .comments__item:last-child,
 .my-0 {
   margin-bottom: 0 !important;
@@ -22571,7 +22575,7 @@ header .logo,
 .main-news .additional-news__item .news-author:before,
 .news-show__item .news-author:before,
 .mx-2,
-header nav a {
+header.row nav a {
   margin-right: 0.5rem !important;
 }
 
@@ -22584,7 +22588,7 @@ header nav a {
 
 .ml-2,
 .mx-2,
-header nav a {
+header.row nav a {
   margin-left: 0.5rem !important;
 }
 
@@ -22677,7 +22681,7 @@ header nav a {
 }
 
 .ml-5,
-header .info-block > *,
+header.row .info-block > *,
 .home--section .section--title .more-link,
 .mx-5 {
   margin-left: 3rem !important;
@@ -22738,7 +22742,7 @@ header .info-block > *,
 
 .pt-2,
 .py-2,
-header nav a {
+header.row nav a {
   padding-top: 0.5rem !important;
 }
 
@@ -22750,7 +22754,7 @@ header nav a {
 
 .pb-2,
 .py-2,
-header nav a {
+header.row nav a {
   padding-bottom: 0.5rem !important;
 }
 
@@ -22772,7 +22776,7 @@ header nav a {
 
 .pr-3,
 .px-3,
-header nav a {
+header.row nav a {
   padding-right: 1rem !important;
 }
 
@@ -22784,7 +22788,7 @@ header nav a {
 .pl-3,
 .comments__item-children--comments,
 .px-3,
-header nav a {
+header.row nav a {
   padding-left: 1rem !important;
 }
 
@@ -22825,7 +22829,7 @@ header nav a {
 
 .pt-5,
 .py-5,
-header {
+header.row {
   padding-top: 3rem !important;
 }
 
@@ -22836,7 +22840,7 @@ header {
 
 .pb-5,
 .py-5,
-header {
+header.row {
   padding-bottom: 3rem !important;
 }
 
@@ -24853,8 +24857,8 @@ header {
 }
 
 .font-weight-bold,
-header .logo,
-header .info-block .game-version,
+header.row .logo,
+header.row .info-block .game-version,
 .stream__item .stream--name,
 .dota-status {
   font-weight: 700 !important;

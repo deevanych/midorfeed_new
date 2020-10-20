@@ -68,7 +68,7 @@ export default {
         let self = this;
         setInterval(function(){
             self.now = moment();
-        }, 1000);
+        }, 10000);
     },
     computed: {
         created_at() {

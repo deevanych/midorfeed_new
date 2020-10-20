@@ -25,6 +25,9 @@
         @extend .w-100;
         cursor: pointer;
     }
+    &-text {
+        overflow-wrap: anywhere;
+    }
     &-action {
         @extend .small, .mt-1, .d-flex;
     }
