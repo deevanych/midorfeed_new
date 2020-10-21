@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,11 +12,19 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param string $modelType
+     * @param string $modelSlug
+     * @return array
      */
-    public function index()
+    public function index(Request $request, $modelType, $modelSlug)
     {
-        //
+        switch ($modelType) {
+            default:
+                $model = News::whereSlug($modelSlug);
+        }
+        $model = $model->first();
+        return ['commentsCount' => $model->getCommentsCount(), 'comments' => $model->comments];
     }
 
     /**
@@ -34,18 +43,20 @@ class CommentController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $modelType, $modelSlug)
     {
         //
         $validatedData = $request->validate([
-            'modelType' => 'required',
-            'modelId' => 'required',
             'text' => 'required|max:255',
         ]);
 
+        switch ($modelType) {
+            default:
+                $model = News::whereSlug($modelSlug);
+        }
+        $model = $model->first();
+
         $comment = new Comment();
-        $comment->model_type = "App\Models\\" . $request->input('modelType');
-        $comment->model_id = $request->input('modelId');
         $comment->parent_id = $request->input('parentId');
         $comment->text = $request->input('text');
         $comment->user_id = 131;
@@ -58,9 +69,9 @@ class CommentController extends Controller
                 $comment->parent_id = $parentComment->parent_id;
             }
         }
-        $comment->save();
+        $model->comments()->save($comment);
 
-        return $comment->fresh();
+        return ['commentsCount' => $model->getCommentsCount(), 'comment' => $comment->fresh()];
     }
 
     /**

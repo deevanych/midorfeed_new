@@ -17,10 +17,10 @@
                 <a href="#" v-if="comment.nesting_level < 3" class="comments__item-reply" @click.prevent="activateReplyForm">ответить</a>
             </div>
             <div class="comments__item-children--comments" v-if="comment.comments.length !== 0">
-                <comment v-for="comment in comment.comments" :modelType="modelType" :modelId="modelId" :key="comment.id" :comment="comment"/>
+                <comment v-for="comment in comment.comments" :key="comment.id" :comment="comment"/>
             </div>
             <div v-if="showForm">
-                <CommentForm :modelType="modelType" :modelId="modelId" :parentId="comment.id" ref="commentForm" :comments="comment.comments" @hideForm="showForm = false"/>
+                <CommentForm :parentId="comment.id" ref="commentForm" :comments="comment.comments" @hideForm="showForm = false"/>
             </div>
         </div>
     </div>
@@ -37,12 +37,6 @@ export default {
         comment: {
             type: Object,
             required: true,
-        },
-        modelType: {
-            type: String,
-        },
-        modelId: {
-            type: String,
         },
     },
     components: {

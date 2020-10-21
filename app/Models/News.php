@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
  * @property string title
  * @property int site_id
  * @property string created_at
+ * @method static whereSlug(string $modelSlug)
  */
 class News extends Model
 {
@@ -28,6 +29,10 @@ class News extends Model
 
     public function comments() {
         return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
+    }
+
+    public function getCommentsCount() {
+        return $this->morphMany('App\Models\Comment', 'model')->count();
     }
 
     public function site() {

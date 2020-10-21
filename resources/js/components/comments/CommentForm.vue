@@ -9,7 +9,8 @@
 
 <script>
     import axios from 'axios';
-    import { required, maxLength } from 'vuelidate/lib/validators'
+    import { required, maxLength } from 'vuelidate/lib/validators';
+    import { bus } from '../../bus.js';
 
     export default {
         name: "CommentForm",
@@ -26,14 +27,6 @@
             },
         },
         props: {
-            modelType: {
-                type: String,
-                required: true,
-            },
-            modelId: {
-                type: String,
-                required: true,
-            },
             parentId: {
                 type: Number,
                 default: null,
@@ -54,30 +47,31 @@
             sendComment() {
                 let self = this;
                 this.loading = true;
-                axios.post('/comments', {
-                    modelType: self.modelType,
-                    modelId: self.modelId,
+                axios.post(`${window.location.pathname}/comments`, {
                     text: self.text,
                     parentId: self.parentId,
                 })
                     .then(response => {
                         this.$emit('hideForm');
-                        this.comments.push(response.data);
+                        this.comments.push(response.data.comment);
                         this.loading = false;
                         this.text = '';
                         this.$vs.notification({
                             border: 'success',
                             position: 'top-right',
                             title: 'Комментарий добавлен',
-                        })
+                        });
+                        bus.$emit('countCommentUpdate', response.data.commentsCount);
                     })
                     .catch(error => {
-                        this.$vs.notification({
-                            border: 'success',
-                            position: 'top-right',
-                            title: 'Произошла ошибка',
-                            text: error.response.data.errors.text[0]
-                        })
+                        for (let errorType in error.response.data.errors) {
+                            this.$vs.notification({
+                                border: 'danger',
+                                position: 'top-right',
+                                title: 'Произошла ошибка',
+                                text: error.response.data.errors[errorType][0]
+                            })
+                        }
                         this.loading = false;
                     });
             }

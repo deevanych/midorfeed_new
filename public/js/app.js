@@ -1949,12 +1949,6 @@ __webpack_require__.r(__webpack_exports__);
     comment: {
       type: Object,
       required: true
-    },
-    modelType: {
-      type: String
-    },
-    modelId: {
-      type: String
     }
   },
   components: {
@@ -2006,6 +2000,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _bus_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../bus.js */ "./resources/js/bus.js");
 //
 //
 //
@@ -2015,6 +2010,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2032,14 +2028,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   props: {
-    modelType: {
-      type: String,
-      required: true
-    },
-    modelId: {
-      type: String,
-      required: true
-    },
     parentId: {
       type: Number,
       "default": null
@@ -2062,15 +2050,13 @@ __webpack_require__.r(__webpack_exports__);
 
       var self = this;
       this.loading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/comments', {
-        modelType: self.modelType,
-        modelId: self.modelId,
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(window.location.pathname, "/comments"), {
         text: self.text,
         parentId: self.parentId
       }).then(function (response) {
         _this.$emit('hideForm');
 
-        _this.comments.push(response.data);
+        _this.comments.push(response.data.comment);
 
         _this.loading = false;
         _this.text = '';
@@ -2080,13 +2066,17 @@ __webpack_require__.r(__webpack_exports__);
           position: 'top-right',
           title: 'Комментарий добавлен'
         });
+
+        _bus_js__WEBPACK_IMPORTED_MODULE_2__["bus"].$emit('countCommentUpdate', response.data.commentsCount);
       })["catch"](function (error) {
-        _this.$vs.notification({
-          border: 'success',
-          position: 'top-right',
-          title: 'Произошла ошибка',
-          text: error.response.data.errors.text[0]
-        });
+        for (var errorType in error.response.data.errors) {
+          _this.$vs.notification({
+            border: 'danger',
+            position: 'top-right',
+            title: 'Произошла ошибка',
+            text: error.response.data.errors[errorType][0]
+          });
+        }
 
         _this.loading = false;
       });
@@ -2107,6 +2097,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Comment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Comment */ "./resources/js/components/comments/Comment.vue");
 /* harmony import */ var _CommentForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CommentForm */ "./resources/js/components/comments/CommentForm.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _bus_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../bus.js */ "./resources/js/bus.js");
 //
 //
 //
@@ -2120,13 +2113,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Comments',
   data: function data() {
     return {
-      selfComments: Array
+      comments: [],
+      commentsCount: 0
     };
   },
   components: {
@@ -2134,9 +2130,6 @@ __webpack_require__.r(__webpack_exports__);
     CommentForm: _CommentForm__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
-    comments: {
-      type: Array
-    },
     modelType: {
       type: String
     },
@@ -2145,7 +2138,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.selfComments = this.comments;
+    var _this = this;
+
+    var self = this;
+    _bus_js__WEBPACK_IMPORTED_MODULE_3__["bus"].$on('countCommentUpdate', function (commentsCount) {
+      self.commentsCount = commentsCount;
+    });
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("".concat(window.location.pathname, "/comments")).then(function (response) {
+      _this.comments = response.data.comments;
+      _this.commentsCount = response.data.commentsCount;
+    });
   }
 });
 
@@ -55347,11 +55349,7 @@ var render = function() {
             _vm._l(_vm.comment.comments, function(comment) {
               return _c("comment", {
                 key: comment.id,
-                attrs: {
-                  modelType: _vm.modelType,
-                  modelId: _vm.modelId,
-                  comment: comment
-                }
+                attrs: { comment: comment }
               })
             }),
             1
@@ -55365,8 +55363,6 @@ var render = function() {
               _c("CommentForm", {
                 ref: "commentForm",
                 attrs: {
-                  modelType: _vm.modelType,
-                  modelId: _vm.modelId,
                   parentId: _vm.comment.id,
                   comments: _vm.comment.comments
                 },
@@ -55509,7 +55505,7 @@ var render = function() {
     "div",
     [
       _c("h5", { staticClass: "mb-4" }, [
-        _vm._v("Комментарии (" + _vm._s(_vm.selfComments.length) + ")")
+        _vm._v("Комментарии (" + _vm._s(_vm.commentsCount) + ")")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "comments" }, [
@@ -55517,16 +55513,12 @@ var render = function() {
           "div",
           { staticClass: "comments__list" },
           [
-            _vm.selfComments.length === 0
+            _vm.comments.length === 0
               ? _c("span", [_vm._v("Комментариев нет. Будь первым.")])
-              : _vm._l(_vm.selfComments, function(comment) {
+              : _vm._l(_vm.comments, function(comment) {
                   return _c("comment", {
                     key: comment.id,
-                    attrs: {
-                      modelType: _vm.modelType,
-                      modelId: _vm.modelId,
-                      comment: comment
-                    }
+                    attrs: { comment: comment }
                   })
                 })
           ],
@@ -55534,13 +55526,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("CommentForm", {
-        attrs: {
-          modelType: _vm.modelType,
-          modelId: _vm.modelId,
-          comments: _vm.comments
-        }
-      })
+      _c("CommentForm", { attrs: { comments: _vm.comments } })
     ],
     1
   )
@@ -96212,6 +96198,23 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/bus.js":
+/*!*****************************!*\
+  !*** ./resources/js/bus.js ***!
+  \*****************************/
+/*! exports provided: bus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bus", function() { return bus; });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var bus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
+
+/***/ }),
+
 /***/ "./resources/js/components/comments/Comment.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/comments/Comment.vue ***!
@@ -96441,20 +96444,17 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_3___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuelidate__WEBPACK_IMPORTED_MODULE_1___default.a);
-var comments = Array,
-    modelType = String,
+var modelType = String,
     modelId = String;
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#comments',
   beforeMount: function beforeMount() {
-    comments = JSON.parse(this.$el.attributes['data-comments'].value);
     modelType = this.$el.attributes['data-type'].value;
     modelId = this.$el.attributes['data-id'].value;
   },
   render: function render(h) {
     return h(_Comments_vue__WEBPACK_IMPORTED_MODULE_2__["default"], {
       props: {
-        comments: comments,
         modelType: modelType,
         modelId: modelId
       }
@@ -96530,8 +96530,8 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\OpenServer\domains\midorfeed_new\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\OpenServer\domains\midorfeed_new\resources\scss\main.scss */"./resources/scss/main.scss");
+__webpack_require__(/*! D:\OSPanel\domains\midorfeed_new\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\midorfeed_new\resources\scss\main.scss */"./resources/scss/main.scss");
 
 
 /***/ })
