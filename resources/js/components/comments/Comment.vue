@@ -4,23 +4,27 @@
             <img :src="comment.author.avatar_url" alt="">
         </a>
         <div class="comments__item-body">
-            <a :href="comment.author.link" class="comment-author">
-                {{ comment.author.personaname }}
-            </a>
-            <div class="comments__item-text" @click.prevent="(comment.nesting_level < 3 ? activateReplyForm : '')">
-                {{ comment.text }}
-            </div>
-            <div class="comments__item-action">
-                <div class="comments__item-create_time">
-                    {{ created_at }}
+            <div>
+                <a :href="comment.author.link" class="comment-author">
+                    {{ comment.author.personaname }}
+                </a>
+                <div class="comments__item-text" @click.prevent="(comment.nesting_level < 3 ? activateReplyForm : '')">
+                    {{ comment.text }}
                 </div>
-                <a href="#" v-if="comment.nesting_level < 3" class="comments__item-reply" @click.prevent="activateReplyForm">ответить</a>
+                <div class="comments__item-action">
+                    <div class="comments__item-create_time">
+                        {{ created_at }}
+                    </div>
+                    <a href="#" v-if="comment.nesting_level < 3" class="comments__item-reply"
+                       @click.prevent="activateReplyForm">ответить</a>
+                </div>
             </div>
             <div class="comments__item-children--comments" v-if="comment.comments.length !== 0">
                 <comment v-for="comment in comment.comments" :key="comment.id" :comment="comment"/>
             </div>
             <div v-if="showForm">
-                <CommentForm :parentId="comment.id" ref="commentForm" :comments="comment.comments" @hideForm="showForm = false"/>
+                <CommentForm :parentId="comment.id" ref="commentForm" :comments="comment.comments"
+                             @hideForm="showForm = false"/>
             </div>
         </div>
     </div>
@@ -43,7 +47,7 @@ export default {
         CommentForm,
         Comment,
     },
-    data: function() {
+    data: function () {
         return {
             now: moment(),
             showForm: false,
@@ -53,14 +57,14 @@ export default {
         moment.locale('ru');
     },
     methods: {
-      activateReplyForm() {
-          this.$emit('hideReplyForm');
-          this.showForm = !this.showForm;
-      }
+        activateReplyForm() {
+            this.$emit('hideReplyForm');
+            this.showForm = !this.showForm;
+        }
     },
     mounted() {
         let self = this;
-        setInterval(function(){
+        setInterval(function () {
             self.now = moment();
         }, 10000);
     },

@@ -22,17 +22,11 @@
                     {!! $news->text !!}
                 </section>
                 <div class="divider"></div>
-                <x-comments :comments="$news->comments" type="News" id="{{ $news->id }}"/>
+                <comments/>
             </div>
             <div class="col-3">
 
             </div>
         </div>
     </article>
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <style>
-        twitterwidget.twitter-tweet {
-            margin: auto;
-        }
-    </style>
 @endsection

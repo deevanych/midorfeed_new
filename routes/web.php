@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NewsController;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'index']);
+Route::get('/login', [AuthController::class, 'handle'])->name('login');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::resource('news', NewsController::class)->scoped([
     'news' => 'slug',
 ]);

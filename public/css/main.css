@@ -7978,6 +7978,11 @@ header.row .logo {
   background: url("/images/favicon/android-icon-48x48.png") no-repeat left;
 }
 
+header.row .profile-link img {
+  width: 30px;
+  height: 30px;
+}
+
 .stream__item .stream__image {
   height: 160px;
 }
@@ -22543,6 +22548,7 @@ header.row .logo,
 }
 
 .mr-1,
+header.row .profile-link img,
 .main-news .row .news-content .news-info > * > i,
 .mx-1 {
   margin-right: 0.25rem !important;
@@ -22571,6 +22577,7 @@ header.row .logo,
 
 .mr-2,
 .stream__item .stream--name:before,
+.login--button i,
 .main-news .row .news-content .news-info .news-author:before,
 .main-news .additional-news__item .news-author:before,
 .news-show__item .news-author:before,
@@ -22597,7 +22604,6 @@ header.row nav a {
 }
 
 .mt-3,
-.comment__text-input,
 .main-news .additional-news__item .news-author,
 .tweet-media-wrap,
 .my-3 {
@@ -22631,6 +22637,7 @@ header.row nav a {
 }
 
 .mt-4,
+.comment__text-input,
 .comments__item-children--comments,
 .my-4,
 .divider {
@@ -24852,7 +24859,8 @@ header.row {
   font-weight: lighter !important;
 }
 
-.font-weight-normal {
+.font-weight-normal,
+.login--button i {
   font-weight: 400 !important;
 }
 
@@ -24860,6 +24868,7 @@ header.row {
 header.row .logo,
 header.row .info-block .game-version,
 .stream__item .stream--name,
+.login--button,
 .dota-status {
   font-weight: 700 !important;
 }
@@ -24956,12 +24965,15 @@ a.text-light:focus {
   color: #cbd3da !important;
 }
 
-.text-dark {
+.text-dark,
+.login--button {
   color: #343a40 !important;
 }
 
 a.text-dark:hover,
-a.text-dark:focus {
+a.login--button:hover,
+a.text-dark:focus,
+a.login--button:focus {
   color: #121416 !important;
 }
 

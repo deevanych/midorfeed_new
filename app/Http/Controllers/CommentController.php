@@ -59,7 +59,7 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->parent_id = $request->input('parentId');
         $comment->text = $request->input('text');
-        $comment->user_id = 131;
+        $comment->user_id = Auth::id();
         if ($request->input('parentId')) {
             $parentComment = Comment::find($request->input('parentId'));
             if ($parentComment->nesting_level < 4) {

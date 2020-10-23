@@ -16,6 +16,9 @@
                     <span data-toggle="tooltip" data-placement="bottom" title="Время прочтения"
                           data-original-title="Время прочтения"><i
                             class="fas fa-stopwatch"></i> {{ $news[0]->getReadTime() }} мин.</span>
+                    <span data-toggle="tooltip" data-placement="bottom" title="Комментарии"
+                          data-original-title="Комментарии"><i
+                            class="far fa-comment"></i> {{ $news[0]->getCommentsCount() }}</span>
               </span>
                     <span class="news-description">{{ $news[0]->getDescription() }}</span>
                 </div>

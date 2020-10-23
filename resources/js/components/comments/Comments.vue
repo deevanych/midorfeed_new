@@ -7,7 +7,7 @@
                 <comment v-else v-for="comment in comments" :key="comment.id" :comment="comment"/>
             </div>
         </div>
-        <CommentForm :comments="comments"/>
+        <CommentForm :comments="comments" :focus="false"/>
     </div>
 </template>
 
@@ -28,14 +28,6 @@
         components: {
             Comment,
             CommentForm
-        },
-        props: {
-            modelType: {
-                type: String,
-            },
-            modelId: {
-                type: String,
-            },
         },
         mounted() {
             let self = this;

@@ -52,8 +52,6 @@ class NewsController extends Controller
     {
         //
         $news->increment('views');
-//        $comment = new Comment(['user_id' => 1, 'text' => 'A new comment.']);
-//        $news->comments()->save($comment);
         $prevNews = $news->getPrevNews();
         $nextNews = $news->getNextNews();
         return view('news.show', compact('news', 'prevNews', 'nextNews'));

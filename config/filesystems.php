@@ -54,7 +54,6 @@ return [
             'username' => 'cashalot_midorfeed',
             'password' => '&dc9roVl',
             'url' => env('APP_URL').'/storage',
-            'root' => storage_path('app'),
         ],
 
         'public' => [

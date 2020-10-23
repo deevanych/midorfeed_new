@@ -1,3 +1,10 @@
 button {
     outline: none;
 }
+
+.login--button {
+    @extend .font-weight-bold, .text-dark;
+    i {
+        @extend .mr-2, .font-weight-normal;
+    }
+}
