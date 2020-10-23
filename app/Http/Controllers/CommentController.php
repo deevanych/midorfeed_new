@@ -17,6 +17,12 @@ class CommentController extends Controller
      * @param string $modelSlug
      * @return array
      */
+    public function
+    __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index(Request $request, $modelType, $modelSlug)
     {
         switch ($modelType) {

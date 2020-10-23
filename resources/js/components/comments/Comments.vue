@@ -7,15 +7,16 @@
                 <comment v-else v-for="comment in comments" :key="comment.id" :comment="comment"/>
             </div>
         </div>
-        <CommentForm :comments="comments" :focus="false"/>
+        <CommentForm v-if="authCheck()" :comments="comments" :focus="false"/>
     </div>
 </template>
 
 <script>
     import Comment from "./Comment";
     import CommentForm from "./CommentForm";
-    import axios from "axios";
     import { bus } from '../../bus.js';
+    import axios from "axios";
+    import auth from "../../helpers/auth.js";
 
     export default {
         name: 'Comments',
@@ -25,6 +26,7 @@
                 commentsCount: 0,
             }
         },
+        mixins: [auth],
         components: {
             Comment,
             CommentForm

@@ -35,9 +35,13 @@ class AuthController extends Controller
         $this->steam = $steam;
     }
 
+    public function show() {
+        return Auth::user();
+    }
+
     public function logout() {
         Auth::logout();
-        return back();
+        return redirect(route('home'));
     }
     /**
      * Redirect the user to the authentication page

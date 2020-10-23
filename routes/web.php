@@ -19,9 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/login', [AuthController::class, 'handle'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/auth', [AuthController::class, 'show'])->middleware('auth');
 
 Route::resource('news', NewsController::class)->scoped([
     'news' => 'slug',
