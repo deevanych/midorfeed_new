@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -23,19 +24,23 @@ class News extends Model
 {
     use HasFactory;
 
-    public function tags() {
+    public function tags()
+    {
         return $this->belongsToMany('App\Models\Tags');
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
     }
 
-    public function getCommentsCount() {
+    public function getCommentsCount()
+    {
         return $this->morphMany('App\Models\Comment', 'model')->count();
     }
 
-    public function site() {
+    public function site()
+    {
         return $this->belongsTo('App\Models\NewsSite');
     }
 
@@ -49,9 +54,16 @@ class News extends Model
         return asset(Storage::url("news/$this->slug.jpg"));
     }
 
-    public function getDescription()
+    public function getTitle($length = null) {
+        $over = " ...";
+        return (!is_null($length) && strlen($this->title) > ($length - strlen($over)) ? mb_substr($this->title, 0, $length - strlen($over)).$over : $this->title);
+    }
+
+    public function getDescription($length = null)
     {
-        return ($this->description ? $this->description : trim(preg_replace('/\s+/', ' ', mb_substr(strip_tags($this->text), 0, 160))) . " ...");
+        $over = " ...";
+        $description = ($this->description ? $this->description : trim(preg_replace('/\s+/', ' ', mb_substr(strip_tags($this->text), 0, 160))) . " ...");
+        return (!is_null($length) && strlen($description) > $length - strlen($over) ? mb_substr($description, 0, $length - strlen($over)).$over : $description);
     }
 
     public function getReadTime()
@@ -59,10 +71,8 @@ class News extends Model
         $text = $this->text;
         $word_count = count(preg_split('/\W+/u', strip_tags($text), -1, PREG_SPLIT_NO_EMPTY));
         $minutes = floor($word_count / 250);
-        if ($minutes == 0) {
-            $minutes = '<1';
-        }
-        return $minutes;
+
+        return (!$minutes ? '<1' : $minutes);
     }
 
     public function getKeywords()
@@ -78,6 +88,13 @@ class News extends Model
         return implode(', ', $tag_arr);
     }
 
+    public function getTranslatedDate()
+    {
+        $date = Carbon::parse($this->created_at)->locale('ru');
+        $month = $date->getTranslatedMonthName('Do MMMM');
+        return $date->format("d $month Y в H:m");
+    }
+
     public function getNextNews()
     {
         return News::where('id', '<', $this->id)->orderBy('created_at', 'desc')->where('published', 1)->first();
@@ -88,29 +105,30 @@ class News extends Model
         return News::where('id', '>', $this->id)->where('published', 1)->first();
     }
 
-    public function sendToSocialNetworks() {
+    public function sendToSocialNetworks()
+    {
         $tags = $this->tags()->pluck('title');
         $tags_out = '';
         foreach ($tags as $tag) {
-            $tags_out .= '#'.str_replace(' ', '', $tag).' ';
+            $tags_out .= '#' . str_replace(' ', '', $tag) . ' ';
         }
         $token = \config('app.vk_token');
         $app_id = '182344905';
         $url = "https://api.vk.com/method/";
         $client = new Client(['base_uri' => $url]);
 
-        $request = $client->request('GET', 'wall.post',  [
+        $request = $client->request('GET', 'wall.post', [
             'query' => [
                 'access_token' => $token,
                 'v' => '5.70',
                 'owner_id' => "-$app_id",
                 'from_group' => 1,
-                'message' => '📣📣📣 '.$this->title.'
+                'message' => '📣📣📣 ' . $this->title . '
 
-                '.$this->getDescription().'
+                ' . $this->getDescription() . '
 
-                #midorfeed #мидорфид #dota2 #дота2 '.$tags_out,
-                'attachments' => 'https://midorfeed.ru/news/'.$this->slug,
+                #midorfeed #мидорфид #dota2 #дота2 ' . $tags_out,
+                'attachments' => 'https://midorfeed.ru/news/' . $this->slug,
                 'services' => 'twitter, facebook'
             ]
         ]);

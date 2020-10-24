@@ -1,12 +1,16 @@
 <section class="row">
-    <div class="col main-news" style="background-image: url({{ $news[0]->getImage() }})">
-        <div class="row h-100">
-            <a href="{{ $news[0]->getLink() }}" class="col h-100">
-                <div class="news-content">
-                    <span class="news-title">{{ $news[0]->title }}</span>
-                    <span class="news-info">
+    <div class="col">
+        <div class="main-news" style="background-image: url({{ $news[0]->getImage() }})">
+            <div class="row h-100">
+                <a href="{{ $news[0]->getLink() }}" class="col h-100">
+                    <div class="news-content">
+                        <span class="news-title">{{ $news[0]->title }}</span>
+                        <span class="news-info">
                 <span class="news-author" data-site="dota2.ru">
-                  <span>dota2.ru, {{ \Carbon\Carbon::parse($news[0]->created_at)->diffForHumans() }}</span>
+                  <span data-toggle="tooltip"
+                        data-placement="bottom"
+                        title="{{ $news[0]->getTranslatedDate() }}"
+                        data-original-title="{{ $news[0]->getTranslatedDate() }}">dota2.ru, {{ \Carbon\Carbon::parse($news[0]->created_at)->diffForHumans() }}</span>
                 </span>
                     <span data-toggle="tooltip"
                           data-placement="bottom"
@@ -20,22 +24,26 @@
                           data-original-title="Комментарии"><i
                             class="far fa-comment"></i> {{ $news[0]->getCommentsCount() }}</span>
               </span>
-                    <span class="news-description">{{ $news[0]->getDescription() }}</span>
-                </div>
-            </a>
-            <div class="col-3 h-100 py-5">
-                <div class="additional-news slick" data-autoplay="true" data-fade="true" data-dots="true">
-                    @for ($i = 1; $i < 5; $i++)
-                        <a class="additional-news__item" href="{{ $news[$i]->getLink() }}">
+                        <span class="news-description">{{ $news[0]->getDescription() }}</span>
+                    </div>
+                </a>
+                <div class="col-3 h-100 py-5">
+                    <div class="additional-news slick" data-autoplay="true" data-fade="true" data-dots="true">
+                        @for ($i = 1; $i < 5; $i++)
+                            <a class="additional-news__item" href="{{ $news[$i]->getLink() }}">
                             <span
                                 class="image" style="background-image: url({{ $news[$i]->getImage() }})"></span>
-                            <span
-                                class="news-title">{{ $news[$i]->title }}</span>
-                            <span class="news-author" data-site="dota2.ru">
-                              <span>dota2.ru, {{ \Carbon\Carbon::parse($news[$i]->created_at)->diffForHumans() }}</span>
+                                <span
+                                    class="news-title">{{ $news[$i]->title }}</span>
+                                <span class="news-author" data-site="dota2.ru">
+                              <span data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="{{ $news[$i]->getTranslatedDate() }}"
+                                    data-original-title="{{ $news[$i]->getTranslatedDate() }}">dota2.ru, {{ \Carbon\Carbon::parse($news[$i]->created_at)->diffForHumans() }}</span>
                             </span>
-                        </a>
-                    @endfor
+                            </a>
+                        @endfor
+                    </div>
                 </div>
             </div>
         </div>

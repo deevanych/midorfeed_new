@@ -1,11 +1,16 @@
 $sites: (
-  'dota2.ru': 'https://midorfeed.ru/storage/sites/1.ico'
+    'dota2.ru': 'https://midorfeed.ru/storage/sites/1.ico'
 );
 
 @each $site, $background in $sites {
-  [data-site="#{$site}"] {
-    &:before {
-      background-image: url("#{$background}");
+    [data-site="#{$site}"] {
+        @extend .d-flex, .align-items-center;
+        &:before {
+            background-image: url("#{$background}");
+            content: '';
+            width: 1rem;
+            height: 1rem;
+            @extend .mr-2, .d-inline-block, .background-center;
+        }
     }
-  }
 }

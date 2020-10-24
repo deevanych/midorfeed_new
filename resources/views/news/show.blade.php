@@ -7,7 +7,10 @@
         <div class="row">
             <div class="col-3">
                 <span class="news-author" data-site="dota2.ru">
-                    <span>
+                    <span data-toggle="tooltip"
+                          data-placement="bottom"
+                          title="{{ $news->getTranslatedDate() }}"
+                          data-original-title="{{ $news->getTranslatedDate() }}">
                         <a href="{{ $news->source_link }}" target='_blank' noindex>dota2.ru</a>,
                         {{ \Carbon\Carbon::parse($news->created_at)->diffForHumans() }}
                     </span>

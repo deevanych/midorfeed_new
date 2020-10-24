@@ -7956,18 +7956,36 @@ a[href="#"] {
 }
 
 .background-center,
-.news-show__item .news-author:before,
+[data-site="dota2.ru"]:before,
 .main-news .additional-news__item .image,
-.main-news .additional-news__item .news-author:before,
 .main-news .row .news-content .news-info .news-author:before,
+.main-news .articles-grid .news-content .news-info .news-author:before,
 .main-news,
+.articles-grid .articles--item.background > div,
+.articles-grid .articles--item_image,
 .stream__item .stream__image {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-header.row .logo {
+.background-dark,
+.main-news .row,
+.main-news .articles-grid {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.background-dark.fill,
+.main-news .fill.row,
+.main-news .fill.articles-grid {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+header.row .logo,
+header.articles-grid .logo {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -7978,7 +7996,8 @@ header.row .logo {
   background: url("/images/favicon/android-icon-48x48.png") no-repeat left;
 }
 
-header.row .profile-link img {
+header.row .profile-link img,
+header.articles-grid .profile-link img {
   width: 30px;
   height: 30px;
 }
@@ -8085,9 +8104,24 @@ button {
   border-left: 1px solid #eee;
 }
 
+.articles-grid .articles--item {
+  height: 322px;
+}
+
+.articles-grid .articles--item_image {
+  height: 150px;
+}
+
+.articles-grid .articles--item_description {
+  font-size: 80%;
+}
+
+.articles-grid .articles--item_author {
+  font-size: 80%;
+}
+
 .main-news {
   height: 500px;
-  background-image: url("https://midorfeed.ru/storage/news/dote-vse-vozrasty-pokorny-skolko-let-igrokam-v-dota-2.jpg");
 }
 
 .main-news a:hover {
@@ -8098,11 +8132,8 @@ button {
   text-decoration: underline;
 }
 
-.main-news .row {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.main-news .row .news-content .news-info .news-author:before {
+.main-news .row .news-content .news-info .news-author:before,
+.main-news .articles-grid .news-content .news-info .news-author:before {
   content: "";
   width: 1rem;
   height: 1rem;
@@ -8110,12 +8141,6 @@ button {
 
 .main-news .additional-news {
   border-left: 2px solid #fff;
-}
-
-.main-news .additional-news__item .news-author:before {
-  content: "";
-  width: 1rem;
-  height: 1rem;
 }
 
 .main-news .additional-news__item .image {
@@ -8135,14 +8160,11 @@ button {
   height: 16px;
 }
 
-.news-show__item .news-author:before {
+[data-site="dota2.ru"]:before {
+  background-image: url("https://midorfeed.ru/storage/sites/1.ico");
   content: "";
   width: 1rem;
   height: 1rem;
-}
-
-[data-site="dota2.ru"]:before {
-  background-image: url("https://midorfeed.ru/storage/sites/1.ico");
 }
 
 /*!
@@ -14407,8 +14429,10 @@ h5,
 h6,
 .h1,
 .main-news .row .news-content .news-title,
+.main-news .articles-grid .news-content .news-title,
 .h2,
 header.row .logo,
+header.articles-grid .logo,
 .h3,
 .h4,
 .person-quote__name,
@@ -14421,13 +14445,15 @@ header.row .logo,
 
 h1,
 .h1,
-.main-news .row .news-content .news-title {
+.main-news .row .news-content .news-title,
+.main-news .articles-grid .news-content .news-title {
   font-size: 2.5rem;
 }
 
 h2,
 .h2,
-header.row .logo {
+header.row .logo,
+header.articles-grid .logo {
   font-size: 2rem;
 }
 
@@ -14496,6 +14522,7 @@ small,
 .comment__add-form--error,
 .comments__item-action,
 .main-news .row .news-content .news-description,
+.main-news .articles-grid .news-content .news-description,
 .main-news .additional-news__item .news-author {
   font-size: 80%;
   font-weight: 400;
@@ -14661,7 +14688,8 @@ pre code {
   }
 }
 
-.row {
+.row,
+.articles-grid {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -21172,6 +21200,8 @@ button.bg-dark:focus {
 .stream__item .stream__image,
 .comment__text-input,
 .comments__item-author-avatar img,
+.articles-grid .articles--item_image,
+.articles-grid .articles--item.background > div,
 .main-news,
 .main-news .additional-news__item .image,
 .news-show__item .news-image,
@@ -21240,14 +21270,16 @@ button.bg-dark:focus {
 .d-inline-block,
 .stream__item .stream--name:before,
 .main-news .row .news-content .news-info .news-author:before,
-.main-news .additional-news__item .news-author:before,
-.news-show__item .news-author:before {
+.main-news .articles-grid .news-content .news-info .news-author:before,
+[data-site="dota2.ru"]:before {
   display: inline-block !important;
 }
 
 .d-block,
 .stream__item .stream__image,
-.comment__add-form--error {
+.comment__add-form--error,
+.articles-grid .articles--item > *,
+.articles-grid .articles--item_image {
   display: block !important;
 }
 
@@ -21271,13 +21303,29 @@ header.row .info-block,
 .tags,
 .comments__item,
 .comments__item-action,
+header.articles-grid nav,
+header.articles-grid .info-block,
+.articles-grid .articles--item,
+.articles-grid .articles--item_author,
+.articles-grid .articles--item.background > div .background-dark,
+.articles-grid .articles--item.background > div .background-dark > *,
+.articles-grid .articles--item.background > div .main-news .row,
+.main-news .articles-grid .articles--item.background > div .row,
+.articles-grid .articles--item.background > div .main-news .articles-grid,
+.main-news .articles-grid .articles--item.background > div .articles-grid,
+.articles-grid .articles--item.background > div .main-news .row > *,
+.main-news .articles-grid .articles--item.background > div .row > *,
+.articles-grid .articles--item.background > div .main-news .articles-grid > *,
+.main-news .articles-grid .articles--item.background > div .articles-grid > *,
 .main-news .row .news-content,
+.main-news .articles-grid .news-content,
 .main-news .row .news-content .news-info,
+.main-news .articles-grid .news-content .news-info,
 .main-news .row .news-content .news-info .news-author,
+.main-news .articles-grid .news-content .news-info .news-author,
 .main-news .additional-news__item,
-.main-news .additional-news__item .news-author,
 .main-news .additional-news__item .image,
-.news-show__item .news-author,
+[data-site="dota2.ru"],
 .slick-dots,
 .slick-dots li,
 .news-tweet__header,
@@ -21526,13 +21574,22 @@ header.row .info-block,
 header.row nav,
 header.row .info-block,
 .home--section .section--title,
+header.articles-grid nav,
+header.articles-grid .info-block,
 .slick-dots,
 .news-tweet__header {
   flex-direction: row !important;
 }
 
 .flex-column,
+.articles-grid .articles--item,
+.articles-grid .articles--item.background > div .background-dark,
+.articles-grid .articles--item.background > div .main-news .row,
+.main-news .articles-grid .articles--item.background > div .row,
+.articles-grid .articles--item.background > div .main-news .articles-grid,
+.main-news .articles-grid .articles--item.background > div .articles-grid,
 .main-news .row .news-content,
+.main-news .articles-grid .news-content,
 .main-news .additional-news__item,
 .news-tweet__info .author {
   flex-direction: column !important;
@@ -21567,7 +21624,13 @@ header.row .info-block,
   flex-grow: 0 !important;
 }
 
-.flex-grow-1 {
+.flex-grow-1,
+.articles-grid .articles--item_description,
+.articles-grid .articles--item.background > div .background-dark .articles--item_description,
+.articles-grid .articles--item.background > div .main-news .row .articles--item_description,
+.main-news .articles-grid .articles--item.background > div .row .articles--item_description,
+.articles-grid .articles--item.background > div .main-news .articles-grid .articles--item_description,
+.main-news .articles-grid .articles--item.background > div .articles-grid .articles--item_description {
   flex-grow: 1 !important;
 }
 
@@ -21584,7 +21647,8 @@ header.row .info-block,
 }
 
 .justify-content-end,
-.main-news .row .news-content {
+.main-news .row .news-content,
+.main-news .articles-grid .news-content {
   justify-content: flex-end !important;
 }
 
@@ -21615,10 +21679,13 @@ header.row,
 header.row nav,
 .home--section .section--title,
 .stream__item .stream--name,
+header.articles-grid,
+header.articles-grid nav,
 .main-news .row .news-content .news-info,
+.main-news .articles-grid .news-content .news-info,
 .main-news .row .news-content .news-info .news-author,
-.main-news .additional-news__item .news-author,
-.news-show__item .news-author,
+.main-news .articles-grid .news-content .news-info .news-author,
+[data-site="dota2.ru"],
 .slick-dots {
   align-items: center !important;
 }
@@ -22326,6 +22393,7 @@ header.row nav,
 
 .overflow-hidden,
 .stream__item .stream__image,
+.articles-grid .articles--item.background > div,
 .main-news,
 .news-show__item .news-image,
 .slick-arrow.slick-next,
@@ -22338,12 +22406,16 @@ header.row nav,
 }
 
 .position-relative,
-.stream__item {
+.stream__item,
+.articles-grid .articles--item.background > div {
   position: relative !important;
 }
 
 .position-absolute,
+.background-dark.fill,
 .stream__item .stream--viewers,
+.main-news .fill.row,
+.main-news .fill.articles-grid,
 .slick-dots,
 .slick-arrow {
   position: absolute !important;
@@ -22411,6 +22483,8 @@ header.row nav,
 
 .shadow,
 .comments__item-author-avatar img,
+.articles-grid .articles--item_image,
+.articles-grid .articles--item.background > div,
 .main-news,
 .news-show__item .news-image,
 .slick-arrow,
@@ -22422,6 +22496,8 @@ header.row nav,
 .shadow-lg,
 .shadow:hover,
 .comments__item-author-avatar img:hover,
+.articles-grid .articles--item_image:hover,
+.articles-grid .articles--item.background > div:hover,
 .main-news:hover,
 .news-show__item .news-image:hover,
 .slick-arrow:hover,
@@ -22451,6 +22527,7 @@ header.row nav,
 .comment__text-input,
 .comments__item,
 .comments__item-body,
+.articles-grid .articles--item_image,
 .main-news .additional-news__item .image,
 .news-show__item .news-image,
 .slick-dots {
@@ -22474,7 +22551,9 @@ header.row nav,
 }
 
 .h-100,
+.articles-grid .articles--item.background > div,
 .main-news .row .news-content,
+.main-news .articles-grid .news-content,
 .main-news .additional-news {
   height: 100% !important;
 }
@@ -22527,6 +22606,13 @@ header.row nav,
 .mb-0,
 header.row .logo,
 .comments__item:last-child,
+header.articles-grid .logo,
+.articles-grid .articles--item > *:last-child,
+.articles-grid .articles--item.background > div .background-dark > *:last-child,
+.articles-grid .articles--item.background > div .main-news .row > *:last-child,
+.main-news .articles-grid .articles--item.background > div .row > *:last-child,
+.articles-grid .articles--item.background > div .main-news .articles-grid > *:last-child,
+.main-news .articles-grid .articles--item.background > div .articles-grid > *:last-child,
 .my-0 {
   margin-bottom: 0 !important;
 }
@@ -22543,13 +22629,16 @@ header.row .logo,
 .mt-1,
 .comments__item-action,
 .main-news .row .news-content .news-info,
+.main-news .articles-grid .news-content .news-info,
 .my-1 {
   margin-top: 0.25rem !important;
 }
 
 .mr-1,
 header.row .profile-link img,
+header.articles-grid .profile-link img,
 .main-news .row .news-content .news-info > * > i,
+.main-news .articles-grid .news-content .news-info > * > i,
 .mx-1 {
   margin-right: 0.25rem !important;
 }
@@ -22579,10 +22668,11 @@ header.row .profile-link img,
 .stream__item .stream--name:before,
 .login--button i,
 .main-news .row .news-content .news-info .news-author:before,
-.main-news .additional-news__item .news-author:before,
-.news-show__item .news-author:before,
+.main-news .articles-grid .news-content .news-info .news-author:before,
+[data-site="dota2.ru"]:before,
 .mx-2,
-header.row nav a {
+header.row nav a,
+header.articles-grid nav a {
   margin-right: 0.5rem !important;
 }
 
@@ -22595,7 +22685,8 @@ header.row nav a {
 
 .ml-2,
 .mx-2,
-header.row nav a {
+header.row nav a,
+header.articles-grid nav a {
   margin-left: 0.5rem !important;
 }
 
@@ -22620,7 +22711,14 @@ header.row nav a {
 .mb-3,
 .stream__item .stream__image,
 .comment__add-form--error,
+.articles-grid .articles--item > *,
+.articles-grid .articles--item.background > div .background-dark > *,
+.articles-grid .articles--item.background > div .main-news .row > *,
+.main-news .articles-grid .articles--item.background > div .row > *,
+.articles-grid .articles--item.background > div .main-news .articles-grid > *,
+.main-news .articles-grid .articles--item.background > div .articles-grid > *,
 .main-news .row .news-content .news-info,
+.main-news .articles-grid .news-content .news-info,
 .news-tweet__header,
 .my-3 {
   margin-bottom: 1rem !important;
@@ -22640,13 +22738,15 @@ header.row nav a {
 .comment__text-input,
 .comments__item-children--comments,
 .my-4,
-.divider {
+.divider,
+.articles-grid .articles--item {
   margin-top: 1.5rem !important;
 }
 
 .mr-4,
 .social-sharing > a,
 .main-news .row .news-content .news-info > *,
+.main-news .articles-grid .news-content .news-info > *,
 .mx-4 {
   margin-right: 1.5rem !important;
 }
@@ -22656,7 +22756,8 @@ header.row nav a {
 .comments__item,
 .person-quote__name,
 .my-4,
-.divider {
+.divider,
+.articles-grid .articles--item {
   margin-bottom: 1.5rem !important;
 }
 
@@ -22690,6 +22791,7 @@ header.row nav a {
 .ml-5,
 header.row .info-block > *,
 .home--section .section--title .more-link,
+header.articles-grid .info-block > *,
 .mx-5 {
   margin-left: 3rem !important;
 }
@@ -22749,7 +22851,8 @@ header.row .info-block > *,
 
 .pt-2,
 .py-2,
-header.row nav a {
+header.row nav a,
+header.articles-grid nav a {
   padding-top: 0.5rem !important;
 }
 
@@ -22761,7 +22864,8 @@ header.row nav a {
 
 .pb-2,
 .py-2,
-header.row nav a {
+header.row nav a,
+header.articles-grid nav a {
   padding-bottom: 0.5rem !important;
 }
 
@@ -22772,7 +22876,13 @@ header.row nav a {
 }
 
 .p-3,
-.comment__text-input {
+.comment__text-input,
+.articles-grid .articles--item.background > div,
+.articles-grid .articles--item.background > div .background-dark,
+.articles-grid .articles--item.background > div .main-news .row,
+.main-news .articles-grid .articles--item.background > div .row,
+.articles-grid .articles--item.background > div .main-news .articles-grid,
+.main-news .articles-grid .articles--item.background > div .articles-grid {
   padding: 1rem !important;
 }
 
@@ -22783,7 +22893,8 @@ header.row nav a {
 
 .pr-3,
 .px-3,
-header.row nav a {
+header.row nav a,
+header.articles-grid nav a {
   padding-right: 1rem !important;
 }
 
@@ -22795,7 +22906,8 @@ header.row nav a {
 .pl-3,
 .comments__item-children--comments,
 .px-3,
-header.row nav a {
+header.row nav a,
+header.articles-grid nav a {
   padding-left: 1rem !important;
 }
 
@@ -22830,13 +22942,15 @@ header.row nav a {
 }
 
 .p-5,
-.main-news .row .news-content {
+.main-news .row .news-content,
+.main-news .articles-grid .news-content {
   padding: 3rem !important;
 }
 
 .pt-5,
 .py-5,
-header.row {
+header.row,
+header.articles-grid {
   padding-top: 3rem !important;
 }
 
@@ -22847,7 +22961,8 @@ header.row {
 
 .pb-5,
 .py-5,
-header.row {
+header.row,
+header.articles-grid {
   padding-bottom: 3rem !important;
 }
 
@@ -24869,11 +24984,14 @@ header.row .logo,
 header.row .info-block .game-version,
 .stream__item .stream--name,
 .login--button,
-.dota-status {
+.dota-status,
+header.articles-grid .logo,
+header.articles-grid .info-block .game-version {
   font-weight: 700 !important;
 }
 
-.font-weight-bolder {
+.font-weight-bolder,
+.articles-grid .articles--item_title {
   font-weight: bolder !important;
 }
 
@@ -24883,7 +25001,17 @@ header.row .info-block .game-version,
 
 .text-white,
 .stream__item .stream--viewers,
-.main-news a {
+.articles-grid .articles--item.background > div .background-dark,
+.articles-grid .articles--item.background > div .background-dark > *,
+.main-news a,
+.articles-grid .articles--item.background > div .main-news .row,
+.main-news .articles-grid .articles--item.background > div .row,
+.articles-grid .articles--item.background > div .main-news .articles-grid,
+.main-news .articles-grid .articles--item.background > div .articles-grid,
+.articles-grid .articles--item.background > div .main-news .row > *,
+.main-news .articles-grid .articles--item.background > div .row > *,
+.articles-grid .articles--item.background > div .main-news .articles-grid > *,
+.main-news .articles-grid .articles--item.background > div .articles-grid > * {
   color: #fff !important;
 }
 
@@ -24966,14 +25094,20 @@ a.text-light:focus {
 }
 
 .text-dark,
-.login--button {
+.login--button,
+.articles-grid .articles--item_description,
+.articles-grid .articles--item_author {
   color: #343a40 !important;
 }
 
 a.text-dark:hover,
 a.login--button:hover,
+.articles-grid a.articles--item_description:hover,
+.articles-grid a.articles--item_author:hover,
 a.text-dark:focus,
-a.login--button:focus {
+a.login--button:focus,
+.articles-grid a.articles--item_description:focus,
+.articles-grid a.articles--item_author:focus {
   color: #121416 !important;
 }
 
