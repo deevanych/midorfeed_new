@@ -81,7 +81,7 @@ class ParseNews extends Command
                                 Storage::put("$savePath/$name", file_get_contents($uri));
                             }
                             $node->getNode(0)->removeAttribute('src');
-                            $node->getNode(0)->setAttribute('src', asset(Storage::url("news/$name")));
+                            $node->getNode(0)->setAttribute('src', Storage::url("news/$name"));
                         });
                         $news->text = $articleContent->html();
                         $news->save();
