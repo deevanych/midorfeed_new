@@ -75,7 +75,7 @@ class ParseNews extends Command
                                 preg_match_all($re, $uri, $matches, PREG_SET_ORDER, 0);
                                 $name = $matches[0][1].$matches[0][2];
                             } else {
-                                $name = explode("?", basename($uri));
+                                $name = explode("?", basename($uri))[0];
                             }
                             if (!Storage::exists("$savePath/$name")) {
                                 Storage::put("$savePath/$name", file_get_contents($uri));
