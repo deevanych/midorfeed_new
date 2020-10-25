@@ -66,18 +66,24 @@ class ParseNews extends Command
                         $news->description = $crawler->filter('div[itemprop=articleBody]')->children('p')->first()->text();
                         $image = $crawler->filter('div[itemprop=image]')->children('img')->attr('src');
                         $image = file_get_contents($image);
-                        $name = basename($image);
-                        Storage::put("$savePath/$name", $image);
-                        $crawler->filter('div[itemprop=articleBody]')->filter('img')->each(function (Crawler $node) use ($savePath) {
+                        Storage::put("$savePath/$slug.jpg", $image);
+                        $articleContent = $crawler->filter('div[itemprop=articleBody]');
+                        $articleContent->filter('img')->each(function (Crawler $node) use ($savePath) {
                             $uri = $node->image()->getUri();
-                            $name = basename($uri);
+                            if (stripos($uri, "heroes")) {
+                                $re = '/heroes\/(.*)\/icon(.*)/m';
+                                preg_match_all($re, $uri, $matches, PREG_SET_ORDER, 0);
+                                $name = $matches[0][1].$matches[0][2];
+                            } else {
+                                $name = basename($uri);
+                            }
                             if (!Storage::exists("$savePath/$name")) {
                                 Storage::put("$savePath/$name", file_get_contents($uri));
-                                $node->getNode(0)->removeAttribute('src');
-                                $node->getNode(0)->setAttribute('src', asset(Storage::url("news/$name")));
                             }
+                            $node->getNode(0)->removeAttribute('src');
+                            $node->getNode(0)->setAttribute('src', asset(Storage::url("news/$name")));
                         });
-                        $news->text = $crawler->filter('div[itemprop=articleBody]')->html();
+                        $news->text = $articleContent->html();
                         $news->save();
                         if (!empty($crawler->filter('div[class=news-tags]'))) {
                             $crawler->filter('div[class=news-tags]')->children('a')->each(function (Crawler $node, $i) use ($news) {
