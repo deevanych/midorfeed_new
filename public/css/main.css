@@ -8160,6 +8160,10 @@ button {
   height: 16px;
 }
 
+.news-show__item .news-text table {
+  background: rgba(0, 123, 255, 0.1);
+}
+
 [data-site="dota2.ru"]:before {
   background-image: url("https://midorfeed.ru/storage/sites/1.ico");
   content: "";
@@ -21205,6 +21209,7 @@ button.bg-dark:focus {
 .main-news,
 .main-news .additional-news__item .image,
 .news-show__item .news-image,
+.news-show__item .news-text table,
 .news-tweet,
 .person-quote,
 .tweet-media-wrap {
@@ -22396,6 +22401,7 @@ header.articles-grid nav,
 .articles-grid .articles--item.background > div,
 .main-news,
 .news-show__item .news-image,
+.news-show__item .news-text table,
 .slick-arrow.slick-next,
 .tweet-media-wrap {
   overflow: hidden !important;
@@ -22530,6 +22536,7 @@ header.articles-grid nav,
 .articles-grid .articles--item_image,
 .main-news .additional-news__item .image,
 .news-show__item .news-image,
+.news-show__item .news-text table,
 .slick-dots {
   width: 100% !important;
 }
@@ -22697,7 +22704,8 @@ header.articles-grid nav a {
 .mt-3,
 .main-news .additional-news__item .news-author,
 .tweet-media-wrap,
-.my-3 {
+.my-3,
+.news-show__item .news-text table {
   margin-top: 1rem !important;
 }
 
@@ -22720,7 +22728,8 @@ header.articles-grid nav a {
 .main-news .row .news-content .news-info,
 .main-news .articles-grid .news-content .news-info,
 .news-tweet__header,
-.my-3 {
+.my-3,
+.news-show__item .news-text table {
   margin-bottom: 1rem !important;
 }
 
@@ -22882,7 +22891,8 @@ header.articles-grid nav a {
 .articles-grid .articles--item.background > div .main-news .row,
 .main-news .articles-grid .articles--item.background > div .row,
 .articles-grid .articles--item.background > div .main-news .articles-grid,
-.main-news .articles-grid .articles--item.background > div .articles-grid {
+.main-news .articles-grid .articles--item.background > div .articles-grid,
+.news-show__item .news-text table {
   padding: 1rem !important;
 }
 

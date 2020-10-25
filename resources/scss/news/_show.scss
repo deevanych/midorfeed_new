@@ -1,3 +1,4 @@
+@import "../colors";
 .news-show__item {
     > * {
         @extend .mb-5;
@@ -18,6 +19,10 @@
         }
         > p {
             @extend .mb-5;
+        }
+        table {
+            background: rgba($primary, .1);
+            @extend .w-100, .rounded, .overflow-hidden, .my-3, .p-3;
         }
     }
 }
