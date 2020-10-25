@@ -71,7 +71,7 @@ class ParseNews extends Command
                         $articleContent->filter('img')->each(function (Crawler $node) use ($savePath) {
                             $uri = $node->image()->getUri();
                             if (stripos($uri, "heroes")) {
-                                $re = '/heroes\/(.*)\/icon(.*)/m';
+                                $re = '/heroes\/(.*)\/icon(.*)\?/m';
                                 preg_match_all($re, $uri, $matches, PREG_SET_ORDER, 0);
                                 $name = $matches[0][1].$matches[0][2];
                             } else {
