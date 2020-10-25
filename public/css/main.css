@@ -14437,6 +14437,7 @@ h6,
 .h2,
 header.row .logo,
 header.articles-grid .logo,
+.page-header .page-title,
 .h3,
 .h4,
 .person-quote__name,
@@ -14457,7 +14458,8 @@ h1,
 h2,
 .h2,
 header.row .logo,
-header.articles-grid .logo {
+header.articles-grid .logo,
+.page-header .page-title {
   font-size: 2rem;
 }
 
@@ -14770,6 +14772,7 @@ pre code {
 .col,
 .col-auto,
 .col-12,
+.page-header,
 .col-11,
 .col-10,
 .col-9,
@@ -14884,7 +14887,8 @@ pre code {
   max-width: 91.6666666667%;
 }
 
-.col-12 {
+.col-12,
+.page-header {
   flex: 0 0 100%;
   max-width: 100%;
 }
@@ -21201,6 +21205,7 @@ button.bg-dark:focus {
 }
 
 .rounded,
+.twitch-stream .twitch-player,
 .stream__item .stream__image,
 .comment__text-input,
 .comments__item-author-avatar img,
@@ -22397,6 +22402,7 @@ header.articles-grid nav,
 }
 
 .overflow-hidden,
+.twitch-stream .twitch-player,
 .stream__item .stream__image,
 .articles-grid .articles--item.background > div,
 .main-news,
@@ -22488,6 +22494,7 @@ header.articles-grid nav,
 }
 
 .shadow,
+.twitch-stream .twitch-player,
 .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
 .articles-grid .articles--item.background > div,
@@ -22501,6 +22508,7 @@ header.articles-grid nav,
 
 .shadow-lg,
 .shadow:hover,
+.twitch-stream .twitch-player:hover,
 .comments__item-author-avatar img:hover,
 .articles-grid .articles--item_image:hover,
 .articles-grid .articles--item.background > div:hover,
@@ -22558,6 +22566,7 @@ header.articles-grid nav,
 }
 
 .h-100,
+.twitch-stream .twitch-chat,
 .articles-grid .articles--item.background > div,
 .main-news .row .news-content,
 .main-news .articles-grid .news-content,
@@ -22762,7 +22771,10 @@ header.articles-grid nav a {
 
 .mb-4,
 .home--section .section--title,
+.twitch-stream,
+.stream__item,
 .comments__item,
+.page-header,
 .person-quote__name,
 .my-4,
 .divider,
@@ -22867,7 +22879,7 @@ header.articles-grid nav a {
 
 .pr-2,
 .px-2,
-.stream__item {
+.slick-slide .stream__item {
   padding-right: 0.5rem !important;
 }
 
@@ -22880,7 +22892,7 @@ header.articles-grid nav a {
 
 .pl-2,
 .px-2,
-.stream__item {
+.slick-slide .stream__item {
   padding-left: 0.5rem !important;
 }
 
@@ -25035,14 +25047,17 @@ a.text-primary:focus {
 }
 
 .text-secondary,
-.comments__item-create_time {
+.comments__item-create_time,
+.page-header .page-description {
   color: #6c757d !important;
 }
 
 a.text-secondary:hover,
 a.comments__item-create_time:hover,
+.page-header a.page-description:hover,
 a.text-secondary:focus,
-a.comments__item-create_time:focus {
+a.comments__item-create_time:focus,
+.page-header a.page-description:focus {
   color: #494f54 !important;
 }
 

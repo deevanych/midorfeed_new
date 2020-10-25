@@ -1,5 +1,10 @@
 @extends('layouts.main')
 
+@section('title', $news->title)
+@section('description', $news->getDescription())
+@section('keywords', $news->getKeywords())
+@section('image', asset($news->getImage()))
+
 @section('content')
     <article class="news-show__item" itemscope itemtype="http://schema.org/Article">
         <h1 class='news-title' itemprop="headline">{{ $news->title }}</h1>

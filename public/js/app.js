@@ -108046,6 +108046,8 @@ __webpack_require__(/*! ./vendors/slick */ "./resources/js/vendors/slick.js");
 
 __webpack_require__(/*! ./vendors/bootstrap */ "./resources/js/vendors/bootstrap.js");
 
+__webpack_require__(/*! ./vendors/twitch/index */ "./resources/js/vendors/twitch/index.js");
+
 __webpack_require__(/*! ./vue */ "./resources/js/vue.js");
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
@@ -108409,6 +108411,38 @@ $(document).ready(function () {
       infinite: $(elem).data('infinite') ? $(elem).data('infinite') : true,
       nextArrow: "<button type=\"button\" class=\"slick-next\"></button>"
     });
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/vendors/twitch/index.js":
+/*!**********************************************!*\
+  !*** ./resources/js/vendors/twitch/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./player */ "./resources/js/vendors/twitch/player.js");
+
+/***/ }),
+
+/***/ "./resources/js/vendors/twitch/player.js":
+/*!***********************************************!*\
+  !*** ./resources/js/vendors/twitch/player.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $(".twitch-player").each(function (i, el) {
+    var channel = $(el).data('name'),
+        container = el,
+        options = {
+      channel: channel
+    },
+        player = new Twitch.Player(container, options);
+    player.setVolume(0.5);
   });
 });
 

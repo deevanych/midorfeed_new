@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * @property mixed name
+ * @method static whereName($modelSlug)
  */
 class Stream extends Model
 {
@@ -15,8 +16,18 @@ class Stream extends Model
 
     protected $guarded = [];
 
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
+    }
+
+    public function getCommentsCount()
+    {
+        return $this->morphMany('App\Models\Comment', 'model')->count();
+    }
+
     public function getLink() {
-        return route('stream.show', $this->name);
+        return route('streams.show', $this->name);
     }
 
     public function getImage() {

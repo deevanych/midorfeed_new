@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\News;
+use App\Models\Stream;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +27,12 @@ class CommentController extends Controller
     public function index(Request $request, $modelType, $modelSlug)
     {
         switch ($modelType) {
+            case 'streams':
+                $model = Stream::whereName($modelSlug);
+                break;
             default:
                 $model = News::whereSlug($modelSlug);
+                break;
         }
         $model = $model->first();
         return ['commentsCount' => $model->getCommentsCount(), 'comments' => $model->comments];
@@ -57,8 +62,12 @@ class CommentController extends Controller
         ]);
 
         switch ($modelType) {
+            case 'streams':
+                $model = Stream::whereName($modelSlug);
+                break;
             default:
                 $model = News::whereSlug($modelSlug);
+                break;
         }
         $model = $model->first();
 

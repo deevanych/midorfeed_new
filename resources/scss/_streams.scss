@@ -1,5 +1,21 @@
+.slick-slide {
+    .stream__item {
+        @extend .px-2;
+    }
+}
+
+.twitch-stream {
+    @extend .mb-4;
+    .twitch-player {
+        @extend .rounded, .overflow-hidden, .shadow;
+    }
+    .twitch-chat {
+        @extend .h-100;
+    }
+}
+
 .stream__item {
-    @extend .px-2, .position-relative;
+    @extend .position-relative, .mb-4;
     > * {
         @extend .mb-2;
     }

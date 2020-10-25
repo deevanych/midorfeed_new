@@ -29,4 +29,6 @@ Route::resource('news', NewsController::class)->scoped([
 ]);
 Route::resource('{type}/{slug}/comments', CommentController::class);
 Route::resource('users', UserController::class);
-Route::resource('streams', StreamController::class);
+Route::resource('streams', StreamController::class)->scoped([
+    'stream' => 'name',
+]);

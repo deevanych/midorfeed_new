@@ -1,0 +1,9 @@
+.page-header {
+    @extend .col-12, .mb-4;
+    .page-title {
+        @extend .h2;
+    }
+    .page-description {
+        @extend .text-secondary;
+    }
+}
