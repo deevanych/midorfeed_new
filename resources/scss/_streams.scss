@@ -7,7 +7,7 @@
 .twitch-stream {
     @extend .mb-4;
     .twitch-player {
-        @extend .rounded, .overflow-hidden, .shadow;
+        @extend .rounded, .overflow-hidden, .shadow, .embed-responsive, .embed-responsive-21by9;
     }
     .twitch-chat {
         @extend .h-100;
@@ -20,7 +20,7 @@
         @extend .mb-2;
     }
     .stream__image {
-        @extend .background-center, .rounded, .d-block, .overflow-hidden, .mb-3;
+        @extend .background-center, .rounded, .d-block, .overflow-hidden, .mb-3, .position-relative;
         height: 160px;
     }
     .stream--name {

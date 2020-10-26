@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class ArticlesGrid extends Component
+class ArticlesSlider extends Component
 {
     /**
      * Create a new component instance.
@@ -12,13 +12,13 @@ class ArticlesGrid extends Component
      * @return void
      */
     public $articles;
-    public $links;
+    public $mainArticle;
 
-    public function __construct($articles, $links = null)
+    public function __construct($articles)
     {
         //
+        $this->mainArticle = $articles->shift();
         $this->articles = $articles;
-        $this->links = $links;
     }
 
     /**
@@ -28,6 +28,6 @@ class ArticlesGrid extends Component
      */
     public function render()
     {
-        return view('components.articles-grid');
+        return view('components.articles-slider');
     }
 }

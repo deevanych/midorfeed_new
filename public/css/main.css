@@ -8026,6 +8026,12 @@ button {
   border-bottom: 1px solid #eee;
 }
 
+.pagination .page-item .page-link {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
 .dota-status {
   padding-left: 32px;
   background: url(/images/dota_status.png) no-repeat left;
@@ -8146,6 +8152,10 @@ button {
 .main-news .additional-news__item .image {
   height: 205px;
   background-image: url("https://midorfeed.ru/storage/news/noxville-kuchu-kontenta-mozhno-dobavlyat-ezhegodno-i-ne-otbirat-ego.jpg");
+}
+
+.news-show__item .news-text {
+  overflow-wrap: break-word;
 }
 
 .news-show__item .news-text img {
@@ -21144,7 +21154,8 @@ button.bg-dark:focus {
   border-left: 1px solid #dee2e6 !important;
 }
 
-.border-0 {
+.border-0,
+.pagination .page-item .page-link {
   border: 0 !important;
 }
 
@@ -21246,6 +21257,7 @@ button.bg-dark:focus {
 }
 
 .rounded-circle,
+.pagination .page-item,
 .slick-dots li:before,
 .slick-arrow,
 .news-tweet__avatar,
@@ -21537,7 +21549,8 @@ header.articles-grid .info-block,
   }
 }
 
-.embed-responsive {
+.embed-responsive,
+.twitch-stream .twitch-player {
   position: relative;
   display: block;
   width: 100%;
@@ -21545,16 +21558,22 @@ header.articles-grid .info-block,
   overflow: hidden;
 }
 
-.embed-responsive::before {
+.embed-responsive::before,
+.twitch-stream .twitch-player::before {
   display: block;
   content: "";
 }
 
 .embed-responsive .embed-responsive-item,
+.twitch-stream .twitch-player .embed-responsive-item,
 .embed-responsive iframe,
+.twitch-stream .twitch-player iframe,
 .embed-responsive embed,
+.twitch-stream .twitch-player embed,
 .embed-responsive object,
-.embed-responsive video {
+.twitch-stream .twitch-player object,
+.embed-responsive video,
+.twitch-stream .twitch-player video {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -21564,7 +21583,8 @@ header.articles-grid .info-block,
   border: 0;
 }
 
-.embed-responsive-21by9::before {
+.embed-responsive-21by9::before,
+.twitch-stream .twitch-player::before {
   padding-top: 42.8571428571%;
 }
 
@@ -22404,6 +22424,7 @@ header.articles-grid nav,
 .overflow-hidden,
 .twitch-stream .twitch-player,
 .stream__item .stream__image,
+.pagination .page-item,
 .articles-grid .articles--item.background > div,
 .main-news,
 .news-show__item .news-image,
@@ -22419,6 +22440,7 @@ header.articles-grid nav,
 
 .position-relative,
 .stream__item,
+.stream__item .stream__image,
 .articles-grid .articles--item.background > div {
   position: relative !important;
 }
@@ -22495,6 +22517,7 @@ header.articles-grid nav,
 
 .shadow,
 .twitch-stream .twitch-player,
+.pagination .page-item,
 .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
 .articles-grid .articles--item.background > div,
@@ -22509,6 +22532,7 @@ header.articles-grid nav,
 .shadow-lg,
 .shadow:hover,
 .twitch-stream .twitch-player:hover,
+.pagination .page-item:hover,
 .comments__item-author-avatar img:hover,
 .articles-grid .articles--item_image:hover,
 .articles-grid .articles--item.background > div:hover,
@@ -22544,6 +22568,7 @@ header.articles-grid nav,
 .articles-grid .articles--item_image,
 .main-news .additional-news__item .image,
 .news-show__item .news-image,
+.news-show__item iframe,
 .news-show__item .news-text table,
 .slick-dots {
   width: 100% !important;
@@ -22655,7 +22680,8 @@ header.row .profile-link img,
 header.articles-grid .profile-link img,
 .main-news .row .news-content .news-info > * > i,
 .main-news .articles-grid .news-content .news-info > * > i,
-.mx-1 {
+.mx-1,
+.pagination .page-item {
   margin-right: 0.25rem !important;
 }
 
@@ -22665,7 +22691,8 @@ header.articles-grid .profile-link img,
 }
 
 .ml-1,
-.mx-1 {
+.mx-1,
+.pagination .page-item {
   margin-left: 0.25rem !important;
 }
 
@@ -22757,6 +22784,7 @@ header.articles-grid nav a {
 .comments__item-children--comments,
 .my-4,
 .divider,
+.pagination,
 .articles-grid .articles--item {
   margin-top: 1.5rem !important;
 }
@@ -22778,6 +22806,7 @@ header.articles-grid nav a {
 .person-quote__name,
 .my-4,
 .divider,
+.pagination,
 .articles-grid .articles--item {
   margin-bottom: 1.5rem !important;
 }
@@ -22817,7 +22846,8 @@ header.articles-grid .info-block > *,
   margin-left: 3rem !important;
 }
 
-.p-0 {
+.p-0,
+.pagination .page-item .page-link {
   padding: 0 !important;
 }
 
@@ -24916,7 +24946,8 @@ header.articles-grid {
   text-align: right !important;
 }
 
-.text-center {
+.text-center,
+.pagination .page-item .page-link {
   text-align: center !important;
 }
 

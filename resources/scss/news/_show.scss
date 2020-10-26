@@ -6,7 +6,11 @@
     .news-image {
         @extend .w-100, .rounded, .shadow, .overflow-hidden;
     }
+    iframe {
+        @extend .w-100;
+    }
     .news-text {
+        overflow-wrap: break-word;
         img {
             @extend .mw-100, .m-0;
             height: initial;

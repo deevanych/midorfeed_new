@@ -3619,7 +3619,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[NAME].noConflict = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./node_modules/bootstrap/js/src/util.js");
 /**
  * --------------------------------------------------------------------------
@@ -3772,7 +3772,7 @@ class Dropdown {
        * Check for Popper dependency
        * Popper - https://popper.js.org
        */
-      if (typeof popper_js__WEBPACK_IMPORTED_MODULE_1__["default"] === 'undefined') {
+      if (typeof popper_js__WEBPACK_IMPORTED_MODULE_3__["default"] === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org/)')
       }
 
@@ -3795,7 +3795,7 @@ class Dropdown {
       if (this._config.boundary !== 'scrollParent') {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(parent).addClass(CLASS_NAME_POSITION_STATIC)
       }
-      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_1__["default"](referenceElement, this._menu, this._getPopperConfig())
+      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_3__["default"](referenceElement, this._menu, this._getPopperConfig())
     }
 
     // If this is a touch-enabled device we add extra
@@ -6074,7 +6074,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tools_sanitizer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tools/sanitizer */ "./node_modules/bootstrap/js/src/tools/sanitizer.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util */ "./node_modules/bootstrap/js/src/util.js");
 /**
  * --------------------------------------------------------------------------
@@ -6186,7 +6186,7 @@ const TRIGGER_MANUAL = 'manual'
 
 class Tooltip {
   constructor(element, config) {
-    if (typeof popper_js__WEBPACK_IMPORTED_MODULE_2__["default"] === 'undefined') {
+    if (typeof popper_js__WEBPACK_IMPORTED_MODULE_4__["default"] === 'undefined') {
       throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)')
     }
 
@@ -6356,7 +6356,7 @@ class Tooltip {
 
       jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.element).trigger(this.constructor.Event.INSERTED)
 
-      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_2__["default"](this.element, tip, this._getPopperConfig(attachment))
+      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_4__["default"](this.element, tip, this._getPopperConfig(attachment))
 
       jquery__WEBPACK_IMPORTED_MODULE_1___default()(tip).addClass(CLASS_NAME_SHOW)
 
@@ -108441,7 +108441,7 @@ $(document).ready(function () {
         options = {
       channel: channel
     },
-        player = new Twitch.Player(container, options);
+        player = new Twitch.Embed(container, options);
     player.setVolume(0.5);
   });
 });
@@ -108506,8 +108506,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\casha\PhpstormProjects\midorfeed_new\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\casha\PhpstormProjects\midorfeed_new\resources\scss\main.scss */"./resources/scss/main.scss");
+__webpack_require__(/*! D:\OSPanel\domains\midorfeed_new\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\midorfeed_new\resources\scss\main.scss */"./resources/scss/main.scss");
 
 
 /***/ })
