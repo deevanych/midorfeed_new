@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFindTeamOrderPurposeTable extends Migration
+class CreateFindOrderPurposeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class CreateFindTeamOrderPurposeTable extends Migration
     {
         Schema::create('find_team_order_purpose', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('find_team_order_id')->unsigned();
-            $table->foreign('find_team_order_id')->references('id')->on('find_team_orders');
+            $table->bigInteger('find_order_id')->unsigned();
+            $table->foreign('find_order_id')->references('id')->on('find_team_orders');
             $table->bigInteger('purpose_id')->unsigned();
             $table->foreign('purpose_id')->references('id')->on('purposes');
         });

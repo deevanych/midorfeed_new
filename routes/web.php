@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FindOrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\StreamController;
@@ -29,6 +30,7 @@ Route::resource('news', NewsController::class)->scoped([
 ]);
 Route::resource('{type}/{slug}/comments', CommentController::class);
 Route::resource('users', UserController::class);
+Route::resource('teammates', FindOrderController::class);
 Route::resource('streams', StreamController::class)->scoped([
     'stream' => 'name',
 ]);

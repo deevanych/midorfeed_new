@@ -8,14 +8,14 @@
                 <a :href="comment.author.link" class="comment-author">
                     {{ comment.author.personaname }}
                 </a>
-                <div class="comments__item-text" @click.prevent="(canCommenting ? activateReplyForm : '')">
+                <div class="comments__item-text" @click.prevent="(canCommenting() ? activateReplyForm() : '')">
                     {{ comment.text }}
                 </div>
                 <div class="comments__item-action">
                     <div class="comments__item-create_time">
                         {{ created_at }}
                     </div>
-                    <a href="#" v-if="canCommenting" class="comments__item-reply"
+                    <a href="#" v-if="canCommenting()" class="comments__item-reply"
                        @click.prevent="activateReplyForm">ответить</a>
                 </div>
             </div>
@@ -64,10 +64,7 @@ export default {
             this.showForm = !this.showForm;
         },
         canCommenting() {
-            if (this.authCheck() && this.comment.nesting_level < 3) {
-                return true;
-            }
-            return false;
+            return (this.authCheck() && this.comment.nesting_level < 3);
         }
     },
     mounted() {

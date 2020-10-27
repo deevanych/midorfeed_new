@@ -5,6 +5,7 @@
     <nav class="col">
         <a href="{{ route('news.index') }}">Новости</a>
         <a href="{{ route('streams.index') }}">Стримы</a>
+        <a href="{{ route('teammates.index') }}">Поиск игроков</a>
     </nav>
     <div class="col-auto info-block">
         @widget('GameVersionWidget')

@@ -7963,6 +7963,7 @@ a[href="#"] {
 .main-news,
 .articles-grid .articles--item.background > div,
 .articles-grid .articles--item_image,
+.find-order__item,
 .stream__item .stream__image {
   background-size: cover;
   background-repeat: no-repeat;
@@ -8030,6 +8031,10 @@ button {
   width: 40px;
   height: 40px;
   line-height: 40px;
+}
+
+.find-order__item {
+  height: 200px;
 }
 
 .dota-status {

@@ -16,7 +16,7 @@ class StreamController extends Controller
     {
         //
         $streams = Stream::orderBy('updated_at', 'desc')->take(24)->get()->sortByDesc('viewers');
-        return view('streams.list', compact('streams'));
+        return view('streams.index', compact('streams'));
     }
 
     /**

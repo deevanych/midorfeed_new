@@ -1977,11 +1977,7 @@ __webpack_require__.r(__webpack_exports__);
       this.showForm = !this.showForm;
     },
     canCommenting: function canCommenting() {
-      if (this.authCheck() && this.comment.nesting_level < 3) {
-        return true;
-      }
-
-      return false;
+      return this.authCheck() && this.comment.nesting_level < 3;
     }
   },
   mounted: function mounted() {
@@ -3619,7 +3615,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[NAME].noConflict = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./node_modules/bootstrap/js/src/util.js");
 /**
  * --------------------------------------------------------------------------
@@ -3772,7 +3768,7 @@ class Dropdown {
        * Check for Popper dependency
        * Popper - https://popper.js.org
        */
-      if (typeof popper_js__WEBPACK_IMPORTED_MODULE_3__["default"] === 'undefined') {
+      if (typeof popper_js__WEBPACK_IMPORTED_MODULE_1__["default"] === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org/)')
       }
 
@@ -3795,7 +3791,7 @@ class Dropdown {
       if (this._config.boundary !== 'scrollParent') {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(parent).addClass(CLASS_NAME_POSITION_STATIC)
       }
-      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_3__["default"](referenceElement, this._menu, this._getPopperConfig())
+      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_1__["default"](referenceElement, this._menu, this._getPopperConfig())
     }
 
     // If this is a touch-enabled device we add extra
@@ -6074,7 +6070,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tools_sanitizer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tools/sanitizer */ "./node_modules/bootstrap/js/src/tools/sanitizer.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util */ "./node_modules/bootstrap/js/src/util.js");
 /**
  * --------------------------------------------------------------------------
@@ -6186,7 +6182,7 @@ const TRIGGER_MANUAL = 'manual'
 
 class Tooltip {
   constructor(element, config) {
-    if (typeof popper_js__WEBPACK_IMPORTED_MODULE_4__["default"] === 'undefined') {
+    if (typeof popper_js__WEBPACK_IMPORTED_MODULE_2__["default"] === 'undefined') {
       throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)')
     }
 
@@ -6356,7 +6352,7 @@ class Tooltip {
 
       jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.element).trigger(this.constructor.Event.INSERTED)
 
-      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_4__["default"](this.element, tip, this._getPopperConfig(attachment))
+      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_2__["default"](this.element, tip, this._getPopperConfig(attachment))
 
       jquery__WEBPACK_IMPORTED_MODULE_1___default()(tip).addClass(CLASS_NAME_SHOW)
 
@@ -62850,7 +62846,7 @@ var render = function() {
             on: {
               click: function($event) {
                 $event.preventDefault()
-                _vm.canCommenting ? _vm.activateReplyForm : ""
+                _vm.canCommenting() ? _vm.activateReplyForm() : ""
               }
             }
           },
@@ -62870,7 +62866,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm.canCommenting
+          _vm.canCommenting()
             ? _c(
                 "a",
                 {
@@ -108324,7 +108320,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     authCheck: function authCheck() {
-      return _store_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].getters.getAuthUser ? true : false;
+      return !!_store_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].getters.getAuthUser;
     }
   }
 });
@@ -108441,7 +108437,7 @@ $(document).ready(function () {
         options = {
       channel: channel
     },
-        player = new Twitch.Embed(container, options);
+        player = new Twitch.Player(container, options);
     player.setVolume(0.5);
   });
 });
