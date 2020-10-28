@@ -5,25 +5,44 @@
 @section('content')
     <x-page-title title="Поиск команды" description="Заявки на совместную игру"/>
     <div class="row">
-        <div class="col-7">
-            @foreach($orders as $order)
-                <div class="row">
-                    <div class="col">
-                        <div class="find-order__item">
-                            <div class="background fill blur"
-                                 style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></div>
-                            <div class="background-dark fill"></div>
-                            <div class="find-order__item-body">
-                                <div class="find-order__item-image"
-                                     style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></div>
-                                <div class="find-order__item-text">
-                                    <h2>{{ $order->user->personaname }}</h2>
-                                </div>
-                            </div>
-                        </div>
+        <div class="col-9">
+            <div class="row">
+                @foreach($orders as $order)
+                    <div class="col-4 mb-4">
+                        <a class="find-order__item" href="{{ route('teammates.show', $order->id) }}">
+                    <span class="find-order__item-image"
+                          style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></span>
+                            <span class="find-order__item-body">
+                            <h3>{{ $order->user->personaname }}</h3>
+                        <span class="find-order__item-meta">
+                            <span data-toggle="tooltip"
+                                  data-placement="bottom"
+                                  title="Количество просмотров"
+                                  data-original-title="Количество просмотров"><i
+                                    class="far fa-eye"></i> {{ $order->views }}</span>
+                        <span data-toggle="tooltip" data-placement="bottom" title="Комментарии"
+                              data-original-title="Комментарии"><i
+                                class="far fa-comment"></i> {{ $order->getCommentsCount() }}</span>
+                            <span data-toggle="tooltip" data-placement="bottom" title="Рейтинг"
+                                  data-original-title="Рейтинг">{{ $order->user->rating }}</span>
+                            </span>
+                                <span class="find-order__item-purposes">
+                                    @foreach($order->purposes as $purpose)
+                                        <span class="find-order__item-purpose" data-toggle="tooltip" data-placement="bottom" title="Цель"
+                                              data-original-title="Цель">
+                                            {{ $purpose->title }}
+                                        </span>
+                                    @endforeach
+                                </span>
+                        <span class="find-order__item-text">
+                            {{ $order->getText(200) }}
+                        </span>
+                    </span>
+                        </a>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
+    {{ $orders->links() }}
 @endsection

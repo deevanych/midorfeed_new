@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FindOrder;
+use App\Models\FindOrderPurpose;
 use Illuminate\Http\Request;
 
-class FindOrderController extends Controller
+class FindOrderPurposeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class FindOrderController extends Controller
     public function index()
     {
         //
-        $orders = FindOrder::latest()->paginate(15);
-        return view('teammates.index', compact('orders'));
     }
 
     /**
@@ -43,10 +41,10 @@ class FindOrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FindOrder  $findOrder
+     * @param  \App\Models\FindOrderPurpose  $findOrderPurpose
      * @return \Illuminate\Http\Response
      */
-    public function show(FindOrder $findOrder)
+    public function show(FindOrderPurpose $findOrderPurpose)
     {
         //
     }
@@ -54,10 +52,10 @@ class FindOrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FindOrder  $findOrder
+     * @param  \App\Models\FindOrderPurpose  $findOrderPurpose
      * @return \Illuminate\Http\Response
      */
-    public function edit(FindOrder $findOrder)
+    public function edit(FindOrderPurpose $findOrderPurpose)
     {
         //
     }
@@ -66,10 +64,10 @@ class FindOrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FindOrder  $findOrder
+     * @param  \App\Models\FindOrderPurpose  $findOrderPurpose
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FindOrder $findOrder)
+    public function update(Request $request, FindOrderPurpose $findOrderPurpose)
     {
         //
     }
@@ -77,10 +75,10 @@ class FindOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\FindOrder  $findOrder
+     * @param  \App\Models\FindOrderPurpose  $findOrderPurpose
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FindOrder $findOrder)
+    public function destroy(FindOrderPurpose $findOrderPurpose)
     {
         //
     }

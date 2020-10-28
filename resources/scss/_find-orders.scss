@@ -1,18 +1,26 @@
 .find-order__item {
     @extend .shadow, .rounded, .mb-5, .position-relative, .overflow-hidden;
+    overflow-wrap: break-word;
     height: 230px;
-    .background {
-        @extend .background-center;
-    }
     &-body {
-        @extend .p-4, .first-plan, .text-white, .d-flex;
+        @extend .d-flex, .text-dark, .flex-column, .small;
+        > * {
+            @extend .mb-2;
+        }
     }
     &-image {
-        @extend .background-center;
-        width: 50px;
-        height: 50px;
+        @extend .shadow, .background-center, .embed-responsive, .embed-responsive-1by1, .rounded, .mb-3;
     }
     &-text {
-        @extend .ml-3;
+        @extend .text-secondary;
+    }
+    &-meta {
+        @extend .d-flex;
+        > * {
+            @extend .mr-3;
+        }
+    }
+    &-purpose {
+        @extend .mr-2, .font-weight-bold;
     }
 }

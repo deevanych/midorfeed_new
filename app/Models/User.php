@@ -36,6 +36,7 @@ class User extends Authenticatable
     protected $appends = [
         'avatar_url',
         'link',
+        'rating'
     ];
 
     /**
@@ -48,7 +49,7 @@ class User extends Authenticatable
     ];
 
     public function profile() {
-        return $this->hasOne('App\Models\Profile');
+        return $this->hasOne('App\Models\UserProfile');
     }
 
     public function getAvatarUrlAttribute() {
@@ -57,5 +58,14 @@ class User extends Authenticatable
 
     public function getLinkAttribute() {
         return route('users.show', $this->id);
+    }
+
+    public function getRatingAttribute() {
+        $rating = $this->profile->season_rank;
+        $ranks = array("Калибровка", "Рекрут", "Страж", "Рыцарь", "Герой", "Легенда", "Властелин", "Божество", "Титан");
+        $stars = array("", "I", "II", "III", "IV", "V", "VI", "VII");
+        $star = $rating%10;
+        $medal = intdiv($rating, 10);
+        return $ranks[$medal].' '.$stars[$star];
     }
 }

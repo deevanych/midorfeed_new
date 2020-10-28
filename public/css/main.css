@@ -7964,7 +7964,6 @@ a[href="#"] {
 .articles-grid .articles--item.background > div,
 .articles-grid .articles--item_image,
 .find-order__item-image,
-.find-order__item .background,
 .stream__item .stream__image {
   background-size: cover;
   background-repeat: no-repeat;
@@ -7993,8 +7992,7 @@ a[href="#"] {
   bottom: 0;
 }
 
-.first-plan,
-.find-order__item-body {
+.first-plan {
   z-index: 1;
 }
 
@@ -8051,12 +8049,8 @@ button {
 }
 
 .find-order__item {
+  overflow-wrap: break-word;
   height: 230px;
-}
-
-.find-order__item-image {
-  width: 50px;
-  height: 50px;
 }
 
 .dota-status {
@@ -14562,6 +14556,7 @@ small,
 .stream__item .stream--name,
 .stream__item .stream--title,
 .stream__item .stream--viewers,
+.find-order__item-body,
 .comment__add-form--error,
 .comments__item-action,
 .main-news .row .news-content .news-description,
@@ -21246,6 +21241,7 @@ button.bg-dark:focus {
 .twitch-stream .twitch-player,
 .stream__item .stream__image,
 .find-order__item,
+.find-order__item-image,
 .comment__text-input,
 .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
@@ -21351,6 +21347,7 @@ header.row .info-block,
 .home--section .section--title,
 .stream__item .stream--name,
 .find-order__item-body,
+.find-order__item-meta,
 .tags,
 .comments__item,
 .comments__item-action,
@@ -21579,7 +21576,8 @@ header.articles-grid .info-block,
 }
 
 .embed-responsive,
-.twitch-stream .twitch-player {
+.twitch-stream .twitch-player,
+.find-order__item-image {
   position: relative;
   display: block;
   width: 100%;
@@ -21588,21 +21586,27 @@ header.articles-grid .info-block,
 }
 
 .embed-responsive::before,
-.twitch-stream .twitch-player::before {
+.twitch-stream .twitch-player::before,
+.find-order__item-image::before {
   display: block;
   content: "";
 }
 
 .embed-responsive .embed-responsive-item,
 .twitch-stream .twitch-player .embed-responsive-item,
+.find-order__item-image .embed-responsive-item,
 .embed-responsive iframe,
 .twitch-stream .twitch-player iframe,
+.find-order__item-image iframe,
 .embed-responsive embed,
 .twitch-stream .twitch-player embed,
+.find-order__item-image embed,
 .embed-responsive object,
 .twitch-stream .twitch-player object,
+.find-order__item-image object,
 .embed-responsive video,
-.twitch-stream .twitch-player video {
+.twitch-stream .twitch-player video,
+.find-order__item-image video {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -21625,7 +21629,8 @@ header.articles-grid .info-block,
   padding-top: 75%;
 }
 
-.embed-responsive-1by1::before {
+.embed-responsive-1by1::before,
+.find-order__item-image::before {
   padding-top: 100%;
 }
 
@@ -21641,6 +21646,7 @@ header.articles-grid .info-block,
 }
 
 .flex-column,
+.find-order__item-body,
 .articles-grid .articles--item,
 .articles-grid .articles--item.background > div .background-dark,
 .articles-grid .articles--item.background > div .main-news .row,
@@ -22481,7 +22487,6 @@ header.articles-grid nav,
 .background.fill,
 .first-plan,
 .stream__item .stream--viewers,
-.find-order__item-body,
 .main-news .fill.row,
 .main-news .fill.articles-grid,
 .slick-dots,
@@ -22553,6 +22558,7 @@ header.articles-grid nav,
 .twitch-stream .twitch-player,
 .pagination .page-item,
 .find-order__item,
+.find-order__item-image,
 .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
 .articles-grid .articles--item.background > div,
@@ -22569,6 +22575,7 @@ header.articles-grid nav,
 .twitch-stream .twitch-player:hover,
 .pagination .page-item:hover,
 .find-order__item:hover,
+.find-order__item-image:hover,
 .comments__item-author-avatar img:hover,
 .articles-grid .articles--item_image:hover,
 .articles-grid .articles--item.background > div:hover,
@@ -22746,6 +22753,7 @@ header.articles-grid .profile-link img,
 .mr-2,
 .stream__item .stream--name:before,
 .login--button i,
+.find-order__item-purpose,
 .main-news .row .news-content .news-info .news-author:before,
 .main-news .articles-grid .news-content .news-info .news-author:before,
 [data-site="dota2.ru"]:before,
@@ -22757,6 +22765,7 @@ header.articles-grid nav a {
 
 .mb-2,
 .stream__item > *,
+.find-order__item-body > *,
 .comment__text-input,
 .my-2 {
   margin-bottom: 0.5rem !important;
@@ -22782,6 +22791,7 @@ header.articles-grid nav a {
 }
 
 .mr-3,
+.find-order__item-meta > *,
 .comments__item-author-avatar,
 .news-tweet__avatar-link,
 .mx-3 {
@@ -22790,6 +22800,7 @@ header.articles-grid nav a {
 
 .mb-3,
 .stream__item .stream__image,
+.find-order__item-image,
 .comment__add-form--error,
 .articles-grid .articles--item > *,
 .articles-grid .articles--item.background > div .background-dark > *,
@@ -22806,7 +22817,6 @@ header.articles-grid nav a {
 }
 
 .ml-3,
-.find-order__item-text,
 .comments__item-reply,
 .mx-3 {
   margin-left: 1rem !important;
@@ -23002,7 +23012,6 @@ header.articles-grid nav a {
 }
 
 .p-4,
-.find-order__item-body,
 .news-tweet,
 .person-quote {
   padding: 1.5rem !important;
@@ -25076,6 +25085,7 @@ header.row .logo,
 header.row .info-block .game-version,
 .stream__item .stream--name,
 .login--button,
+.find-order__item-purpose,
 .dota-status,
 header.articles-grid .logo,
 header.articles-grid .info-block .game-version {
@@ -25093,7 +25103,6 @@ header.articles-grid .info-block .game-version {
 
 .text-white,
 .stream__item .stream--viewers,
-.find-order__item-body,
 .articles-grid .articles--item.background > div .background-dark,
 .articles-grid .articles--item.background > div .background-dark > *,
 .main-news a,
@@ -25118,15 +25127,18 @@ a.text-primary:focus {
 }
 
 .text-secondary,
+.find-order__item-text,
 .comments__item-create_time,
 .page-header .page-description {
   color: #6c757d !important;
 }
 
 a.text-secondary:hover,
+a.find-order__item-text:hover,
 a.comments__item-create_time:hover,
 .page-header a.page-description:hover,
 a.text-secondary:focus,
+a.find-order__item-text:focus,
 a.comments__item-create_time:focus,
 .page-header a.page-description:focus {
   color: #494f54 !important;
@@ -25191,6 +25203,7 @@ a.text-light:focus {
 
 .text-dark,
 .login--button,
+.find-order__item-body,
 .articles-grid .articles--item_description,
 .articles-grid .articles--item_author {
   color: #343a40 !important;
@@ -25198,10 +25211,12 @@ a.text-light:focus {
 
 a.text-dark:hover,
 a.login--button:hover,
+a.find-order__item-body:hover,
 .articles-grid a.articles--item_description:hover,
 .articles-grid a.articles--item_author:hover,
 a.text-dark:focus,
 a.login--button:focus,
+a.find-order__item-body:focus,
 .articles-grid a.articles--item_description:focus,
 .articles-grid a.articles--item_author:focus {
   color: #121416 !important;

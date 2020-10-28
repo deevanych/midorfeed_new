@@ -13,12 +13,12 @@ class CreateFindOrderPurposeTable extends Migration
      */
     public function up()
     {
-        Schema::create('find_team_order_purpose', function (Blueprint $table) {
+        Schema::create('find_order_find_order_purpose', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('find_order_id')->unsigned();
             $table->foreign('find_order_id')->references('id')->on('find_team_orders');
-            $table->bigInteger('purpose_id')->unsigned();
-            $table->foreign('purpose_id')->references('id')->on('purposes');
+            $table->bigInteger('find_order_purpose_id')->unsigned();
+            $table->foreign('find_order_purpose_id')->references('id')->on('find_order_purposes');
         });
     }
 

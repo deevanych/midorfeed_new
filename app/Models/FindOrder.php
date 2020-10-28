@@ -13,9 +13,24 @@ class FindOrder extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-//    public function purposes() {
-//        return $this->belongsToMany('App\Purpose');
-//    }
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
+    }
+
+    public function getText($length) {
+        $over = " ...";
+        return (!is_null($length) && strlen($this->text) > ($length - strlen($over)) ? mb_substr($this->text, 0, $length - strlen($over)).$over : $this->text);
+    }
+
+    public function getCommentsCount()
+    {
+        return $this->morphMany('App\Models\Comment', 'model')->count();
+    }
+
+    public function purposes() {
+        return $this->belongsToMany('App\Models\FindOrderPurpose');
+    }
 //
 //    public function prime() {
 //        if ($this->prime_from == $this->prime_to) {
@@ -24,11 +39,4 @@ class FindOrder extends Model
 //        return $this->prime_from.':00 - '.$this->prime_to.':00';
 //    }
 //
-//    public function formatPurposes() {
-//        $purposes = '';
-//        foreach ($this->purposes as $purpose) {
-//            $purposes .= '<span class=\'tag\'>'.$purpose->title.'</span>';
-//        }
-//        return $purposes;
-//    }
 }
