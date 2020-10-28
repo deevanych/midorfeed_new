@@ -7963,7 +7963,8 @@ a[href="#"] {
 .main-news,
 .articles-grid .articles--item.background > div,
 .articles-grid .articles--item_image,
-.find-order__item,
+.find-order__item-image,
+.find-order__item .background,
 .stream__item .stream__image {
   background-size: cover;
   background-repeat: no-repeat;
@@ -7983,6 +7984,22 @@ a[href="#"] {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.background.fill {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.first-plan,
+.find-order__item-body {
+  z-index: 1;
+}
+
+.blur {
+  filter: blur(15px);
 }
 
 header.row .logo,
@@ -8034,7 +8051,12 @@ button {
 }
 
 .find-order__item {
-  height: 200px;
+  height: 230px;
+}
+
+.find-order__item-image {
+  width: 50px;
+  height: 50px;
 }
 
 .dota-status {
@@ -21223,6 +21245,7 @@ button.bg-dark:focus {
 .rounded,
 .twitch-stream .twitch-player,
 .stream__item .stream__image,
+.find-order__item,
 .comment__text-input,
 .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
@@ -21327,6 +21350,7 @@ header.row nav,
 header.row .info-block,
 .home--section .section--title,
 .stream__item .stream--name,
+.find-order__item-body,
 .tags,
 .comments__item,
 .comments__item-action,
@@ -22430,6 +22454,7 @@ header.articles-grid nav,
 .twitch-stream .twitch-player,
 .stream__item .stream__image,
 .pagination .page-item,
+.find-order__item,
 .articles-grid .articles--item.background > div,
 .main-news,
 .news-show__item .news-image,
@@ -22446,13 +22471,17 @@ header.articles-grid nav,
 .position-relative,
 .stream__item,
 .stream__item .stream__image,
+.find-order__item,
 .articles-grid .articles--item.background > div {
   position: relative !important;
 }
 
 .position-absolute,
 .background-dark.fill,
+.background.fill,
+.first-plan,
 .stream__item .stream--viewers,
+.find-order__item-body,
 .main-news .fill.row,
 .main-news .fill.articles-grid,
 .slick-dots,
@@ -22523,6 +22552,7 @@ header.articles-grid nav,
 .shadow,
 .twitch-stream .twitch-player,
 .pagination .page-item,
+.find-order__item,
 .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
 .articles-grid .articles--item.background > div,
@@ -22538,6 +22568,7 @@ header.articles-grid nav,
 .shadow:hover,
 .twitch-stream .twitch-player:hover,
 .pagination .page-item:hover,
+.find-order__item:hover,
 .comments__item-author-avatar img:hover,
 .articles-grid .articles--item_image:hover,
 .articles-grid .articles--item.background > div:hover,
@@ -22775,6 +22806,7 @@ header.articles-grid nav a {
 }
 
 .ml-3,
+.find-order__item-text,
 .comments__item-reply,
 .mx-3 {
   margin-left: 1rem !important;
@@ -22837,6 +22869,7 @@ header.articles-grid nav a {
 }
 
 .mb-5,
+.find-order__item,
 .news-show__item > *,
 .news-show__item .news-text > p,
 .my-5 {
@@ -22969,6 +23002,7 @@ header.articles-grid nav a {
 }
 
 .p-4,
+.find-order__item-body,
 .news-tweet,
 .person-quote {
   padding: 1.5rem !important;
@@ -25059,6 +25093,7 @@ header.articles-grid .info-block .game-version {
 
 .text-white,
 .stream__item .stream--viewers,
+.find-order__item-body,
 .articles-grid .articles--item.background > div .background-dark,
 .articles-grid .articles--item.background > div .background-dark > *,
 .main-news a,

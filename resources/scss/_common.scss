@@ -12,8 +12,17 @@
   background-position: center;
 }
 
-.background-dark {
-    background: rgba(#000000, .4);
+.background {
+    &-dark {
+        background: rgba(#000000, .4);
+        &.fill {
+            @extend .position-absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
     &.fill {
         @extend .position-absolute;
         top: 0;
@@ -21,4 +30,13 @@
         right: 0;
         bottom: 0;
     }
+}
+
+.first-plan {
+    @extend .position-absolute;
+    z-index: 1;
+}
+
+.blur {
+    filter: blur(15px);
 }
