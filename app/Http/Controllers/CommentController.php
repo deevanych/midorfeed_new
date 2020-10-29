@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\FindOrder;
 use App\Models\News;
 use App\Models\Stream;
 use Illuminate\Http\Request;
@@ -29,6 +30,9 @@ class CommentController extends Controller
         switch ($modelType) {
             case 'streams':
                 $model = Stream::whereName($modelSlug);
+                break;
+            case 'teammates':
+                $model = FindOrder::whereId($modelSlug);
                 break;
             default:
                 $model = News::whereSlug($modelSlug);
@@ -64,6 +68,9 @@ class CommentController extends Controller
         switch ($modelType) {
             case 'streams':
                 $model = Stream::whereName($modelSlug);
+                break;
+            case 'teammates':
+                $model = FindOrder::whereId($modelSlug);
                 break;
             default:
                 $model = News::whereSlug($modelSlug);

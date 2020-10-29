@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FindOrder;
+use App\Models\GameRole;
 use Illuminate\Http\Request;
 
-class FindOrderController extends Controller
+class GameRoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class FindOrderController extends Controller
     public function index()
     {
         //
-        $orders = FindOrder::latest()->paginate(15);
-        return view('teammates.index', compact('orders'));
     }
 
     /**
@@ -43,23 +41,21 @@ class FindOrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FindOrder  $order
+     * @param  \App\Models\GameRole  $gameRole
      * @return \Illuminate\Http\Response
      */
-    public function show(FindOrder $teammate)
+    public function show(GameRole $gameRole)
     {
         //
-        $order = $teammate;
-        return view('teammates.show', compact('order'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FindOrder  $findOrder
+     * @param  \App\Models\GameRole  $gameRole
      * @return \Illuminate\Http\Response
      */
-    public function edit(FindOrder $findOrder)
+    public function edit(GameRole $gameRole)
     {
         //
     }
@@ -68,10 +64,10 @@ class FindOrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FindOrder  $findOrder
+     * @param  \App\Models\GameRole  $gameRole
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FindOrder $findOrder)
+    public function update(Request $request, GameRole $gameRole)
     {
         //
     }
@@ -79,10 +75,10 @@ class FindOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\FindOrder  $findOrder
+     * @param  \App\Models\GameRole  $gameRole
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FindOrder $findOrder)
+    public function destroy(GameRole $gameRole)
     {
         //
     }

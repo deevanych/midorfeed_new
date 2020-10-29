@@ -52,6 +52,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\UserProfile');
     }
 
+    public function roles() {
+        return $this->belongsToMany('App\Models\GameRole');
+    }
+
     public function getAvatarUrlAttribute() {
         return asset(Storage::url('avatars/'.$this->steamid.'.jpg'));
     }

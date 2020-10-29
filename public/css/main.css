@@ -8050,7 +8050,6 @@ button {
 
 .find-order__item {
   overflow-wrap: break-word;
-  height: 230px;
 }
 
 .dota-status {
@@ -22557,7 +22556,6 @@ header.articles-grid nav,
 .shadow,
 .twitch-stream .twitch-player,
 .pagination .page-item,
-.find-order__item,
 .find-order__item-image,
 .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
@@ -22574,7 +22572,6 @@ header.articles-grid nav,
 .shadow:hover,
 .twitch-stream .twitch-player:hover,
 .pagination .page-item:hover,
-.find-order__item:hover,
 .find-order__item-image:hover,
 .comments__item-author-avatar img:hover,
 .articles-grid .articles--item_image:hover,

@@ -1,18 +1,18 @@
 @extends('layouts.main')
 
-@section('title', 'Поиск игроков')
+@section('title', 'Заявка '.$order->user->personaname)
 
 @section('content')
-    <x-page-title title="Поиск команды" description="Заявки на совместную игру"/>
+    <x-page-title title="Заявка {{ $order->user->personaname }}" description="Заявки на совместную игру"/>
     <div class="row">
         <div class="col-9">
-            <div class="row">
-                @foreach($orders as $order)
-                    <div class="col-4 mb-4">
-                        <a class="find-order__item" href="{{ route('teammates.show', $order->id) }}">
+            <div class="find-order__item row">
+                <div class="col-4">
                     <span class="find-order__item-image"
                           style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></span>
-                            <span class="find-order__item-body">
+                </div>
+                <div class="col-8">
+                <span class="find-order__item-body">
                             <h3>{{ $order->user->personaname }}</h3>
                         <span class="find-order__item-meta">
                             <span data-toggle="tooltip"
@@ -45,16 +45,26 @@
                                         </span>
                                     @endforeach
                                 </span>
+
+                                <span class="find-order__item-purposes">
+                                    <span class="find-order__item-purpose" data-toggle="tooltip"
+                                          data-placement="bottom" title="Время игры"
+                                          data-original-title="Время игры">
+                                    {{ $order->getPrime() }}
+                                    </span>
+                                </span>
                         <span class="find-order__item-text">
-                            {{ $order->getText(200) }}
+                            {{ $order->getText() }}
                         </span>
-                                <span>Обновлено {{ $order->getTranslatedDate() }}</span>
+                        <span>Обновлено {{ $order->getTranslatedDate() }}</span>
                     </span>
-                        </a>
-                    </div>
-                @endforeach
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <comments/>
+                </div>
             </div>
         </div>
     </div>
-    {{ $orders->links() }}
 @endsection

@@ -1,7 +1,6 @@
 .find-order__item {
-    @extend .shadow, .rounded, .mb-5, .position-relative, .overflow-hidden;
+    @extend .rounded, .mb-5, .position-relative, .overflow-hidden;
     overflow-wrap: break-word;
-    height: 230px;
     &-body {
         @extend .d-flex, .text-dark, .flex-column, .small;
         > * {

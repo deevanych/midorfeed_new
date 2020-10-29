@@ -5,7 +5,7 @@ $(document).ready(function () {
             options = {
                 channel: channel,
             },
-            player = new Twitch.Player(container, options);
+            player = new Twitch.Embed(container, options);
         player.setVolume(0.5);
     });
 });
