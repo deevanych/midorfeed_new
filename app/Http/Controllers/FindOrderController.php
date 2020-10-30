@@ -49,6 +49,7 @@ class FindOrderController extends Controller
     public function show(FindOrder $teammate)
     {
         //
+        $teammate->increment('views');
         $order = $teammate;
         return view('teammates.show', compact('order'));
     }

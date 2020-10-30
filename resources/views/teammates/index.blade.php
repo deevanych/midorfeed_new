@@ -9,7 +9,7 @@
             <div class="row">
                 @foreach($orders as $order)
                     <div class="col-4 mb-4">
-                        <a class="find-order__item" href="{{ route('teammates.show', $order->id) }}">
+                        <a class="find-order__item text-dark" href="{{ route('teammates.show', $order->id) }}">
                     <span class="find-order__item-image"
                           style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></span>
                             <span class="find-order__item-body">

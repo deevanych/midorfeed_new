@@ -12,4 +12,8 @@ a {
     &[href='#'] {
         text-decoration-style: dashed !important;
     }
+
+    &.vs-button:not(.vs-button--dark) {
+        @extend .text-white;
+    }
 }

@@ -49,4 +49,9 @@ class FindOrder extends Model
         }
         return $this->prime_from.':00 - '.$this->prime_to.':00';
     }
+
+    public function getNextOrder() {
+        $order = FindOrder::where('id', '<', $this->id)->orderBy('created_at', 'desc')->first();
+        return $order;
+    }
 }

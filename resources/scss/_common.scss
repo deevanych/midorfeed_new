@@ -12,6 +12,10 @@
   background-position: center;
 }
 
+.border {
+    border: 1px solid #eee;
+}
+
 .background {
     &-dark {
         background: rgba(#000000, .4);

@@ -2,13 +2,13 @@
     @extend .rounded, .mb-5, .position-relative, .overflow-hidden;
     overflow-wrap: break-word;
     &-body {
-        @extend .d-flex, .text-dark, .flex-column, .small;
+        @extend .d-flex, .flex-column, .small;
         > * {
             @extend .mb-2;
         }
     }
     &-image {
-        @extend .shadow, .background-center, .embed-responsive, .embed-responsive-1by1, .rounded, .mb-3;
+        @extend .border, .background-center, .embed-responsive, .embed-responsive-1by1, .rounded, .mb-3;
     }
     &-text {
         @extend .text-secondary;
