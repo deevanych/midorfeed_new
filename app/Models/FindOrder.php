@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Commentable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,25 +12,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class FindOrder extends Model
 {
-    use HasFactory;
+    use HasFactory, Commentable;
 
     public function user() {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function comments()
-    {
-        return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
-    }
-
     public function getText($length = null) {
         $over = " ...";
         return (!is_null($length) && strlen($this->text) > ($length - strlen($over)) ? mb_substr($this->text, 0, $length - strlen($over)).$over : $this->text);
-    }
-
-    public function getCommentsCount()
-    {
-        return $this->morphMany('App\Models\Comment', 'model')->count();
     }
 
     public function purposes() {

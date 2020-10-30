@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Commentable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -12,19 +13,9 @@ use Illuminate\Support\Facades\Storage;
  */
 class Stream extends Model
 {
-    use HasFactory;
+    use HasFactory, Commentable;
 
     protected $guarded = [];
-
-    public function comments()
-    {
-        return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
-    }
-
-    public function getCommentsCount()
-    {
-        return $this->morphMany('App\Models\Comment', 'model')->count();
-    }
 
     public function getLink() {
         return route('streams.show', $this->name);

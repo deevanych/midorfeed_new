@@ -8,8 +8,8 @@
         <div class="col-9">
             <div class="find-order__item row">
                 <div class="col-4 pb-4">
-                    <span class="find-order__item-image"
-                          style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></span>
+                    <a href="{{ route('users.show', $order->user->id) }}" class="find-order__item-image"
+                          style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></a>
                     <a href="{{ route('users.show', $order->user->id) }}"
                        class="vs-button vs-button--null vs-button--size-large vs-button--circle vs-button--primary vs-button--default">
                         <div class="vs-button__content">Перейти в профиль</div>

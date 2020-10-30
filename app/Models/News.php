@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Commentable;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,21 +23,11 @@ use Illuminate\Support\Facades\Storage;
  */
 class News extends Model
 {
-    use HasFactory;
+    use HasFactory, Commentable;
 
     public function tags()
     {
         return $this->belongsToMany('App\Models\Tags');
-    }
-
-    public function comments()
-    {
-        return $this->morphMany('App\Models\Comment', 'model')->whereDoesntHave('parentComment');
-    }
-
-    public function getCommentsCount()
-    {
-        return $this->morphMany('App\Models\Comment', 'model')->count();
     }
 
     public function site()
