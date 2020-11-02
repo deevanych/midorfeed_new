@@ -32,10 +32,10 @@ class Comment extends Model
         'model_type',
     ];
 
-    protected $appends = [
-        'rating_value',
-        'given_rating'
-    ];
+//    protected $appends = [
+//        'rating_value',
+//        'given_rating'
+//    ];
 
     public function author()
     {

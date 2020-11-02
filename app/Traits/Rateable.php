@@ -6,20 +6,18 @@ use Illuminate\Support\Facades\Auth;
 
 trait Rateable {
 
+    protected function getArrayableAppends()
+    {
+        $this->appends = array_unique(array_merge($this->appends, ['rating_value', 'given_rating']));
+        return parent::getArrayableAppends();
+    }
+
     public function rating() {
         return $this->morphMany('App\Models\Rating', 'model');
     }
 
-    public function getPositiveRating() {
-        return $this->morphMany('App\Models\Rating', 'model')->whereType(Rating::POSITIVE);
-    }
-
-    public function getNegativeRating() {
-        return $this->morphMany('App\Models\Rating', 'model')->whereType(Rating::NEGATIVE);
-    }
-
     public function getRatingValueAttribute() {
-        return $this->getPositiveRating()->count() - $this->getNegativeRating()->count();
+        return $this->morphMany('App\Models\Rating', 'model')->sum('type');
     }
 
     public function getGivenRating() {

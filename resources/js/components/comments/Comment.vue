@@ -12,7 +12,10 @@
                     {{ comment.text }}
                 </div>
                 <div class="comments__item-action">
-                    <div class="comments__item-create_time">
+                    <div class="comments__item-create_time" data-toggle="tooltip"
+                         data-placement="bottom"
+                         :title="date_created_at"
+                         :data-original-title="date_created_at">
                         {{ created_at }}
                     </div>
                     <a href="#" v-if="canCommenting()" class="comments__item-reply"
@@ -77,10 +80,10 @@ export default {
         canCommenting() {
             return (this.authCheck() && this.comment.nesting_level < 3);
         },
-        givenRating(type = 0) {
+        givenRating(type = -1) {
             return (this.given_rating !== null && type === this.given_rating.type ? 'rated' : '');
         },
-        changeRating(type = 0) {
+        changeRating(type = -1) {
             let self = this;
             bus.$emit('showLoading');
             if (this.authCheck()) {
@@ -97,6 +100,7 @@ export default {
                     bus.$emit('hideLoading');
                 });
             } else {
+                bus.$emit('hideLoading');
                 this.$vs.notification({
                     border: 'danger',
                     position: 'top-right',
@@ -115,12 +119,18 @@ export default {
         setInterval(function () {
             self.now = moment();
         }, 10000);
+        $('[data-toggle="tooltip"]').tooltip();
     },
     computed: {
         created_at() {
             let self = this,
                 created_at = moment(self.comment.created_at);
             return moment.duration(created_at.diff(self.now)).humanize(true);
+        },
+        date_created_at() {
+            let self = this,
+                created_at = moment(self.comment.created_at);
+            return created_at.format('Do MMMM YYYY, HH:mm:ss');
         },
         ratingColor() {
             if (this.rating_value > 0) {

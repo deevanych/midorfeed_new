@@ -41,33 +41,36 @@ class RatingController extends Controller
     public function store(Request $request, $modelType, $modelSlug)
     {
         //
+        $user_id = 0;
         switch ($modelType) {
             case 'streams':
-                $model = Stream::whereName($modelSlug);
+                $model = Stream::whereName($modelSlug)->first();
                 break;
             case 'comments':
-                $model = Comment::whereId($modelSlug);
+                $model = Comment::whereId($modelSlug)->first();
+                $user_id = $model->user_id;
                 break;
             case 'teammates':
-                $model = FindOrder::whereId($modelSlug);
+                $model = FindOrder::whereId($modelSlug)->first();
                 break;
             default:
-                $model = News::whereSlug($modelSlug);
+                $model = News::whereSlug($modelSlug)->first();
                 break;
         }
-        $model = $model->first();
         $givenRating = $model->rating->where('user_id', Auth::id())->first();
         if (empty($givenRating)) {
             $rating = new Rating();
             $rating->type = $request->type;
-            $rating->user_id = Auth::id();
+            $rating->author_id = Auth::id();
+            $rating->user_id = $user_id;
             $model->rating()->save($rating);
         } else {
             $givenRating->delete();
             if ($givenRating->type !== $request->type) {
                 $rating = new Rating();
                 $rating->type = $request->type;
-                $rating->user_id = Auth::id();
+                $rating->author_id = Auth::id();
+                $rating->user_id = $user_id;
                 $model->rating()->save($rating);
             }
         }
