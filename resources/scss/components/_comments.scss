@@ -4,41 +4,80 @@
     min-height: 100px;
     resize: none;
 }
+
 .comment__add-form--error {
     @extend .small, .text-danger, .mb-3, .d-block;
 }
 
-.comments__item {
-    @extend .d-flex, .mb-4, .w-100, .align-items-start;
-    &:last-child {
-        @extend .mb-0;
-    }
-    &-author-avatar {
-        @extend .mr-3;
-        img {
-            @extend .rounded, .shadow;
-            width: 50px;
-            height: 50px;
+.comments {
+    @extend .position-relative;
+
+    .comments__item {
+        @extend .d-flex, .mb-4, .w-100, .align-items-start;
+
+        &:last-child {
+            @extend .mb-0;
         }
-    }
-    &-body {
-        @extend .w-100;
-        cursor: pointer;
-    }
-    &-text {
-        overflow-wrap: anywhere;
-    }
-    &-action {
-        @extend .small, .mt-1, .d-flex;
-    }
-    &-create_time {
-        @extend .text-secondary;
-    }
-    &-reply {
-        @extend .ml-3;
-    }
-    &-children--comments {
-        @extend .pl-3, .mt-4;
-        border-left: 1px solid #eee;
+
+        &-author-avatar {
+            @extend .mr-3;
+
+            img {
+                @extend .rounded, .shadow;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        &-body {
+            @extend .w-100;
+            cursor: pointer;
+        }
+
+        &-text {
+            overflow-wrap: anywhere;
+        }
+
+        &-action {
+            @extend .small, .mt-1, .d-flex;
+        }
+
+        &-create_time {
+            @extend .text-secondary;
+        }
+
+        &-reply {
+            @extend .ml-3;
+        }
+
+        &-rating {
+            @extend .flex-grow-1, .d-flex, .align-items-center, .justify-content-end;
+
+            > * {
+                @extend .ml-2;
+                transition: .3s;
+            }
+
+            .fa-thumbs-down {
+                &:hover, &.rated {
+                    &:before {
+                        @extend .text-danger;
+                    }
+                }
+            }
+
+            .fa-thumbs-up {
+                &:hover, &.rated {
+                    &:before {
+                        @extend .text-success;
+                    }
+                }
+            }
+        }
+
+        &-children--comments {
+            @extend .pl-3, .mt-4;
+            border-left: 1px solid #eee;
+        }
     }
 }

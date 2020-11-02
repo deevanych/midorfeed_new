@@ -17,6 +17,11 @@
                     </div>
                     <a href="#" v-if="canCommenting()" class="comments__item-reply"
                        @click.prevent="activateReplyForm">ответить</a>
+                    <div class="comments__item-rating">
+                        <i class="far fa-thumbs-down" :class="givenRating()" @click="changeRating()"></i>
+                        <span :class="ratingColor">{{ rating_value }}</span>
+                        <i class="far fa-thumbs-up" :class="givenRating(1)" @click="changeRating(1)"></i>
+                    </div>
                 </div>
             </div>
             <div class="comments__item-children--comments" v-if="comment.comments.length !== 0">
@@ -35,6 +40,8 @@ import moment from 'moment';
 import Comment from "./Comment";
 import CommentForm from './CommentForm';
 import auth from "../../helpers/auth.js";
+import {bus} from '../../bus.js';
+import axios from "axios";
 
 export default {
     name: "Comment",
@@ -53,10 +60,14 @@ export default {
         return {
             now: moment(),
             showForm: false,
+            rating_value: 0,
+            given_rating: null
         }
     },
     beforeMount() {
         moment.locale('ru');
+        this.rating_value = this.comment.rating_value;
+        this.given_rating = this.comment.given_rating;
     },
     methods: {
         activateReplyForm() {
@@ -65,6 +76,38 @@ export default {
         },
         canCommenting() {
             return (this.authCheck() && this.comment.nesting_level < 3);
+        },
+        givenRating(type = 0) {
+            return (this.given_rating !== null && type === this.given_rating.type ? 'rated' : '');
+        },
+        changeRating(type = 0) {
+            let self = this;
+            bus.$emit('showLoading');
+            if (this.authCheck()) {
+                axios.post(`/comments/${this.comment.id}/rating`, {
+                    type: type,
+                }).then(response => {
+                    self.rating_value = response.data.rating_value;
+                    self.given_rating = response.data.given_rating;
+                    this.$vs.notification({
+                        border: 'success',
+                        position: 'top-right',
+                        title: 'Ваш голос учтен',
+                    });
+                    bus.$emit('hideLoading');
+                });
+            } else {
+                this.$vs.notification({
+                    border: 'danger',
+                    position: 'top-right',
+                    title: 'Войдите на сайт',
+                    text: 'Чтобы оценивать записи нужно войти в свой аккаунт.' +
+                        '<br/>' +
+                        '<a href="/login" class="login--button mt-3 d-inline-flex">\n' +
+                        '<i class="fab fa-steam"></i>войти\n' +
+                        '</a>'
+                });
+            }
         }
     },
     mounted() {
@@ -78,6 +121,14 @@ export default {
             let self = this,
                 created_at = moment(self.comment.created_at);
             return moment.duration(created_at.diff(self.now)).humanize(true);
+        },
+        ratingColor() {
+            if (this.rating_value > 0) {
+                return 'text-success';
+            } else if (this.rating_value < 0) {
+                return 'text-danger';
+            }
+            return '';
         },
     },
 

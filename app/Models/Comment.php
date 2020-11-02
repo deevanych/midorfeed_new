@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Rateable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,16 +13,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property String text
  * @property Integer parent_id
  * @property Integer nesting_level
+ * @method static whereId($modelSlug)
  */
 class Comment extends Model
 {
-    use HasFactory;
+    use HasFactory, Rateable;
 
     protected $guarded = [];
 
     protected $with = [
         'author',
-        'comments'
+        'comments',
     ];
 
     protected $hidden = [
@@ -30,15 +32,23 @@ class Comment extends Model
         'model_type',
     ];
 
-    public function author() {
+    protected $appends = [
+        'rating_value',
+        'given_rating'
+    ];
+
+    public function author()
+    {
         return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany('App\Models\Comment', 'parent_id');
     }
 
-    public function parentComment() {
+    public function parentComment()
+    {
         return $this->belongsTo('App\Models\Comment', 'parent_id');
     }
 }

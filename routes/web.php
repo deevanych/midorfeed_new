@@ -5,6 +5,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FindOrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\StreamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,4 @@ Route::resource('teammates', FindOrderController::class);
 Route::resource('streams', StreamController::class)->scoped([
     'stream' => 'name',
 ]);
+Route::resource('{type}/{slug}/rating', RatingController::class);
