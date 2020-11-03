@@ -66,7 +66,7 @@ class AuthController extends Controller
                 $user = $this->findOrNewUser($info);
                 Auth::login($user, true);
 
-                return redirect($this->redirectURL); // redirect to site
+                return redirect(session('prev')); // redirect to site
             }
         }
         return $this->redirectToSteam();
