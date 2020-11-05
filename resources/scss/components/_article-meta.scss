@@ -1,0 +1,8 @@
+.articles--item_meta {
+    @extend .d-flex, .justify-content-between;
+    > * {
+        > i {
+            @extend .mr-1;
+        }
+    }
+}

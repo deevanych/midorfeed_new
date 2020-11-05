@@ -30,12 +30,8 @@
 
             .news-info {
                 @extend .d-flex, .align-items-center, .mt-1, .mb-3;
-
                 > * {
                     @extend .mr-4;
-                    > i {
-                        @extend .mr-1;
-                    }
                 }
 
                 .news-author {

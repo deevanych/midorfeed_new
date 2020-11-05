@@ -12,17 +12,12 @@
                         title="{{ $mainArticle->getTranslatedDate() }}"
                         data-original-title="{{ $mainArticle->getTranslatedDate() }}">dota2.ru, {{ \Carbon\Carbon::parse($mainArticle->created_at)->diffForHumans() }}</span>
                 </span>
-                    <span data-toggle="tooltip"
-                          data-placement="bottom"
-                          title="Количество просмотров"
-                          data-original-title="Количество просмотров"><i
-                            class="far fa-eye"></i> {{ $mainArticle->views }}</span>
-                    <span data-toggle="tooltip" data-placement="bottom" title="Время прочтения"
-                          data-original-title="Время прочтения"><i
-                            class="fas fa-stopwatch"></i> {{ $mainArticle->getReadTime() }} мин.</span>
-                    <span data-toggle="tooltip" data-placement="bottom" title="Комментарии"
-                          data-original-title="Комментарии"><i
-                            class="far fa-comment"></i> {{ $mainArticle->getCommentsCount() }}</span>
+                            <div class="col-5">
+                            <x-article-meta views="{{ $mainArticle->views }}"
+                                            readTime="{!! $mainArticle->getReadTime() !!}"
+                                            commentsCount="{{ $mainArticle->getCommentsCount() }}"
+                                            rating="{{ $mainArticle->rating_value }}"></x-article-meta>
+                                </div>
               </span>
                         <span class="news-description">{{ $mainArticle->getDescription() }}</span>
                     </div>

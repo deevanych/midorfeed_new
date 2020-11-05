@@ -69,6 +69,7 @@ class AuthController extends Controller
                 return redirect(session('prev')); // redirect to site
             }
         }
+        session(['prev' => url()->previous()]);
         return $this->redirectToSteam();
     }
 

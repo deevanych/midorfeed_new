@@ -4,7 +4,8 @@
         height: 322px;
         @extend .my-4, .d-flex, .flex-column;
         > * {
-            @extend .mb-3, .d-block;
+            font-size: 80%;
+            @extend .mb-3, .d-flex, .text-dark;
 
             &:last-child {
                 @extend .mb-0;
@@ -15,15 +16,16 @@
             height: 150px;
         }
         &_title {
-            @extend .font-weight-bolder;
+            @extend .font-weight-bolder, .text-primary;
         }
         &_description {
-            font-size: 80%;
-            @extend .text-dark, .flex-grow-1;
+            @extend .flex-grow-1;
         }
-        &_author {
-            font-size: 80%;
-            @extend .d-flex, .text-dark;
+        &_meta {
+            @extend .justify-content-start;
+            > * {
+                @extend .mr-3;
+            }
         }
 
         &.background {

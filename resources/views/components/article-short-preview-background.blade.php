@@ -6,6 +6,10 @@
                   title="{{ $article->getTitle() }}"
                   data-original-title="{{ $article->getTitle() }}">{{ $article->getTitle(100) }}</span>
             <span class="articles--item_description">{{ $article->getDescription(200) }}</span>
+            <x-article-meta views="{{ $article->views }}"
+                            readTime="{!! $article->getReadTime() !!}"
+                            commentsCount="{{ $article->getCommentsCount() }}"
+                            rating="{{ $article->rating_value }}"></x-article-meta>
             <span class="articles--item_author" data-site="dota2.ru">
                 <span data-toggle="tooltip"
                       data-placement="bottom"

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Commentable;
+use App\Traits\Rateable;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Storage;
  */
 class News extends Model
 {
-    use HasFactory, Commentable;
+    use HasFactory, Commentable, Rateable;
 
     public function tags()
     {
