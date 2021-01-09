@@ -22,52 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9209fe93-280c-45e8-844e-668bd3855bfe" name="Default Changelist" comment="валидация комментариев">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HeroAbilityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HeroController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HeroRoleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HeroTalentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/StratzLanguageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Hero.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/HeroAbility.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/HeroRole.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/HeroTalent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/StratzLanguage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_150611_create_heroes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_153350_create_hero_abilities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_153359_create_hero_roles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_153408_create_hero_talent_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_153750_create_stratz_languages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/common-profile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/posts/PostForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/scss/components/_posts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/scss/users/_header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/scss/users/main.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/midorfeed.ru.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/midorfeed.ru.iml" afterDir="false" />
+    <list default="true" id="9209fe93-280c-45e8-844e-668bd3855bfe" name="Default Changelist" comment="фондайшен">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.phar" beforeDir="false" afterPath="$PROJECT_DIR$/composer.phar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scss/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/_vars.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scss/components/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/components/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scss/vendors/_font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/vendors/_font-awesome.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/article-short-preview-background-white.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/article-short-preview-background-white.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/articles-grid.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/articles-grid.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teammates/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teammates/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teammates/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teammates/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +291,7 @@
       <workItem from="1609937052516" duration="595000" />
       <workItem from="1610160691553" duration="250000" />
       <workItem from="1610161001111" duration="5493000" />
-      <workItem from="1610167755288" duration="310000" />
+      <workItem from="1610167755288" duration="982000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1602374089397</created>
@@ -442,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603238186179</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="фондайшен">
+      <created>1610168433941</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1610168433941</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,6 +429,7 @@
     <MESSAGE value="фикс парсинга новостей" />
     <MESSAGE value="внешний вид комментариев" />
     <MESSAGE value="валидация комментариев" />
-    <option name="LAST_COMMIT_MESSAGE" value="валидация комментариев" />
+    <MESSAGE value="фондайшен" />
+    <option name="LAST_COMMIT_MESSAGE" value="фондайшен" />
   </component>
 </project>

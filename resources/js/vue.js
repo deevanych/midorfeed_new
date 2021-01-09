@@ -26,4 +26,4 @@ axios.get('/auth')
 Vue.component('comments', Comments);
 Vue.component('post-form', PostForm);
 
-// new Vue({store}).$mount('#app');
+new Vue({store}).$mount('#app');
