@@ -7957,8 +7957,11 @@ a[href="#"] {
 
 .background-center,
 [data-site="dota2.ru"]:before,
+.user-profile__header__user-info__avatar,
+.user-profile__header,
 .main-news .additional-news__item .image,
 .main-news .row .news-content .news-info .news-author:before,
+.main-news .user-profile__header__user-info .news-content .news-info .news-author:before,
 .main-news .articles-grid .news-content .news-info .news-author:before,
 .main-news,
 .articles-grid .articles--item.background > div,
@@ -7970,14 +7973,21 @@ a[href="#"] {
   background-position: center;
 }
 
+.border,
+.find-order__item-image {
+  border: 1px solid #eee;
+}
+
 .background-dark,
 .main-news .row,
+.main-news .user-profile__header__user-info,
 .main-news .articles-grid {
   background: rgba(0, 0, 0, 0.4);
 }
 
 .background-dark.fill,
 .main-news .fill.row,
+.main-news .fill.user-profile__header__user-info,
 .main-news .fill.articles-grid {
   top: 0;
   left: 0;
@@ -8001,6 +8011,7 @@ a[href="#"] {
 }
 
 header.row .logo,
+header.user-profile__header__user-info .logo,
 header.articles-grid .logo {
   display: flex;
   flex-direction: row;
@@ -8013,6 +8024,7 @@ header.articles-grid .logo {
 }
 
 header.row .profile-link img,
+header.user-profile__header__user-info .profile-link img,
 header.articles-grid .profile-link img {
   width: 30px;
   height: 30px;
@@ -8113,20 +8125,24 @@ button {
   resize: none;
 }
 
-.comments__item-author-avatar img {
+.comments .comments__item-author-avatar img {
   width: 50px;
   height: 50px;
 }
 
-.comments__item-body {
+.comments .comments__item-body {
   cursor: pointer;
 }
 
-.comments__item-text {
+.comments .comments__item-text {
   overflow-wrap: anywhere;
 }
 
-.comments__item-children--comments {
+.comments .comments__item-rating > * {
+  transition: 0.3s;
+}
+
+.comments .comments__item-children--comments {
   border-left: 1px solid #eee;
 }
 
@@ -8134,16 +8150,26 @@ button {
   height: 322px;
 }
 
+.articles-grid .articles--item > * {
+  font-size: 80%;
+}
+
 .articles-grid .articles--item_image {
   height: 150px;
 }
 
-.articles-grid .articles--item_description {
-  font-size: 80%;
+.post__add-block .post__author-avatar img {
+  width: 40px;
+  height: 40px;
 }
 
-.articles-grid .articles--item_author {
-  font-size: 80%;
+.post__add-block .post__text {
+  min-height: 40px;
+  padding-top: 8px;
+}
+
+.post__add-block .post__text:empty:not(:focus):before {
+  content: attr(data-ph);
 }
 
 .main-news {
@@ -8159,6 +8185,7 @@ button {
 }
 
 .main-news .row .news-content .news-info .news-author:before,
+.main-news .user-profile__header__user-info .news-content .news-info .news-author:before,
 .main-news .articles-grid .news-content .news-info .news-author:before {
   content: "";
   width: 1rem;
@@ -8172,6 +8199,32 @@ button {
 .main-news .additional-news__item .image {
   height: 205px;
   background-image: url("https://midorfeed.ru/storage/news/noxville-kuchu-kontenta-mozhno-dobavlyat-ezhegodno-i-ne-otbirat-ego.jpg");
+}
+
+.user-profile__nav.nav-pills > .nav-item {
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  color: #6c757d;
+}
+
+.user-profile__nav.nav-pills > .nav-item.active {
+  background-color: transparent;
+  color: #232323;
+  border-color: #232323;
+}
+
+.user-profile__header-spacing {
+  height: 300px;
+}
+
+.user-profile__header__user-info .avatar-spacer {
+  width: 150px;
+}
+
+.user-profile__header__user-info__avatar {
+  bottom: 0;
+  width: 150px;
+  height: 150px;
 }
 
 .news-show__item .news-text {
@@ -14464,11 +14517,14 @@ h6,
 .h1,
 .main-news .row .news-content .news-title,
 .main-news .articles-grid .news-content .news-title,
+.main-news .user-profile__header__user-info .news-content .news-title,
 .h2,
 header.row .logo,
 header.articles-grid .logo,
 .page-header .page-title,
+header.user-profile__header__user-info .logo,
 .h3,
+.user-profile__header__user-info__nickname,
 .h4,
 .person-quote__name,
 .h5,
@@ -14481,7 +14537,8 @@ header.articles-grid .logo,
 h1,
 .h1,
 .main-news .row .news-content .news-title,
-.main-news .articles-grid .news-content .news-title {
+.main-news .articles-grid .news-content .news-title,
+.main-news .user-profile__header__user-info .news-content .news-title {
   font-size: 2.5rem;
 }
 
@@ -14489,12 +14546,14 @@ h2,
 .h2,
 header.row .logo,
 header.articles-grid .logo,
-.page-header .page-title {
+.page-header .page-title,
+header.user-profile__header__user-info .logo {
   font-size: 2rem;
 }
 
 h3,
-.h3 {
+.h3,
+.user-profile__header__user-info__nickname {
   font-size: 1.75rem;
 }
 
@@ -14557,10 +14616,11 @@ small,
 .stream__item .stream--viewers,
 .find-order__item-body,
 .comment__add-form--error,
-.comments__item-action,
+.comments .comments__item-action,
 .main-news .row .news-content .news-description,
 .main-news .articles-grid .news-content .news-description,
-.main-news .additional-news__item .news-author {
+.main-news .additional-news__item .news-author,
+.main-news .user-profile__header__user-info .news-content .news-description {
   font-size: 80%;
   font-weight: 400;
 }
@@ -14618,7 +14678,7 @@ mark,
   padding: 0.25rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: 10px;
+  border-radius: 30px;
   max-width: 100%;
   height: auto;
 }
@@ -14726,7 +14786,8 @@ pre code {
 }
 
 .row,
-.articles-grid {
+.articles-grid,
+.user-profile__header__user-info {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -14802,6 +14863,7 @@ pre code {
 .col-sm-1,
 .col,
 .col-auto,
+.user-profile__header__user-info > *,
 .col-12,
 .page-header,
 .col-11,
@@ -14857,7 +14919,8 @@ pre code {
   max-width: 16.6666666667%;
 }
 
-.col-auto {
+.col-auto,
+.user-profile__header__user-info > * {
   flex: 0 0 auto;
   width: auto;
   max-width: 100%;
@@ -16235,7 +16298,7 @@ pre code {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 10px;
+  border-radius: 30px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -16448,7 +16511,7 @@ textarea.form-control {
   line-height: 1.5;
   color: #fff;
   background-color: rgba(40, 167, 69, 0.9);
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .was-validated :valid ~ .valid-feedback,
@@ -16563,7 +16626,7 @@ textarea.form-control.is-valid {
   line-height: 1.5;
   color: #fff;
   background-color: rgba(220, 53, 69, 0.9);
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .was-validated :invalid ~ .invalid-feedback,
@@ -16739,7 +16802,7 @@ textarea.form-control.is-invalid {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 10px;
+  border-radius: 30px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -17517,7 +17580,7 @@ input[type=button].btn-block {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .dropdown-menu-left {
@@ -17975,7 +18038,7 @@ input[type=button].btn-block {
   white-space: nowrap;
   background-color: #e9ecef;
   border: 1px solid #ced4da;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .input-group-text input[type=radio],
@@ -18125,7 +18188,7 @@ input[type=button].btn-block {
 }
 
 .custom-checkbox .custom-control-label::before {
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
@@ -18209,7 +18272,7 @@ input[type=button].btn-block {
   vertical-align: middle;
   background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
   border: 1px solid #ced4da;
-  border-radius: 10px;
+  border-radius: 30px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -18311,7 +18374,7 @@ input[type=button].btn-block {
   color: #495057;
   background-color: #fff;
   border: 1px solid #ced4da;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .custom-file-label::after {
@@ -18328,7 +18391,7 @@ input[type=button].btn-block {
   content: "Browse";
   background-color: #e9ecef;
   border-left: inherit;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 30px 30px 0;
 }
 
 .custom-range {
@@ -18542,8 +18605,8 @@ input[type=button].btn-block {
 
 .nav-tabs .nav-link {
   border: 1px solid transparent;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .nav-tabs .nav-link:hover,
@@ -18571,7 +18634,7 @@ input[type=button].btn-block {
 }
 
 .nav-pills .nav-link {
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .nav-pills .nav-link.active,
@@ -18673,7 +18736,7 @@ input[type=button].btn-block {
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .navbar-toggler:hover,
@@ -19048,7 +19111,7 @@ input[type=button].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .card > hr {
@@ -19063,14 +19126,14 @@ input[type=button].btn-block {
 
 .card > .list-group:first-child {
   border-top-width: 0;
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
+  border-top-left-radius: 29px;
+  border-top-right-radius: 29px;
 }
 
 .card > .list-group:last-child {
   border-bottom-width: 0;
-  border-bottom-right-radius: 9px;
-  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 29px;
+  border-bottom-left-radius: 29px;
 }
 
 .card > .card-header + .list-group,
@@ -19113,7 +19176,7 @@ input[type=button].btn-block {
 }
 
 .card-header:first-child {
-  border-radius: 9px 9px 0 0;
+  border-radius: 29px 29px 0 0;
 }
 
 .card-footer {
@@ -19123,7 +19186,7 @@ input[type=button].btn-block {
 }
 
 .card-footer:last-child {
-  border-radius: 0 0 9px 9px;
+  border-radius: 0 0 29px 29px;
 }
 
 .card-header-tabs {
@@ -19145,7 +19208,7 @@ input[type=button].btn-block {
   bottom: 0;
   left: 0;
   padding: 1.25rem;
-  border-radius: 9px;
+  border-radius: 29px;
 }
 
 .card-img,
@@ -19157,14 +19220,14 @@ input[type=button].btn-block {
 
 .card-img,
 .card-img-top {
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
+  border-top-left-radius: 29px;
+  border-top-right-radius: 29px;
 }
 
 .card-img,
 .card-img-bottom {
-  border-bottom-right-radius: 9px;
-  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 29px;
+  border-bottom-left-radius: 29px;
 }
 
 .card-deck .card {
@@ -19289,7 +19352,7 @@ input[type=button].btn-block {
   margin-bottom: 1rem;
   list-style: none;
   background-color: #e9ecef;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .breadcrumb-item {
@@ -19323,7 +19386,7 @@ input[type=button].btn-block {
   display: flex;
   padding-left: 0;
   list-style: none;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .page-link {
@@ -19353,13 +19416,13 @@ input[type=button].btn-block {
 
 .page-item:first-child .page-link {
   margin-left: 0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .page-item:last-child .page-link {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .page-item.active .page-link {
@@ -19418,7 +19481,7 @@ input[type=button].btn-block {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 10px;
+  border-radius: 30px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -19608,7 +19671,7 @@ a.badge-dark.focus {
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .alert-heading {
@@ -19770,7 +19833,7 @@ a.badge-dark.focus {
   line-height: 0;
   font-size: 0.75rem;
   background-color: #e9ecef;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .progress-bar {
@@ -19822,7 +19885,7 @@ a.badge-dark.focus {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .list-group-item-action {
@@ -19890,12 +19953,12 @@ a.badge-dark.focus {
 }
 
 .list-group-horizontal > .list-group-item:first-child {
-  border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 30px;
   border-top-right-radius: 0;
 }
 
 .list-group-horizontal > .list-group-item:last-child {
-  border-top-right-radius: 10px;
+  border-top-right-radius: 30px;
   border-bottom-left-radius: 0;
 }
 
@@ -19919,12 +19982,12 @@ a.badge-dark.focus {
   }
 
   .list-group-horizontal-sm > .list-group-item:first-child {
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 30px;
     border-top-right-radius: 0;
   }
 
   .list-group-horizontal-sm > .list-group-item:last-child {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 30px;
     border-bottom-left-radius: 0;
   }
 
@@ -19949,12 +20012,12 @@ a.badge-dark.focus {
   }
 
   .list-group-horizontal-md > .list-group-item:first-child {
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 30px;
     border-top-right-radius: 0;
   }
 
   .list-group-horizontal-md > .list-group-item:last-child {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 30px;
     border-bottom-left-radius: 0;
   }
 
@@ -19979,12 +20042,12 @@ a.badge-dark.focus {
   }
 
   .list-group-horizontal-lg > .list-group-item:first-child {
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 30px;
     border-top-right-radius: 0;
   }
 
   .list-group-horizontal-lg > .list-group-item:last-child {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 30px;
     border-bottom-left-radius: 0;
   }
 
@@ -20009,12 +20072,12 @@ a.badge-dark.focus {
   }
 
   .list-group-horizontal-xl > .list-group-item:first-child {
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 30px;
     border-top-right-radius: 0;
   }
 
   .list-group-horizontal-xl > .list-group-item:last-child {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 30px;
     border-bottom-left-radius: 0;
   }
 
@@ -20594,7 +20657,7 @@ a.close.disabled {
   color: #fff;
   text-align: center;
   background-color: #000;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .popover {
@@ -21147,7 +21210,8 @@ button.bg-dark:focus {
   background-color: #1d2124 !important;
 }
 
-.bg-white {
+.bg-white,
+.user-profile__header__user {
   background-color: #fff !important;
 }
 
@@ -21155,7 +21219,8 @@ button.bg-dark:focus {
   background-color: transparent !important;
 }
 
-.border {
+.border,
+.find-order__item-image {
   border: 1px solid #dee2e6 !important;
 }
 
@@ -21242,37 +21307,41 @@ button.bg-dark:focus {
 .find-order__item,
 .find-order__item-image,
 .comment__text-input,
-.comments__item-author-avatar img,
+.comments .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
 .articles-grid .articles--item.background > div,
+.post__add-block .post__author-avatar img,
 .main-news,
 .main-news .additional-news__item .image,
+.user-profile__header,
+.user-profile__header__user,
+.user-profile__header__user-info__avatar,
 .news-show__item .news-image,
 .news-show__item .news-text table,
 .news-tweet,
 .person-quote,
 .tweet-media-wrap {
-  border-radius: 10px !important;
+  border-radius: 30px !important;
 }
 
 .rounded-top {
-  border-top-left-radius: 10px !important;
-  border-top-right-radius: 10px !important;
+  border-top-left-radius: 30px !important;
+  border-top-right-radius: 30px !important;
 }
 
 .rounded-right {
-  border-top-right-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
 }
 
 .rounded-bottom {
-  border-bottom-right-radius: 10px !important;
-  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 30px !important;
+  border-bottom-left-radius: 30px !important;
 }
 
 .rounded-left {
-  border-top-left-radius: 10px !important;
-  border-bottom-left-radius: 10px !important;
+  border-top-left-radius: 30px !important;
+  border-bottom-left-radius: 30px !important;
 }
 
 .rounded-lg {
@@ -21316,6 +21385,7 @@ button.bg-dark:focus {
 .stream__item .stream--name:before,
 .main-news .row .news-content .news-info .news-author:before,
 .main-news .articles-grid .news-content .news-info .news-author:before,
+.main-news .user-profile__header__user-info .news-content .news-info .news-author:before,
 [data-site="dota2.ru"]:before {
   display: inline-block !important;
 }
@@ -21323,7 +21393,6 @@ button.bg-dark:focus {
 .d-block,
 .stream__item .stream__image,
 .comment__add-form--error,
-.articles-grid .articles--item > *,
 .articles-grid .articles--item_image {
   display: block !important;
 }
@@ -21348,14 +21417,16 @@ header.row .info-block,
 .find-order__item-body,
 .find-order__item-meta,
 .tags,
-.comments__item,
-.comments__item-action,
+.comments .comments__item,
+.comments .comments__item-action,
+.comments .comments__item-rating,
 header.articles-grid nav,
 header.articles-grid .info-block,
 .articles-grid .articles--item,
-.articles-grid .articles--item_author,
+.articles-grid .articles--item > *,
 .articles-grid .articles--item.background > div .background-dark,
 .articles-grid .articles--item.background > div .background-dark > *,
+.articles--item_meta,
 .articles-grid .articles--item.background > div .main-news .row,
 .main-news .articles-grid .articles--item.background > div .row,
 .articles-grid .articles--item.background > div .main-news .articles-grid,
@@ -21372,6 +21443,15 @@ header.articles-grid .info-block,
 .main-news .articles-grid .news-content .news-info .news-author,
 .main-news .additional-news__item,
 .main-news .additional-news__item .image,
+header.user-profile__header__user-info nav,
+header.user-profile__header__user-info .info-block,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info > *,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info > *,
+.main-news .user-profile__header__user-info .news-content,
+.main-news .user-profile__header__user-info .news-content .news-info,
+.main-news .user-profile__header__user-info .news-content .news-info .news-author,
 [data-site="dota2.ru"],
 .slick-dots,
 .slick-dots li,
@@ -21639,6 +21719,8 @@ header.row .info-block,
 .home--section .section--title,
 header.articles-grid nav,
 header.articles-grid .info-block,
+header.user-profile__header__user-info nav,
+header.user-profile__header__user-info .info-block,
 .slick-dots,
 .news-tweet__header {
   flex-direction: row !important;
@@ -21655,6 +21737,9 @@ header.articles-grid .info-block,
 .main-news .row .news-content,
 .main-news .articles-grid .news-content,
 .main-news .additional-news__item,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info,
+.main-news .user-profile__header__user-info .news-content,
 .news-tweet__info .author {
   flex-direction: column !important;
 }
@@ -21689,12 +21774,15 @@ header.articles-grid .info-block,
 }
 
 .flex-grow-1,
+.comments .comments__item-rating,
 .articles-grid .articles--item_description,
 .articles-grid .articles--item.background > div .background-dark .articles--item_description,
 .articles-grid .articles--item.background > div .main-news .row .articles--item_description,
 .main-news .articles-grid .articles--item.background > div .row .articles--item_description,
 .articles-grid .articles--item.background > div .main-news .articles-grid .articles--item_description,
-.main-news .articles-grid .articles--item.background > div .articles-grid .articles--item_description {
+.main-news .articles-grid .articles--item.background > div .articles-grid .articles--item_description,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info .articles--item_description,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info .articles--item_description {
   flex-grow: 1 !important;
 }
 
@@ -21706,13 +21794,16 @@ header.articles-grid .info-block,
   flex-shrink: 1 !important;
 }
 
-.justify-content-start {
+.justify-content-start,
+.articles-grid .articles--item_meta {
   justify-content: flex-start !important;
 }
 
 .justify-content-end,
+.comments .comments__item-rating,
 .main-news .row .news-content,
-.main-news .articles-grid .news-content {
+.main-news .articles-grid .news-content,
+.main-news .user-profile__header__user-info .news-content {
   justify-content: flex-end !important;
 }
 
@@ -21720,7 +21811,8 @@ header.articles-grid .info-block,
   justify-content: center !important;
 }
 
-.justify-content-between {
+.justify-content-between,
+.articles--item_meta {
   justify-content: space-between !important;
 }
 
@@ -21730,7 +21822,7 @@ header.articles-grid .info-block,
 }
 
 .align-items-start,
-.comments__item {
+.comments .comments__item {
   align-items: flex-start !important;
 }
 
@@ -21743,12 +21835,17 @@ header.row,
 header.row nav,
 .home--section .section--title,
 .stream__item .stream--name,
+.comments .comments__item-rating,
 header.articles-grid,
 header.articles-grid nav,
 .main-news .row .news-content .news-info,
 .main-news .articles-grid .news-content .news-info,
 .main-news .row .news-content .news-info .news-author,
 .main-news .articles-grid .news-content .news-info .news-author,
+header.user-profile__header__user-info,
+header.user-profile__header__user-info nav,
+.main-news .user-profile__header__user-info .news-content .news-info,
+.main-news .user-profile__header__user-info .news-content .news-info .news-author,
 [data-site="dota2.ru"],
 .slick-dots {
   align-items: center !important;
@@ -22462,6 +22559,7 @@ header.articles-grid nav,
 .find-order__item,
 .articles-grid .articles--item.background > div,
 .main-news,
+.user-profile__header,
 .news-show__item .news-image,
 .news-show__item .news-text table,
 .slick-arrow.slick-next,
@@ -22477,6 +22575,7 @@ header.articles-grid nav,
 .stream__item,
 .stream__item .stream__image,
 .find-order__item,
+.comments,
 .articles-grid .articles--item.background > div {
   position: relative !important;
 }
@@ -22488,6 +22587,8 @@ header.articles-grid nav,
 .stream__item .stream--viewers,
 .main-news .fill.row,
 .main-news .fill.articles-grid,
+.main-news .fill.user-profile__header__user-info,
+.user-profile__header__user-info__avatar,
 .slick-dots,
 .slick-arrow {
   position: absolute !important;
@@ -22556,11 +22657,13 @@ header.articles-grid nav,
 .shadow,
 .twitch-stream .twitch-player,
 .pagination .page-item,
-.find-order__item-image,
-.comments__item-author-avatar img,
+.comments .comments__item-author-avatar img,
 .articles-grid .articles--item_image,
 .articles-grid .articles--item.background > div,
+.post__add-block .post__author-avatar img,
 .main-news,
+.user-profile__header,
+.user-profile__header__user-info__avatar,
 .news-show__item .news-image,
 .slick-arrow,
 .news-tweet__avatar,
@@ -22572,11 +22675,13 @@ header.articles-grid nav,
 .shadow:hover,
 .twitch-stream .twitch-player:hover,
 .pagination .page-item:hover,
-.find-order__item-image:hover,
-.comments__item-author-avatar img:hover,
+.comments .comments__item-author-avatar img:hover,
 .articles-grid .articles--item_image:hover,
 .articles-grid .articles--item.background > div:hover,
+.post__add-block .post__author-avatar img:hover,
 .main-news:hover,
+.user-profile__header:hover,
+.user-profile__header__user-info__avatar:hover,
 .news-show__item .news-image:hover,
 .slick-arrow:hover,
 .news-tweet__avatar:hover,
@@ -22603,10 +22708,11 @@ header.articles-grid nav,
 .w-100,
 .divider,
 .comment__text-input,
-.comments__item,
-.comments__item-body,
+.comments .comments__item,
+.comments .comments__item-body,
 .articles-grid .articles--item_image,
 .main-news .additional-news__item .image,
+.user-profile__header,
 .news-show__item .news-image,
 .news-show__item iframe,
 .news-show__item .news-text table,
@@ -22635,7 +22741,8 @@ header.articles-grid nav,
 .articles-grid .articles--item.background > div,
 .main-news .row .news-content,
 .main-news .articles-grid .news-content,
-.main-news .additional-news {
+.main-news .additional-news,
+.main-news .user-profile__header__user-info .news-content {
   height: 100% !important;
 }
 
@@ -22669,6 +22776,7 @@ header.articles-grid nav,
 }
 
 .m-0,
+.user-profile__header__user-info__nickname,
 .news-show__item .news-text img,
 .slick-dots {
   margin: 0 !important;
@@ -22686,7 +22794,7 @@ header.articles-grid nav,
 
 .mb-0,
 header.row .logo,
-.comments__item:last-child,
+.comments .comments__item:last-child,
 header.articles-grid .logo,
 .articles-grid .articles--item > *:last-child,
 .articles-grid .articles--item.background > div .background-dark > *:last-child,
@@ -22694,6 +22802,9 @@ header.articles-grid .logo,
 .main-news .articles-grid .articles--item.background > div .row > *:last-child,
 .articles-grid .articles--item.background > div .main-news .articles-grid > *:last-child,
 .main-news .articles-grid .articles--item.background > div .articles-grid > *:last-child,
+header.user-profile__header__user-info .logo,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info > *:last-child,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info > *:last-child,
 .my-0 {
   margin-bottom: 0 !important;
 }
@@ -22708,9 +22819,10 @@ header.articles-grid .logo,
 }
 
 .mt-1,
-.comments__item-action,
+.comments .comments__item-action,
 .main-news .row .news-content .news-info,
 .main-news .articles-grid .news-content .news-info,
+.main-news .user-profile__header__user-info .news-content .news-info,
 .my-1 {
   margin-top: 0.25rem !important;
 }
@@ -22718,8 +22830,8 @@ header.articles-grid .logo,
 .mr-1,
 header.row .profile-link img,
 header.articles-grid .profile-link img,
-.main-news .row .news-content .news-info > * > i,
-.main-news .articles-grid .news-content .news-info > * > i,
+.articles--item_meta > * > i,
+header.user-profile__header__user-info .profile-link img,
 .mx-1,
 .pagination .page-item {
   margin-right: 0.25rem !important;
@@ -22742,6 +22854,7 @@ header.articles-grid .profile-link img,
 
 .mt-2,
 .main-news .additional-news .news-title,
+.user-profile__nav.nav-pills,
 .person-quote__name,
 .my-2 {
   margin-top: 0.5rem !important;
@@ -22753,10 +22866,12 @@ header.articles-grid .profile-link img,
 .find-order__item-purpose,
 .main-news .row .news-content .news-info .news-author:before,
 .main-news .articles-grid .news-content .news-info .news-author:before,
+.main-news .user-profile__header__user-info .news-content .news-info .news-author:before,
 [data-site="dota2.ru"]:before,
 .mx-2,
 header.row nav a,
-header.articles-grid nav a {
+header.articles-grid nav a,
+header.user-profile__header__user-info nav a {
   margin-right: 0.5rem !important;
 }
 
@@ -22769,9 +22884,11 @@ header.articles-grid nav a {
 }
 
 .ml-2,
+.comments .comments__item-rating > *,
 .mx-2,
 header.row nav a,
-header.articles-grid nav a {
+header.articles-grid nav a,
+header.user-profile__header__user-info nav a {
   margin-left: 0.5rem !important;
 }
 
@@ -22789,7 +22906,9 @@ header.articles-grid nav a {
 
 .mr-3,
 .find-order__item-meta > *,
-.comments__item-author-avatar,
+.comments .comments__item-author-avatar,
+.articles-grid .articles--item_meta > *,
+.post__add-block .post__author-avatar,
 .news-tweet__avatar-link,
 .mx-3 {
   margin-right: 1rem !important;
@@ -22807,6 +22926,9 @@ header.articles-grid nav a {
 .main-news .articles-grid .articles--item.background > div .articles-grid > *,
 .main-news .row .news-content .news-info,
 .main-news .articles-grid .news-content .news-info,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info > *,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info > *,
+.main-news .user-profile__header__user-info .news-content .news-info,
 .news-tweet__header,
 .my-3,
 .news-show__item .news-text table {
@@ -22814,7 +22936,7 @@ header.articles-grid nav a {
 }
 
 .ml-3,
-.comments__item-reply,
+.comments .comments__item-reply,
 .mx-3 {
   margin-left: 1rem !important;
 }
@@ -22825,7 +22947,7 @@ header.articles-grid nav a {
 
 .mt-4,
 .comment__text-input,
-.comments__item-children--comments,
+.comments .comments__item-children--comments,
 .my-4,
 .divider,
 .pagination,
@@ -22837,6 +22959,7 @@ header.articles-grid nav a {
 .social-sharing > a,
 .main-news .row .news-content .news-info > *,
 .main-news .articles-grid .news-content .news-info > *,
+.main-news .user-profile__header__user-info .news-content .news-info > *,
 .mx-4 {
   margin-right: 1.5rem !important;
 }
@@ -22845,7 +22968,7 @@ header.articles-grid nav a {
 .home--section .section--title,
 .twitch-stream,
 .stream__item,
-.comments__item,
+.comments .comments__item,
 .page-header,
 .person-quote__name,
 .my-4,
@@ -22887,6 +23010,7 @@ header.articles-grid nav a {
 header.row .info-block > *,
 .home--section .section--title .more-link,
 header.articles-grid .info-block > *,
+header.user-profile__header__user-info .info-block > *,
 .mx-5 {
   margin-left: 3rem !important;
 }
@@ -22948,7 +23072,8 @@ header.articles-grid .info-block > *,
 .pt-2,
 .py-2,
 header.row nav a,
-header.articles-grid nav a {
+header.articles-grid nav a,
+header.user-profile__header__user-info nav a {
   padding-top: 0.5rem !important;
 }
 
@@ -22961,7 +23086,8 @@ header.articles-grid nav a {
 .pb-2,
 .py-2,
 header.row nav a,
-header.articles-grid nav a {
+header.articles-grid nav a,
+header.user-profile__header__user-info nav a {
   padding-bottom: 0.5rem !important;
 }
 
@@ -22979,6 +23105,9 @@ header.articles-grid nav a {
 .main-news .articles-grid .articles--item.background > div .row,
 .articles-grid .articles--item.background > div .main-news .articles-grid,
 .main-news .articles-grid .articles--item.background > div .articles-grid,
+.user-profile__nav.nav-pills > .nav-item,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info,
 .news-show__item .news-text table {
   padding: 1rem !important;
 }
@@ -22991,7 +23120,8 @@ header.articles-grid nav a {
 .pr-3,
 .px-3,
 header.row nav a,
-header.articles-grid nav a {
+header.articles-grid nav a,
+header.user-profile__header__user-info nav a {
   padding-right: 1rem !important;
 }
 
@@ -23001,14 +23131,16 @@ header.articles-grid nav a {
 }
 
 .pl-3,
-.comments__item-children--comments,
+.comments .comments__item-children--comments,
 .px-3,
 header.row nav a,
-header.articles-grid nav a {
+header.articles-grid nav a,
+header.user-profile__header__user-info nav a {
   padding-left: 1rem !important;
 }
 
 .p-4,
+.user-profile__header__user-info,
 .news-tweet,
 .person-quote {
   padding: 1.5rem !important;
@@ -23040,14 +23172,16 @@ header.articles-grid nav a {
 
 .p-5,
 .main-news .row .news-content,
-.main-news .articles-grid .news-content {
+.main-news .articles-grid .news-content,
+.main-news .user-profile__header__user-info .news-content {
   padding: 3rem !important;
 }
 
 .pt-5,
 .py-5,
 header.row,
-header.articles-grid {
+header.articles-grid,
+header.user-profile__header__user-info {
   padding-top: 3rem !important;
 }
 
@@ -23059,7 +23193,8 @@ header.articles-grid {
 .pb-5,
 .py-5,
 header.row,
-header.articles-grid {
+header.articles-grid,
+header.user-profile__header__user-info {
   padding-bottom: 3rem !important;
 }
 
@@ -25085,7 +25220,9 @@ header.row .info-block .game-version,
 .find-order__item-purpose,
 .dota-status,
 header.articles-grid .logo,
-header.articles-grid .info-block .game-version {
+header.articles-grid .info-block .game-version,
+header.user-profile__header__user-info .logo,
+header.user-profile__header__user-info .info-block .game-version {
   font-weight: 700 !important;
 }
 
@@ -25099,6 +25236,7 @@ header.articles-grid .info-block .game-version {
 }
 
 .text-white,
+a.vs-button:not(.vs-button--dark),
 .stream__item .stream--viewers,
 .articles-grid .articles--item.background > div .background-dark,
 .articles-grid .articles--item.background > div .background-dark > *,
@@ -25110,46 +25248,57 @@ header.articles-grid .info-block .game-version {
 .articles-grid .articles--item.background > div .main-news .row > *,
 .main-news .articles-grid .articles--item.background > div .row > *,
 .articles-grid .articles--item.background > div .main-news .articles-grid > *,
-.main-news .articles-grid .articles--item.background > div .articles-grid > * {
+.main-news .articles-grid .articles--item.background > div .articles-grid > *,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info,
+.articles-grid .articles--item.background > div .main-news .user-profile__header__user-info > *,
+.main-news .articles-grid .articles--item.background > div .user-profile__header__user-info > * {
   color: #fff !important;
 }
 
-.text-primary {
+.text-primary,
+.articles-grid .articles--item_title {
   color: #007bff !important;
 }
 
 a.text-primary:hover,
-a.text-primary:focus {
+.articles-grid a.articles--item_title:hover,
+a.text-primary:focus,
+.articles-grid a.articles--item_title:focus {
   color: #0056b3 !important;
 }
 
 .text-secondary,
 .find-order__item-text,
-.comments__item-create_time,
+.comments .comments__item-create_time,
 .page-header .page-description {
   color: #6c757d !important;
 }
 
 a.text-secondary:hover,
 a.find-order__item-text:hover,
-a.comments__item-create_time:hover,
+.comments a.comments__item-create_time:hover,
 .page-header a.page-description:hover,
 a.text-secondary:focus,
 a.find-order__item-text:focus,
-a.comments__item-create_time:focus,
+.comments a.comments__item-create_time:focus,
 .page-header a.page-description:focus {
   color: #494f54 !important;
 }
 
 .text-success,
-.dota-status.Normal {
+.dota-status.Normal,
+.comments .comments__item-rating .fa-thumbs-up:hover:before,
+.comments .comments__item-rating .fa-thumbs-up.rated:before {
   color: #28a745 !important;
 }
 
 a.text-success:hover,
 a.dota-status.Normal:hover,
+.comments .comments__item-rating a.fa-thumbs-up:hover:before,
 a.text-success:focus,
-a.dota-status.Normal:focus {
+a.dota-status.Normal:focus,
+.comments .comments__item-rating a.fa-thumbs-up.rated:focus:before {
   color: #19692c !important;
 }
 
@@ -25176,16 +25325,20 @@ a.dota-status.major:focus {
 
 .text-danger,
 .dota-status,
-.comment__add-form--error {
+.comment__add-form--error,
+.comments .comments__item-rating .fa-thumbs-down:hover:before,
+.comments .comments__item-rating .fa-thumbs-down.rated:before {
   color: #dc3545 !important;
 }
 
 a.text-danger:hover,
 a.dota-status:hover,
 a.comment__add-form--error:hover,
+.comments .comments__item-rating a.fa-thumbs-down:hover:before,
 a.text-danger:focus,
 a.dota-status:focus,
-a.comment__add-form--error:focus {
+a.comment__add-form--error:focus,
+.comments .comments__item-rating a.fa-thumbs-down.rated:focus:before {
   color: #a71d2a !important;
 }
 
@@ -25200,22 +25353,16 @@ a.text-light:focus {
 
 .text-dark,
 .login--button,
-.find-order__item-body,
-.articles-grid .articles--item_description,
-.articles-grid .articles--item_author {
+.articles-grid .articles--item > * {
   color: #343a40 !important;
 }
 
 a.text-dark:hover,
 a.login--button:hover,
-a.find-order__item-body:hover,
-.articles-grid a.articles--item_description:hover,
-.articles-grid a.articles--item_author:hover,
+.articles-grid .articles--item > a:hover,
 a.text-dark:focus,
 a.login--button:focus,
-a.find-order__item-body:focus,
-.articles-grid a.articles--item_description:focus,
-.articles-grid a.articles--item_author:focus {
+.articles-grid .articles--item > a:focus {
   color: #121416 !important;
 }
 
@@ -25223,7 +25370,9 @@ a.find-order__item-body:focus,
   color: #212529 !important;
 }
 
-.text-muted {
+.text-muted,
+.post__add-block .post__text:empty:not(:focus):before,
+.user-profile__header__user-info__status {
   color: #6c757d !important;
 }
 

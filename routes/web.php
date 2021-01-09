@@ -21,18 +21,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//common
 Route::get('/', [PageController::class, 'index'])->name('home');
+
+//auth
 Route::get('/login', [AuthController::class, 'handle'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/auth', [AuthController::class, 'show'])->middleware('auth');
 
-Route::resource('news', NewsController::class)->scoped([
-    'news' => 'slug',
-]);
-Route::resource('{type}/{slug}/comments', CommentController::class);
+//models
 Route::resource('users', UserController::class);
 Route::resource('teammates', FindOrderController::class);
 Route::resource('streams', StreamController::class)->scoped([
     'stream' => 'name',
 ]);
+Route::resource('news', NewsController::class)->scoped([
+    'news' => 'slug',
+]);
+
+//additional
+Route::resource('{type}/{slug}/comments', CommentController::class);
 Route::resource('{type}/{slug}/rating', RatingController::class);

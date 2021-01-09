@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import Vuelidate from 'vuelidate'
-import Comments from './components/comments/Comments.vue';
 import Vuesax from 'vuesax';
 import VueRouter from 'vue-router';
 import axios from 'axios';
 import store from './store';
+
+// components
+import Comments from './components/comments/Comments.vue';
+import PostForm from "./components/posts/PostForm.vue";
+
 
 Vue.use(Vuesax);
 Vue.use(Vuelidate);
@@ -20,5 +24,6 @@ axios.get('/auth')
     });
 
 Vue.component('comments', Comments);
+Vue.component('post-form', PostForm);
 
-new Vue({store}).$mount('#app');
+// new Vue({store}).$mount('#app');

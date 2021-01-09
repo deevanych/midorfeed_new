@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\News;
+use App\Models\StratzLanguage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class NewsController extends Controller
+class StratzLanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,6 @@ class NewsController extends Controller
     public function index()
     {
         //
-        $news = News::latest()->where('published', 1)->paginate(9);
-        return view('news.index', compact('news'));
     }
 
     /**
@@ -45,26 +41,21 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Request $request
-     * @param \App\Models\News $news
+     * @param  \App\Models\StratzLanguage  $stratzLanguage
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show(StratzLanguage $stratzLanguage)
     {
         //
-        $news->increment('views');
-        $prevNews = $news->getPrevNews();
-        $nextNews = $news->getNextNews();
-        return view('news.show', compact('news', 'prevNews', 'nextNews'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\StratzLanguage  $stratzLanguage
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(StratzLanguage $stratzLanguage)
     {
         //
     }
@@ -73,10 +64,10 @@ class NewsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\StratzLanguage  $stratzLanguage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, StratzLanguage $stratzLanguage)
     {
         //
     }
@@ -84,10 +75,10 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\StratzLanguage  $stratzLanguage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(StratzLanguage $stratzLanguage)
     {
         //
     }

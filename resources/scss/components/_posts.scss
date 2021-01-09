@@ -1,0 +1,24 @@
+$height: 40px;
+.post__add-block {
+    .post {
+        &__author-avatar {
+            @extend .mr-3;
+
+            img {
+                @extend .rounded, .shadow;
+                width: $height;
+                height: $height;
+            }
+        }
+
+        &__text {
+            min-height: $height;
+            padding-top: 8px;
+
+            &:empty:not(:focus):before {
+                @extend .text-muted;
+                content: attr(data-ph);
+            }
+        }
+    }
+}

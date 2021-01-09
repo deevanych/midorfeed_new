@@ -11,7 +11,7 @@
                     <div class="col-4 mb-4">
                         <a class="find-order__item text-dark" href="{{ route('teammates.show', $order->id) }}">
                     <span class="find-order__item-image"
-                          style="background-image: url({{ asset(Storage::url('avatars/'.$order->user->steamid.'.jpg')) }})"></span>
+                          style="background-image: url({{ $order->user->avatar_url }})"></span>
                             <span class="find-order__item-body">
                             <h3>{{ $order->user->personaname }}</h3>
                         <span class="find-order__item-meta">

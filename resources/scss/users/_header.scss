@@ -1,0 +1,48 @@
+$avatarWidth: 150px;
+
+.user-profile {
+    &__nav.nav-pills {
+        @extend .mt-2;
+        > .nav-item {
+            @extend .p-3;
+            border-bottom: 3px solid transparent;
+            border-radius: 0;
+            color: $secondary;
+            &.active {
+                background-color: transparent;
+                color: #232323;
+                border-color: #232323;
+            }
+        }
+    }
+    &__header {
+        @extend .rounded, .overflow-hidden, .shadow, .w-100, .background-center;
+        &-spacing {
+            height: 300px;
+        }
+        &__user {
+            @extend .rounded, .bg-white;
+            &-info {
+                @extend .p-4, .row;
+                > * {
+                    @extend .col-auto;
+                }
+                .avatar-spacer {
+                    width: $avatarWidth;
+                }
+                &__avatar {
+                    @extend .rounded, .shadow, .background-center, .position-absolute;
+                    bottom: 0;
+                    width: $avatarWidth;
+                    height: 150px;
+                }
+                &__status {
+                    @extend .text-muted;
+                }
+                &__nickname {
+                    @extend .h3, .m-0;
+                }
+            }
+        }
+    }
+}

@@ -48,23 +48,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function profile() {
+    public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
         return $this->hasOne('App\Models\UserProfile');
     }
 
-    public function roles() {
+    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
         return $this->belongsToMany('App\Models\GameRole');
     }
 
-    public function getAvatarUrlAttribute() {
+    public function getAvatarUrlAttribute(): string
+    {
         return asset(Storage::url('avatars/'.$this->steamid.'.jpg'));
     }
 
-    public function getLinkAttribute() {
+    public function getLinkAttribute(): string
+    {
         return route('users.show', $this->id);
     }
 
-    public function getRatingAttribute() {
+    public function getRatingAttribute(): string
+    {
         $rating = $this->profile->season_rank;
         $ranks = array("Калибровка", "Рекрут", "Страж", "Рыцарь", "Герой", "Легенда", "Властелин", "Божество", "Титан");
         $stars = array("", "I", "II", "III", "IV", "V", "VI", "VII");
