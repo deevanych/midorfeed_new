@@ -35,6 +35,7 @@
     }
     .stream--title {
         @extend .small;
+        overflow-wrap: break-word;
     }
     .stream--viewers {
         @extend .position-absolute, .small, .text-white;

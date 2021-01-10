@@ -35,10 +35,49 @@
                     {!! $news->text !!}
                 </section>
                 <div class="divider"></div>
+                <!-- Yandex.RTB R-A-396149-5 -->
+                <div id="yandex_rtb_R-A-396149-5"></div>
+                <script type="text/javascript">
+                    (function (w, d, n, s, t) {
+                        w[n] = w[n] || [];
+                        w[n].push(function () {
+                            Ya.Context.AdvManager.render({
+                                blockId: "R-A-396149-5",
+                                renderTo: "yandex_rtb_R-A-396149-5",
+                                async: true
+                            });
+                        });
+                        t = d.getElementsByTagName("script")[0];
+                        s = d.createElement("script");
+                        s.type = "text/javascript";
+                        s.src = "//an.yandex.ru/system/context.js";
+                        s.async = true;
+                        t.parentNode.insertBefore(s, t);
+                    })(this, this.document, "yandexContextAsyncCallbacks");
+                </script>
+                <div class="divider"></div>
                 <comments/>
             </div>
             <div class="col-3">
-
+                <div id="yandex_rtb_R-A-396149-4"></div>
+                <script type="text/javascript">
+                    (function (w, d, n, s, t) {
+                        w[n] = w[n] || [];
+                        w[n].push(function () {
+                            Ya.Context.AdvManager.render({
+                                blockId: "R-A-396149-4",
+                                renderTo: "yandex_rtb_R-A-396149-4",
+                                async: true
+                            });
+                        });
+                        t = d.getElementsByTagName("script")[0];
+                        s = d.createElement("script");
+                        s.type = "text/javascript";
+                        s.src = "//an.yandex.ru/system/context.js";
+                        s.async = true;
+                        t.parentNode.insertBefore(s, t);
+                    })(this, this.document, "yandexContextAsyncCallbacks");
+                </script>
             </div>
         </div>
     </article>

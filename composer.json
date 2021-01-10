@@ -65,7 +65,7 @@
             "@php artisan key:generate --ansi"
         ],
         "serve": [
-            "@php artisan serve --host=midorfeed.ru --port=8080"
+            "@php artisan serve"
         ]
     }
 }
