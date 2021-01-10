@@ -5,7 +5,7 @@
             @if ($loop->iteration == 1)
                 <div class="col-3">
                     <!-- Yandex.RTB R-A-396149-4 -->
-                    <div id="yandex_rtb_R-A-396149-4"></div>
+                    <div id="yandex_rtb_R-A-396149-4" class="yandex-articles"></div>
                     <script type="text/javascript">
                         (function (w, d, n, s, t) {
                             w[n] = w[n] || [];
